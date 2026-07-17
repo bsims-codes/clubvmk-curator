@@ -1,8 +1,5 @@
-// ── Fill these in with YOUR Supabase project details ────────────────────────
-// Get them from: Supabase dashboard → your project → Project Settings → API
-//   Project URL  → SUPABASE_URL
-//   anon public key → SUPABASE_ANON_KEY   (this key is safe to be public)
-//
-// These are safe to commit to a public repo. See README.md for full setup.
-window.SUPABASE_URL = "https://YOUR-PROJECT-REF.supabase.co";
-window.SUPABASE_ANON_KEY = "YOUR-ANON-PUBLIC-KEY";
+// ── Supabase connection for the shared rarity sync ──────────────────────────
+// These are safe to be public — the publishable key is the client-safe key.
+// See README.md for the one-time table setup (supabase-setup.sql).
+window.SUPABASE_URL = "https://entnkgwijsbswqiykefq.supabase.co";
+window.SUPABASE_ANON_KEY = "sb_publishable_OnqypK61Hufr4OspD-40FA_-g2G2L_s";
