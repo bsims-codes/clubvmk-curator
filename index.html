@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyVMK Rarity Curator</title>
+<style>
+  :root{
+    --bg:#0f1226; --panel:#1a1f3d; --border:#2c335c; --text:#e8eaf6; --muted:#9aa2cf;
+    --common:#8a93b8; --uncommon:#4caf7d; --rare:#3d8bfd; --epic:#a45cf0; --legendary:#f0a13c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{position:sticky;top:0;z-index:10;background:var(--panel);border-bottom:1px solid var(--border);padding:12px 16px}
+  h1{font-size:16px;margin:0 0 10px}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  input,select,button{font:inherit;background:#0e1330;color:var(--text);border:1px solid var(--border);border-radius:8px;padding:7px 10px}
+  input[type=search]{min-width:240px}
+  button{cursor:pointer}
+  button.primary{background:#3d8bfd;border-color:#3d8bfd;color:#fff;font-weight:600}
+  button.ghost{background:transparent}
+  .bulk{display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap}
+  .stats{display:flex;gap:10px;margin-top:8px;font-size:12px;color:var(--muted);flex-wrap:wrap;align-items:center}
+  .stats b{color:var(--text)}
+  #conn{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--border)}
+  #conn.ok{color:#4caf7d;border-color:#2e6b4e}
+  #conn.off{color:#f0a13c;border-color:#7a5a1e}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:16px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
+  .card img{width:100%;height:96px;object-fit:contain;background:#0c0f24;border-radius:6px}
+  .name{font-size:12px;line-height:1.25;height:30px;overflow:hidden}
+  .cat{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  select.rar{width:100%;font-size:12px;padding:4px 6px}
+  select.rar[data-r=common]{color:var(--common)}
+  select.rar[data-r=uncommon]{color:var(--uncommon)}
+  select.rar[data-r=rare]{color:var(--rare)}
+  select.rar[data-r=epic]{color:var(--epic)}
+  select.rar[data-r=legendary]{color:var(--legendary)}
+  .count{font-size:12px;color:var(--muted);padding:0 16px}
+  .footbar{position:sticky;bottom:0;background:var(--panel);border-top:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .pill{padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600}
+  .banner{background:#3a2a12;color:#ffd9a0;padding:8px 16px;font-size:13px;border-bottom:1px solid #7a5a1e}
+</style>
+</head>
+<body>
+<div id="banner" class="banner" style="display:none"></div>
+<header>
+  <h1>🪄 MyVMK Rarity Curator — tag the rares, everything else stays common</h1>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search name… (try: magic, wings, mickey ears)">
+    <select id="fcat"><option value="">All categories</option><option>clothing</option><option>pin</option></select>
+    <select id="frar">
+      <option value="">All rarities</option>
+      <option value="common">common</option><option value="uncommon">uncommon</option>
+      <option value="rare">rare</option><option value="epic">epic</option><option value="legendary">legendary</option>
+    </select>
+    <div class="bulk">
+      <span style="color:var(--muted);font-size:12px">Set all shown →</span>
+      <select id="bulkTier">
+        <option value="common">common</option><option value="uncommon">uncommon</option>
+        <option value="rare">rare</option><option value="epic">epic</option><option value="legendary" selected>legendary</option>
+      </select>
+      <button id="applyBulk">Apply to filtered</button>
+    </div>
+  </div>
+  <div class="stats"><span id="conn" class="off">● connecting…</span><span id="statPills"></span></div>
+</header>
+
+<div class="count" id="count"></div>
+<div class="grid" id="grid"></div>
+
+<div class="footbar">
+  <button class="primary" id="export">⬇ Export rarity_overrides.json</button>
+  <label class="ghost" style="border:1px solid var(--border);border-radius:8px;padding:7px 10px;cursor:pointer">
+    ⬆ Import a file<input id="import" type="file" accept="application/json" hidden>
+  </label>
+  <span id="msg" style="color:var(--muted);font-size:12px"></span>
+  <span style="margin-left:auto;color:var(--muted);font-size:12px">Edits sync live to everyone. The bot pulls the same list.</span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+const TIERS=["common","uncommon","rare","epic","legendary"];
+let items=[], rarity={}, viewLimit=300, sb=null, online=false;
+const $=s=>document.querySelector(s);
+const grid=$("#grid");
+
+function configured(){
+  return window.SUPABASE_URL && window.SUPABASE_ANON_KEY
+    && !window.SUPABASE_URL.includes("YOUR-PROJECT-REF")
+    && !window.SUPABASE_ANON_KEY.includes("YOUR-ANON");
+}
+
+async function boot(){
+  try{ items=await (await fetch("items.json")).json(); }
+  catch(e){ grid.innerHTML='<p style="padding:20px">Could not load items.json.</p>'; return; }
+  for(const it of items) rarity[it.id]=it.rarity||"common"; // baseline from catalog
+
+  if(configured()){
+    sb=window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    await pullFromDB();
+    subscribe();
+  }else{
+    setConn(false, "local only — Supabase not set up (see README)");
+    banner("⚠ Shared sync is OFF. Add your Supabase URL + key in config.js so you and your friend share edits. Until then, edits stay on this page only.");
+    const saved=loadLocal(); if(saved) for(const id in saved) if(id in rarity) rarity[id]=saved[id];
+  }
+  bindEvents();
+  render();
+}
+
+// ── shared DB layer ─────────────────────────────────────────────────────────
+async function pullFromDB(){
+  try{
+    const {data,error}=await sb.from("overrides").select("item_id,tier");
+    if(error) throw error;
+    for(const it of items) rarity[it.id]="common";       // DB is the source of truth
+    for(const row of data) if(row.item_id in rarity) rarity[row.item_id]=row.tier;
+    setConn(true, `synced — ${data.length} tagged`);
+  }catch(e){ setConn(false, "connect failed: "+(e.message||e)); banner("⚠ Could not reach Supabase — check the URL/key in config.js and that the table policy allows access. Error: "+(e.message||e)); }
+}
+
+function subscribe(){
+  sb.channel("ov")
+    .on("postgres_changes",{event:"*",schema:"public",table:"overrides"},payload=>{
+      const row=payload.new&&payload.new.item_id?payload.new:payload.old;
+      if(!row||!(row.item_id in rarity)) return;
+      rarity[row.item_id]=(payload.eventType==="DELETE")?"common":row.tier;
+      const sel=document.querySelector(`select.rar[data-id="${cssEsc(row.item_id)}"]`);
+      if(sel){ sel.value=rarity[row.item_id]; sel.dataset.r=rarity[row.item_id]; }
+      updateStats();
+    })
+    .subscribe(s=>{ if(s==="SUBSCRIBED") setConn(true,"live sync on"); });
+}
+
+async function pushOne(id,tier){
+  saveLocal();
+  if(!online||!sb) return;
+  try{
+    if(tier==="common") await sb.from("overrides").delete().eq("item_id",id);
+    else await sb.from("overrides").upsert({item_id:id,tier});
+  }catch(e){ msg("save failed: "+(e.message||e)); }
+}
+
+async function pushMany(pairs){ // [{item_id,tier}]
+  saveLocal();
+  if(!online||!sb) return;
+  const up=pairs.filter(p=>p.tier!=="common");
+  const del=pairs.filter(p=>p.tier==="common").map(p=>p.item_id);
+  try{
+    for(let i=0;i<up.length;i+=500) await sb.from("overrides").upsert(up.slice(i,i+500));
+    for(let i=0;i<del.length;i+=500) await sb.from("overrides").delete().in("item_id",del.slice(i,i+500));
+  }catch(e){ msg("bulk save failed: "+(e.message||e)); }
+}
+
+// ── UI ──────────────────────────────────────────────────────────────────────
+function setConn(ok,text){ online=ok; const c=$("#conn"); c.className=ok?"ok":"off"; c.textContent=(ok?"● ":"● ")+text; }
+function banner(t){ const b=$("#banner"); b.style.display="block"; b.textContent=t; }
+function cssEsc(s){ return (window.CSS&&CSS.escape)?CSS.escape(s):s.replace(/[^a-zA-Z0-9_-]/g,"\\$&"); }
+
+function filtered(){
+  const q=$("#search").value.trim().toLowerCase();
+  const fc=$("#fcat").value, fr=$("#frar").value;
+  return items.filter(it=>{
+    if(fc && it.category!==fc) return false;
+    if(fr && rarity[it.id]!==fr) return false;
+    if(q && !it.name.toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+function render(){
+  const list=filtered();
+  $("#count").textContent=`${list.length.toLocaleString()} items match — showing first ${Math.min(viewLimit,list.length).toLocaleString()}`;
+  const frag=document.createDocumentFragment();
+  for(const it of list.slice(0,viewLimit)){
+    const card=document.createElement("div");card.className="card";
+    const r=rarity[it.id];
+    card.innerHTML=`
+      <img loading="lazy" src="assets/items/${it.image}" alt="">
+      <div class="name" title="${it.name.replace(/"/g,'&quot;')}">${it.name}</div>
+      <div class="cat">${it.category}</div>
+      <select class="rar" data-id="${it.id.replace(/"/g,'&quot;')}" data-r="${r}">
+        ${TIERS.map(t=>`<option ${t===r?"selected":""}>${t}</option>`).join("")}
+      </select>`;
+    frag.appendChild(card);
+  }
+  grid.innerHTML="";grid.appendChild(frag);
+  updateStats();
+}
+
+function updateStats(){
+  const c={common:0,uncommon:0,rare:0,epic:0,legendary:0};
+  for(const id in rarity) c[rarity[id]]=(c[rarity[id]]||0)+1;
+  $("#statPills").innerHTML=TIERS.map(t=>`<span class="pill" style="background:var(--${t});color:#0b0e20">${t}</span> <b>${c[t].toLocaleString()}</b>`).join("&nbsp;&nbsp;");
+}
+
+function bindEvents(){
+  let deb;
+  $("#search").addEventListener("input",()=>{clearTimeout(deb);deb=setTimeout(render,180);});
+  $("#fcat").addEventListener("change",render);
+  $("#frar").addEventListener("change",render);
+  grid.addEventListener("change",e=>{
+    if(e.target.classList.contains("rar")){
+      const id=e.target.dataset.id, val=e.target.value;
+      rarity[id]=val; e.target.dataset.r=val; updateStats(); pushOne(id,val);
+    }
+  });
+  $("#applyBulk").addEventListener("click",()=>{
+    const tier=$("#bulkTier").value, list=filtered();
+    if(!list.length) return;
+    if(!confirm(`Set ${list.length} filtered items to "${tier}"? This syncs to everyone.`)) return;
+    for(const it of list) rarity[it.id]=tier;
+    render();
+    pushMany(list.map(it=>({item_id:it.id,tier})));
+    msg(`Set ${list.length} items to ${tier}.`);
+  });
+  $("#export").addEventListener("click",exportJson);
+  $("#import").addEventListener("change",importJson);
+  window.addEventListener("scroll",()=>{
+    if(window.innerHeight+window.scrollY>=document.body.offsetHeight-600){
+      if(viewLimit<filtered().length){viewLimit+=300;render();}
+    }
+  });
+}
+
+const STORE_KEY="vmk_rarity_edits";
+function saveLocal(){ try{ localStorage.setItem(STORE_KEY,JSON.stringify(rarity)); }catch(e){} }
+function loadLocal(){ try{ const s=localStorage.getItem(STORE_KEY); return s?JSON.parse(s):null; }catch(e){ return null; } }
+
+function exportJson(){
+  const out={};
+  for(const id in rarity) if(rarity[id]!=="common") out[id]=rarity[id];
+  const blob=new Blob([JSON.stringify(out,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="rarity_overrides.json";a.click();
+  msg(`Exported ${Object.keys(out).length} non-common items.`);
+}
+
+async function importJson(e){
+  const f=e.target.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=async()=>{try{
+    const o=JSON.parse(rd.result);
+    for(const it of items) rarity[it.id]="common";
+    for(const id in o) rarity[id]=o[id];
+    viewLimit=300;render();
+    if(online){ await pushMany(items.map(it=>({item_id:it.id,tier:rarity[it.id]}))); }
+    saveLocal(); msg(`Imported ${Object.keys(o).length} overrides`+(online?" and pushed to shared DB.":"."));
+  }catch(err){msg("Import failed: "+err.message);}};
+  rd.readAsText(f);
+}
+
+function msg(t){$("#msg").textContent=t;}
+boot();
+</script>
+</body>
+</html>
