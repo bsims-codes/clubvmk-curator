@@ -7,7 +7,7 @@
 <style>
   :root{
     --bg:#0f1226; --panel:#1a1f3d; --border:#2c335c; --text:#e8eaf6; --muted:#9aa2cf;
-    --common:#8a93b8; --uncommon:#4caf7d; --rare:#3d8bfd; --epic:#a45cf0; --legendary:#f0a13c;
+    --common:#8a93b8; --uncommon:#4caf7d; --rare:#3d8bfd; --epic:#a45cf0; --legendary:#f0a13c; --remove:#c0556a;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
@@ -36,6 +36,9 @@
   select.rar[data-r=rare]{color:var(--rare)}
   select.rar[data-r=epic]{color:var(--epic)}
   select.rar[data-r=legendary]{color:var(--legendary)}
+  select.rar[data-r=remove]{color:var(--remove)}
+  .card.removed{opacity:.5}
+  .card.removed img{filter:grayscale(1)}
   .count{font-size:12px;color:var(--muted);padding:0 16px}
   .footbar{position:sticky;bottom:0;background:var(--panel);border-top:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .pill{padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600}
@@ -53,12 +56,14 @@
       <option value="">All rarities</option>
       <option value="common">common</option><option value="uncommon">uncommon</option>
       <option value="rare">rare</option><option value="epic">epic</option><option value="legendary">legendary</option>
+      <option value="remove">remove (excluded)</option>
     </select>
     <div class="bulk">
       <span style="color:var(--muted);font-size:12px">Set all shown →</span>
       <select id="bulkTier">
         <option value="common">common</option><option value="uncommon">uncommon</option>
         <option value="rare">rare</option><option value="epic">epic</option><option value="legendary" selected>legendary</option>
+        <option value="remove">remove (excluded)</option>
       </select>
       <button id="applyBulk">Apply to filtered</button>
     </div>
@@ -81,7 +86,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <script>
-const TIERS=["common","uncommon","rare","epic","legendary"];
+const TIERS=["common","uncommon","rare","epic","legendary","remove"];
 let items=[], rarity={}, viewLimit=300, sb=null, online=false;
 const $=s=>document.querySelector(s);
 const grid=$("#grid");
@@ -128,7 +133,8 @@ function subscribe(){
       if(!row||!(row.item_id in rarity)) return;
       rarity[row.item_id]=(payload.eventType==="DELETE")?"common":row.tier;
       const sel=document.querySelector(`select.rar[data-id="${cssEsc(row.item_id)}"]`);
-      if(sel){ sel.value=rarity[row.item_id]; sel.dataset.r=rarity[row.item_id]; }
+      if(sel){ sel.value=rarity[row.item_id]; sel.dataset.r=rarity[row.item_id];
+        sel.closest(".card").classList.toggle("removed", rarity[row.item_id]==="remove"); }
       updateStats();
     })
     .subscribe(s=>{ if(s==="SUBSCRIBED") setConn(true,"live sync on"); });
@@ -175,8 +181,8 @@ function render(){
   $("#count").textContent=`${list.length.toLocaleString()} items match — showing first ${Math.min(viewLimit,list.length).toLocaleString()}`;
   const frag=document.createDocumentFragment();
   for(const it of list.slice(0,viewLimit)){
-    const card=document.createElement("div");card.className="card";
     const r=rarity[it.id];
+    const card=document.createElement("div");card.className="card"+(r==="remove"?" removed":"");
     card.innerHTML=`
       <img loading="lazy" src="assets/items/${it.image}" alt="">
       <div class="name" title="${it.name.replace(/"/g,'&quot;')}">${it.name}</div>
@@ -191,7 +197,7 @@ function render(){
 }
 
 function updateStats(){
-  const c={common:0,uncommon:0,rare:0,epic:0,legendary:0};
+  const c={}; for(const t of TIERS) c[t]=0;
   for(const id in rarity) c[rarity[id]]=(c[rarity[id]]||0)+1;
   $("#statPills").innerHTML=TIERS.map(t=>`<span class="pill" style="background:var(--${t});color:#0b0e20">${t}</span> <b>${c[t].toLocaleString()}</b>`).join("&nbsp;&nbsp;");
 }
@@ -204,7 +210,9 @@ function bindEvents(){
   grid.addEventListener("change",e=>{
     if(e.target.classList.contains("rar")){
       const id=e.target.dataset.id, val=e.target.value;
-      rarity[id]=val; e.target.dataset.r=val; updateStats(); pushOne(id,val);
+      rarity[id]=val; e.target.dataset.r=val;
+      e.target.closest(".card").classList.toggle("removed", val==="remove");
+      updateStats(); pushOne(id,val);
     }
   });
   $("#applyBulk").addEventListener("click",()=>{
