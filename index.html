@@ -26,7 +26,9 @@
   #conn.ok{color:#4caf7d;border-color:#2e6b4e}
   #conn.off{color:#f0a13c;border-color:#7a5a1e}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:16px}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px}
+  .card{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px;user-select:none;cursor:pointer}
+  .card.selected{outline:2px solid #3d8bfd;outline-offset:-1px;background:#1d2750}
+  .card .sel{position:absolute;top:6px;left:6px;width:16px;height:16px;accent-color:#3d8bfd;cursor:pointer;z-index:2}
   .card img{width:100%;height:96px;object-fit:contain;background:#0c0f24;border-radius:6px}
   .name{font-size:12px;line-height:1.25;height:30px;overflow:hidden}
   .cat{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
@@ -66,6 +68,9 @@
         <option value="remove">remove (excluded)</option>
       </select>
       <button id="applyBulk">Apply to filtered</button>
+      <button id="applySel" disabled>Apply to selected (0)</button>
+      <button class="ghost" id="selectShown">Select shown</button>
+      <button class="ghost" id="clearSel" style="display:none">✕ Clear selection</button>
     </div>
   </div>
   <div class="stats"><span id="conn" class="off">● connecting…</span><span id="statPills"></span></div>
@@ -79,6 +84,9 @@
   <label class="ghost" style="border:1px solid var(--border);border-radius:8px;padding:7px 10px;cursor:pointer">
     ⬆ Import a file<input id="import" type="file" accept="application/json" hidden>
   </label>
+  <label style="display:flex;gap:6px;align-items:center;color:var(--muted);font-size:12px">✍ editing as
+    <input id="editor" type="text" maxlength="24" style="width:110px;padding:4px 8px;font-size:12px" placeholder="your name">
+  </label>
   <span id="msg" style="color:var(--muted);font-size:12px"></span>
   <span style="margin-left:auto;color:var(--muted);font-size:12px">Edits sync live to everyone. The bot pulls the same list.</span>
 </div>
@@ -88,6 +96,8 @@
 <script>
 const TIERS=["common","uncommon","rare","epic","legendary","remove"];
 let items=[], rarity={}, viewLimit=300, sb=null, online=false;
+let selected=new Set(), renderedIds=[], lastClickedIdx=null;
+let hasEditor=false; // true once the overrides table has the `editor` column (supabase-audit.sql)
 const $=s=>document.querySelector(s);
 const grid=$("#grid");
 
@@ -105,6 +115,7 @@ async function boot(){
   if(configured()){
     sb=window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
     await pullFromDB();
+    try{ const {error}=await sb.from("overrides").select("editor").limit(1); hasEditor=!error; }catch(e){}
     subscribe();
   }else{
     setConn(false, "local only — Supabase not set up (see README)");
@@ -140,19 +151,22 @@ function subscribe(){
     .subscribe(s=>{ if(s==="SUBSCRIBED") setConn(true,"live sync on"); });
 }
 
+function editorName(){ return ($("#editor").value||"").trim()||"anonymous"; }
+function withEditor(row){ return hasEditor?{...row,editor:editorName()}:row; }
+
 async function pushOne(id,tier){
   saveLocal();
   if(!online||!sb) return;
   try{
     if(tier==="common") await sb.from("overrides").delete().eq("item_id",id);
-    else await sb.from("overrides").upsert({item_id:id,tier});
+    else await sb.from("overrides").upsert(withEditor({item_id:id,tier}));
   }catch(e){ msg("save failed: "+(e.message||e)); }
 }
 
 async function pushMany(pairs){ // [{item_id,tier}]
   saveLocal();
   if(!online||!sb) return;
-  const up=pairs.filter(p=>p.tier!=="common");
+  const up=pairs.filter(p=>p.tier!=="common").map(withEditor);
   const del=pairs.filter(p=>p.tier==="common").map(p=>p.item_id);
   try{
     for(let i=0;i<up.length;i+=500) await sb.from("overrides").upsert(up.slice(i,i+500));
@@ -180,10 +194,15 @@ function render(){
   const list=filtered();
   $("#count").textContent=`${list.length.toLocaleString()} items match — showing first ${Math.min(viewLimit,list.length).toLocaleString()}`;
   const frag=document.createDocumentFragment();
+  renderedIds=[];
   for(const it of list.slice(0,viewLimit)){
-    const r=rarity[it.id];
-    const card=document.createElement("div");card.className="card"+(r==="remove"?" removed":"");
+    const r=rarity[it.id], sid=String(it.id);
+    renderedIds.push(sid);
+    const card=document.createElement("div");
+    card.className="card"+(r==="remove"?" removed":"")+(selected.has(sid)?" selected":"");
+    card.dataset.id=sid;
     card.innerHTML=`
+      <input type="checkbox" class="sel" ${selected.has(sid)?"checked":""}>
       <img loading="lazy" src="assets/items/${it.image}" alt="">
       <div class="name" title="${it.name.replace(/"/g,'&quot;')}">${it.name}</div>
       <div class="cat">${it.category}</div>
@@ -194,6 +213,23 @@ function render(){
   }
   grid.innerHTML="";grid.appendChild(frag);
   updateStats();
+  updateSelUI();
+}
+
+function updateSelUI(){
+  const n=selected.size;
+  $("#applySel").disabled=!n;
+  $("#applySel").textContent=`Apply to selected (${n})`;
+  $("#clearSel").style.display=n?"":"none";
+}
+
+function setCardSelected(id,on){
+  if(on) selected.add(id); else selected.delete(id);
+  const card=grid.querySelector(`.card[data-id="${cssEsc(id)}"]`);
+  if(card){
+    card.classList.toggle("selected",on);
+    const cb=card.querySelector(".sel"); if(cb) cb.checked=on;
+  }
 }
 
 function updateStats(){
@@ -204,9 +240,9 @@ function updateStats(){
 
 function bindEvents(){
   let deb;
-  $("#search").addEventListener("input",()=>{clearTimeout(deb);deb=setTimeout(render,180);});
-  $("#fcat").addEventListener("change",render);
-  $("#frar").addEventListener("change",render);
+  $("#search").addEventListener("input",()=>{clearTimeout(deb);deb=setTimeout(()=>{lastClickedIdx=null;render();},180);});
+  $("#fcat").addEventListener("change",()=>{lastClickedIdx=null;render();});
+  $("#frar").addEventListener("change",()=>{lastClickedIdx=null;render();});
   grid.addEventListener("change",e=>{
     if(e.target.classList.contains("rar")){
       const id=e.target.dataset.id, val=e.target.value;
@@ -214,6 +250,21 @@ function bindEvents(){
       e.target.closest(".card").classList.toggle("removed", val==="remove");
       updateStats(); pushOne(id,val);
     }
+  });
+  // click a card (anywhere except the rarity dropdown) to select; shift-click selects a range
+  grid.addEventListener("click",e=>{
+    if(e.target.closest("select.rar")) return;
+    const card=e.target.closest(".card");
+    if(!card) return;
+    const id=card.dataset.id, idx=renderedIds.indexOf(id);
+    if(e.shiftKey && lastClickedIdx!==null && idx!==-1){
+      const [a,b]=[Math.min(lastClickedIdx,idx),Math.max(lastClickedIdx,idx)];
+      for(let i=a;i<=b;i++) setCardSelected(renderedIds[i],true);
+    }else{
+      setCardSelected(id,!selected.has(id));
+    }
+    if(idx!==-1) lastClickedIdx=idx;
+    updateSelUI();
   });
   $("#applyBulk").addEventListener("click",()=>{
     const tier=$("#bulkTier").value, list=filtered();
@@ -224,6 +275,25 @@ function bindEvents(){
     pushMany(list.map(it=>({item_id:it.id,tier})));
     msg(`Set ${list.length} items to ${tier}.`);
   });
+  $("#applySel").addEventListener("click",()=>{
+    if(!selected.size) return;
+    const tier=$("#bulkTier").value, ids=[...selected];
+    for(const id of ids) rarity[id]=tier;
+    selected.clear(); lastClickedIdx=null;
+    render();
+    pushMany(ids.map(id=>({item_id:id,tier})));
+    msg(`Set ${ids.length} selected items to ${tier}.`);
+  });
+  $("#selectShown").addEventListener("click",()=>{
+    for(const id of renderedIds) selected.add(id);
+    render();
+  });
+  $("#clearSel").addEventListener("click",()=>{
+    selected.clear(); lastClickedIdx=null;
+    render();
+  });
+  const savedName=localStorage.getItem("vmk_editor_name"); if(savedName) $("#editor").value=savedName;
+  $("#editor").addEventListener("input",()=>{ try{ localStorage.setItem("vmk_editor_name",$("#editor").value); }catch(e){} });
   $("#export").addEventListener("click",exportJson);
   $("#import").addEventListener("change",importJson);
   window.addEventListener("scroll",()=>{

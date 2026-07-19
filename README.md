@@ -35,8 +35,16 @@ Share the page URL with your friend — you'll see each other's changes appear i
 ## How you both use it
 - **Search** an item family (e.g. `magic`, `wings`, `mickey ears`).
 - Set a tier per item with the dropdown, or use **Set all shown → Apply to filtered** to tag a whole search at once.
+- **Multiselect:** click cards to select them (shift-click selects a range, **Select shown** grabs everything on screen), then **Apply to selected** sets just those. More precise than Apply to filtered.
+- Put your name in the **✍ editing as** box (bottom bar) so edits are attributed to you in the change history.
 - Everything auto-saves to the shared database — no export needed for collaborating.
 - The counts at the top show how many items are in each tier.
+
+## Change history (who edited what)
+Run `supabase-audit.sql` once in the Supabase SQL Editor. From then on every
+change (including bulk ones) is logged to an `overrides_history` table with the
+old tier, new tier, editor name, and timestamp. Example queries are at the
+bottom of that file.
 
 ## Getting the rarities into the bot
 On the bot laptop, run (in the CLUBVMKBOT folder):
@@ -56,6 +64,7 @@ The **⬇ Export** button still works if you ever want a plain `rarity_overrides
 | `index.html` | The curator page (loads images + syncs via Supabase) |
 | `config.js` | Your Supabase URL + anon key |
 | `supabase-setup.sql` | Run once to create the shared table |
+| `supabase-audit.sql` | Run once to enable change history/attribution |
 | `items.json` | The item catalog (name, category, image, baseline rarity) |
 | `assets/items/` | All item images |
 | `.nojekyll` | Tells GitHub Pages to serve the assets folder as-is |
