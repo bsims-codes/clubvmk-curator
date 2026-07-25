@@ -99041,6 +99041,34 @@
     "image": "2044_0.png"
   },
   {
+    "id": "pin:3990648",
+    "name": "Epcot - Journey of Water",
+    "type": "3990648",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "3990648_0.png"
+  },
+  {
+    "id": "pin:3990649",
+    "name": "Epcot - The Living Seas",
+    "type": "3990649",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "3990649_0.png"
+  },
+  {
     "id": "pin:3606",
     "name": "Epcot Flower Blue",
     "type": "3606",
