@@ -66,6 +66,7 @@
       <option value="common">common</option><option value="uncommon">uncommon</option>
       <option value="rare">rare</option><option value="epic">epic</option><option value="legendary">legendary</option>
       <option value="remove">remove (excluded)</option>
+      <option value="__broken">⚠ broken images</option>
     </select>
     <div class="bulk">
       <span style="color:var(--muted);font-size:12px">Set all shown →</span>
@@ -105,7 +106,7 @@
 const TIERS=["common","uncommon","rare","epic","legendary","remove"];
 let items=[], rarity={}, viewLimit=300, sb=null, online=false;
 let selected=new Set(), renderedIds=[], lastClickedIdx=null;
-let imgOverrides={}, currentReplaceId=null;
+let imgOverrides={}, currentReplaceId=null, brokenSet=new Set();
 const IMG_BUCKET=(window.SUPABASE_URL||"")+"/storage/v1/object/public/item-images/";
 function imgSrc(it){ return imgOverrides[it.id] ? IMG_BUCKET+imgOverrides[it.id] : "assets/items/"+it.image; }
 let hasEditor=false; // true once the overrides table has the `editor` column (supabase-audit.sql)
@@ -122,6 +123,8 @@ async function boot(){
   try{ items=await (await fetch("items.json")).json(); }
   catch(e){ grid.innerHTML='<p style="padding:20px">Could not load items.json.</p>'; return; }
   for(const it of items) rarity[it.id]=it.rarity||"common"; // baseline from catalog
+  // known-broken image ids (from the scan) — powers the "broken images" filter
+  try{ brokenSet=new Set(await (await fetch("broken.json")).json()); }catch(e){}
 
   if(configured()){
     sb=window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
@@ -175,8 +178,9 @@ async function replaceImage(id, file){
   const {error}=await sb.from("image_overrides").upsert({item_id:id,image_name:name,editor:editorName()});
   if(error){ msg("Save failed: "+error.message); return; }
   imgOverrides[id]=name;
+  brokenSet.delete(id);   // fixed now — drop it from the broken filter
   const card=grid.querySelector(`.card[data-id="${cssEsc(id)}"]`);
-  if(card){ const im=card.querySelector("img"); if(im) im.src=IMG_BUCKET+name; card.classList.add("hasimg"); }
+  if(card){ const im=card.querySelector("img"); if(im) im.src=IMG_BUCKET+name; card.classList.add("hasimg"); card.classList.remove("brokenimg"); }
   msg("Image replaced ✓ — the bot & sites update within ~2 min.");
 }
 
@@ -227,7 +231,8 @@ function filtered(){
   const fc=$("#fcat").value, fr=$("#frar").value;
   return items.filter(it=>{
     if(fc && it.category!==fc) return false;
-    if(fr && rarity[it.id]!==fr) return false;
+    if(fr==="__broken"){ if(!brokenSet.has(it.id)) return false; }
+    else if(fr && rarity[it.id]!==fr) return false;
     if(q && !it.name.toLowerCase().includes(q)) return false;
     return true;
   });
