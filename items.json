@@ -61879,6 +61879,76 @@
     "image": "75755_0.png"
   },
   {
+    "id": "clothing:76773",
+    "name": "Seashell Tube Top - Blue",
+    "type": "76773",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "76773_0.png"
+  },
+  {
+    "id": "clothing:76772",
+    "name": "Seashell Tube Top - Charcoal",
+    "type": "76772",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "76772_0.png"
+  },
+  {
+    "id": "clothing:76774",
+    "name": "Seashell Tube Top - Cyan",
+    "type": "76774",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "76774_0.png"
+  },
+  {
+    "id": "clothing:76777",
+    "name": "Seashell Tube Top - Pink",
+    "type": "76777",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "76777_0.png"
+  },
+  {
+    "id": "clothing:76771",
+    "name": "Seashell Tube Top - Purple",
+    "type": "76771",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "76771_0.png"
+  },
+  {
     "id": "clothing:47673",
     "name": "Selphie - Bottoms",
     "type": "47673",
@@ -67798,6 +67868,34 @@
     "image": "83021_0.png"
   },
   {
+    "id": "clothing:84214",
+    "name": "Sunglasses - Black",
+    "type": "84214",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "84214_0.png"
+  },
+  {
+    "id": "clothing:84215",
+    "name": "Sunglasses - Blue",
+    "type": "84215",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "84215_0.png"
+  },
+  {
     "id": "clothing:83090",
     "name": "Sunglasses - Ferb",
     "type": "83090",
@@ -67807,6 +67905,20 @@
     "tags": [],
     "description": "",
     "image": "83090_0.png"
+  },
+  {
+    "id": "clothing:84213",
+    "name": "Sunglasses - Gold",
+    "type": "84213",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "harvested"
+    ],
+    "description": "",
+    "image": "84213_0.png"
   },
   {
     "id": "clothing:83092",
