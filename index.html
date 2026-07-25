@@ -7,7 +7,7 @@
 <style>
   :root{
     --bg:#0f1226; --panel:#1a1f3d; --border:#2c335c; --text:#e8eaf6; --muted:#9aa2cf;
-    --common:#8a93b8; --uncommon:#4caf7d; --rare:#3d8bfd; --epic:#a45cf0; --legendary:#f0a13c; --remove:#c0556a;
+    --common:#8a93b8; --uncommon:#4caf7d; --rare:#3d8bfd; --epic:#a45cf0; --legendary:#f0a13c; --remove:#c0556a; --hold:#e0b84a;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
@@ -43,6 +43,9 @@
   select.rar[data-r=epic]{color:var(--epic)}
   select.rar[data-r=legendary]{color:var(--legendary)}
   select.rar[data-r=remove]{color:var(--remove)}
+  select.rar[data-r=hold]{color:var(--hold)}
+  .card.onhold{outline:2px solid var(--hold);outline-offset:-1px}
+  .card.onhold::before{content:"🆕 NEW";position:absolute;bottom:34px;left:6px;z-index:2;background:var(--hold);color:#0b0e20;font-size:9px;font-weight:700;padding:1px 5px;border-radius:5px}
   .card.removed{opacity:.5}
   .card.removed img{filter:grayscale(1)}
   .card.brokenimg{outline:2px solid var(--remove);outline-offset:-1px}
@@ -66,6 +69,7 @@
       <option value="common">common</option><option value="uncommon">uncommon</option>
       <option value="rare">rare</option><option value="epic">epic</option><option value="legendary">legendary</option>
       <option value="remove">remove (excluded)</option>
+      <option value="hold">🆕 hold / new (review)</option>
       <option value="__broken">⚠ broken images</option>
     </select>
     <div class="bulk">
@@ -73,6 +77,7 @@
       <select id="bulkTier">
         <option value="common">common</option><option value="uncommon">uncommon</option>
         <option value="rare">rare</option><option value="epic">epic</option><option value="legendary" selected>legendary</option>
+        <option value="hold">hold / new (review)</option>
         <option value="remove">remove (excluded)</option>
       </select>
       <button id="applyBulk">Apply to filtered</button>
@@ -103,7 +108,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <script>
-const TIERS=["common","uncommon","rare","epic","legendary","remove"];
+const TIERS=["common","uncommon","rare","epic","legendary","remove","hold"];
 let items=[], rarity={}, viewLimit=300, sb=null, online=false;
 let selected=new Set(), renderedIds=[], lastClickedIdx=null;
 let imgOverrides={}, currentReplaceId=null, brokenSet=new Set();
@@ -247,7 +252,7 @@ function render(){
     const r=rarity[it.id], sid=String(it.id);
     renderedIds.push(sid);
     const card=document.createElement("div");
-    card.className="card"+(r==="remove"?" removed":"")+(selected.has(sid)?" selected":"")+(imgOverrides[it.id]?" hasimg":"");
+    card.className="card"+(r==="remove"?" removed":"")+(r==="hold"?" onhold":"")+(selected.has(sid)?" selected":"")+(imgOverrides[it.id]?" hasimg":"");
     card.dataset.id=sid;
     card.innerHTML=`
       <input type="checkbox" class="sel" ${selected.has(sid)?"checked":""}>

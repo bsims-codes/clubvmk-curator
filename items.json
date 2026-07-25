@@ -1,5 +1,18 @@
 [
   {
+    "id": "clothing:42077",
+    "name": " Mickey's Not So Scary Halloween Party Ears - 2018",
+    "type": "42077",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52359",
     "name": "1920s Duchess Featherband",
     "type": "52359",
@@ -869,6 +882,19 @@
     "image": "49030_0.png"
   },
   {
+    "id": "clothing:41436",
+    "name": "Admin only Kali Hat",
+    "type": "41436",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:59199",
     "name": "Adventurer's Lantern",
     "type": "59199",
@@ -878,6 +904,19 @@
     "tags": [],
     "description": "",
     "image": "59199_0.png"
+  },
+  {
+    "id": "clothing:70795",
+    "name": "Afro Puff",
+    "type": "70795",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:41794",
@@ -1023,6 +1062,32 @@
     "image": "36062_0.png"
   },
   {
+    "id": "clothing:48088",
+    "name": "Alice's Dress Bottom - Black",
+    "type": "48088",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48087",
+    "name": "Alice's Dress Bottom - Pink",
+    "type": "48087",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:34161",
     "name": "Alice's Dress Top",
     "type": "34161",
@@ -1032,6 +1097,32 @@
     "tags": [],
     "description": "",
     "image": "34161_0.png"
+  },
+  {
+    "id": "clothing:76671",
+    "name": "Alice's Dress Top - Black",
+    "type": "76671",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76670",
+    "name": "Alice's Dress Top - Pink",
+    "type": "76670",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:38019",
@@ -1221,6 +1312,19 @@
     "image": "52690_0.png"
   },
   {
+    "id": "clothing:53675",
+    "name": "Angler Fish Light Hat",
+    "type": "53675",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53957",
     "name": "Animal Ears - Cheetah",
     "type": "53957",
@@ -1285,6 +1389,19 @@
     "tags": [],
     "description": "",
     "image": "53937_0.png"
+  },
+  {
+    "id": "clothing:53935",
+    "name": "Animal Hood - Frog",
+    "type": "53935",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53944",
@@ -2112,6 +2229,19 @@
     "image": "83181_0.png"
   },
   {
+    "id": "clothing:84203",
+    "name": "Aura - Celebration Fireworks",
+    "type": "84203",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:83075",
     "name": "Aura - Coco Marigold Petals",
     "type": "83075",
@@ -2255,6 +2385,19 @@
     "image": "83175_0.png"
   },
   {
+    "id": "clothing:84270",
+    "name": "Aura - Jellyfish",
+    "type": "84270",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:82965",
     "name": "Aura - LNY Good Fortune Coins",
     "type": "82965",
@@ -2286,6 +2429,19 @@
     "tags": [],
     "description": "",
     "image": "83174_0.png"
+  },
+  {
+    "id": "clothing:84191",
+    "name": "Aura - Mirror Mirror",
+    "type": "84191",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82777",
@@ -2321,6 +2477,19 @@
     "image": "84123_0.png"
   },
   {
+    "id": "clothing:84192",
+    "name": "Aura - Pride Rainbow",
+    "type": "84192",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:84149",
     "name": "Aura - Rainbow Sprinkles",
     "type": "84149",
@@ -2330,6 +2499,19 @@
     "tags": [],
     "description": "",
     "image": "84149_0.png"
+  },
+  {
+    "id": "clothing:84262",
+    "name": "Aura - Reach for the Stars",
+    "type": "84262",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:83889",
@@ -2385,6 +2567,19 @@
     "tags": [],
     "description": "",
     "image": "83974_0.png"
+  },
+  {
+    "id": "clothing:82582",
+    "name": "Aura - Under the Sea",
+    "type": "82582",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:83163",
@@ -2671,6 +2866,1475 @@
     "tags": [],
     "description": "",
     "image": "74238_0.png"
+  },
+  {
+    "id": "clothing:66048",
+    "name": "Avatar - 4TOWN Maleficent",
+    "type": "66048",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66043",
+    "name": "Avatar - 4Town Aaron T",
+    "type": "66043",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66050",
+    "name": "Avatar - 4Town Aaron Z",
+    "type": "66050",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66052",
+    "name": "Avatar - 4Town Aqua",
+    "type": "66052",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66129",
+    "name": "Avatar - 4Town BluePinkHair",
+    "type": "66129",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66053",
+    "name": "Avatar - 4Town Ember",
+    "type": "66053",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66128",
+    "name": "Avatar - 4Town Gliss",
+    "type": "66128",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66045",
+    "name": "Avatar - 4Town Jesse",
+    "type": "66045",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66046",
+    "name": "Avatar - 4Town Jesse 2",
+    "type": "66046",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66054",
+    "name": "Avatar - 4Town Morph",
+    "type": "66054",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66051",
+    "name": "Avatar - 4Town Okoye",
+    "type": "66051",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66049",
+    "name": "Avatar - 4Town Robaire",
+    "type": "66049",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66173",
+    "name": "Avatar - 4Town Sadness",
+    "type": "66173",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66044",
+    "name": "Avatar - 4Town Tae Young",
+    "type": "66044",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66047",
+    "name": "Avatar - 4Town Tae Young 2",
+    "type": "66047",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67215",
+    "name": "Avatar - Anita Radcliffe",
+    "type": "67215",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72589",
+    "name": "Avatar - Aqua",
+    "type": "72589",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72590",
+    "name": "Avatar - Aqua Sitting",
+    "type": "72590",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68803",
+    "name": "Avatar - Ariel",
+    "type": "68803",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68804",
+    "name": "Avatar - Ariel 2",
+    "type": "68804",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68805",
+    "name": "Avatar - Ariel sitting",
+    "type": "68805",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68811",
+    "name": "Avatar - Ariel wedding",
+    "type": "68811",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72355",
+    "name": "Avatar - Baker Ember",
+    "type": "72355",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67327",
+    "name": "Avatar - Beast",
+    "type": "67327",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67330",
+    "name": "Avatar - Beast dancing",
+    "type": "67330",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67324",
+    "name": "Avatar - Belle",
+    "type": "67324",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67329",
+    "name": "Avatar - Belle dancing",
+    "type": "67329",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67326",
+    "name": "Avatar - Belle sitting",
+    "type": "67326",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67328",
+    "name": "Avatar - Belle winter",
+    "type": "67328",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71568",
+    "name": "Avatar - Caroling Elemental Ember",
+    "type": "71568",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71569",
+    "name": "Avatar - Caroling Elemental Wade",
+    "type": "71569",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65835",
+    "name": "Avatar - Cherry Blossom Aura",
+    "type": "65835",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65348",
+    "name": "Avatar - Christopher Robin",
+    "type": "65348",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:70338",
+    "name": "Avatar - Constance Hatchway",
+    "type": "70338",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67214",
+    "name": "Avatar - Cruella de Vil",
+    "type": "67214",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72605",
+    "name": "Avatar - Daisy Swimming",
+    "type": "72605",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68829",
+    "name": "Avatar - Dapper Dan Baritone",
+    "type": "68829",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68830",
+    "name": "Avatar - Dapper Dan Bass",
+    "type": "68830",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68832",
+    "name": "Avatar - Dapper Dan Lead",
+    "type": "68832",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68831",
+    "name": "Avatar - Dapper Dan Tenor",
+    "type": "68831",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65830",
+    "name": "Avatar - Dyan Head Sitting Pet",
+    "type": "65830",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71243",
+    "name": "Avatar - Ember",
+    "type": "71243",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71643",
+    "name": "Avatar - Ember 2",
+    "type": "71643",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68808",
+    "name": "Avatar - Eric sitting",
+    "type": "68808",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71125",
+    "name": "Avatar - Ernesto",
+    "type": "71125",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65300",
+    "name": "Avatar - Ezra",
+    "type": "65300",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71244",
+    "name": "Avatar - Fire Ember",
+    "type": "71244",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66450",
+    "name": "Avatar - Flynn Rider",
+    "type": "66450",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66451",
+    "name": "Avatar - Flynn Rider 2",
+    "type": "66451",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66452",
+    "name": "Avatar - Flynn Rider 3",
+    "type": "66452",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68166",
+    "name": "Avatar - Genie",
+    "type": "68166",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65301",
+    "name": "Avatar - Gus",
+    "type": "65301",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65308",
+    "name": "Avatar - HOST _Jessie Sitting",
+    "type": "65308",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65283",
+    "name": "Avatar - HOST_Maleficent Cowgirl",
+    "type": "65283",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65831",
+    "name": "Avatar - Holdable Bao",
+    "type": "65831",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71487",
+    "name": "Avatar - Holiday Ember",
+    "type": "71487",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66020",
+    "name": "Avatar - Joy Glow",
+    "type": "66020",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67319",
+    "name": "Avatar - Knight",
+    "type": "67319",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65847",
+    "name": "Avatar - LNY Gold Dragon Wings",
+    "type": "65847",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65849",
+    "name": "Avatar - LNY Good Fortune Coins Aura",
+    "type": "65849",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65846",
+    "name": "Avatar - LNY Red Dragon Wings",
+    "type": "65846",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65291",
+    "name": "Avatar - Lotso Onesie",
+    "type": "65291",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:61009",
+    "name": "Avatar - Maui",
+    "type": "61009",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:71124",
+    "name": "Avatar - Miguel",
+    "type": "71124",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:61836",
+    "name": "Avatar - Moana",
+    "type": "61836",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65829",
+    "name": "Avatar - Mulan Soldier Ping Hair",
+    "type": "65829",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65274",
+    "name": "Avatar - Mulan's Matchmaker",
+    "type": "65274",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65832",
+    "name": "Avatar - Mushu Hat",
+    "type": "65832",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65260",
+    "name": "Avatar - Oogie Makeup",
+    "type": "65260",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65302",
+    "name": "Avatar - Phineas",
+    "type": "65302",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72025",
+    "name": "Avatar - Pirate Ember",
+    "type": "72025",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72026",
+    "name": "Avatar - Pirate Maleficent",
+    "type": "72026",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72027",
+    "name": "Avatar - Pirate Sprite",
+    "type": "72027",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66034",
+    "name": "Avatar - Random 1 4Town Concert",
+    "type": "66034",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66035",
+    "name": "Avatar - Random 2 4Town Concert",
+    "type": "66035",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66036",
+    "name": "Avatar - Random 3 4Town Concert",
+    "type": "66036",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66037",
+    "name": "Avatar - Random 4 4Town Concert",
+    "type": "66037",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66038",
+    "name": "Avatar - Random 5 4Town Concert",
+    "type": "66038",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66040",
+    "name": "Avatar - Random 6 4Town Concert",
+    "type": "66040",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66174",
+    "name": "Avatar - Ratatouille Colette",
+    "type": "66174",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66175",
+    "name": "Avatar - Ratatouille Linguini",
+    "type": "66175",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65828",
+    "name": "Avatar - Raya Braid Hair",
+    "type": "65828",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67216",
+    "name": "Avatar - Roger Radcliffe",
+    "type": "67216",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65290",
+    "name": "Avatar - Sadness Cowboy",
+    "type": "65290",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65289",
+    "name": "Avatar - Shan Yu",
+    "type": "65289",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65833",
+    "name": "Avatar - Sisu Shoulder Pet",
+    "type": "65833",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65827",
+    "name": "Avatar - Sitting Mei Panda",
+    "type": "65827",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65272",
+    "name": "Avatar - Sprite Front Sitting",
+    "type": "65272",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65273",
+    "name": "Avatar - Sprite Sitting",
+    "type": "65273",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65259",
+    "name": "Avatar - Stocking Snake",
+    "type": "65259",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:72379",
+    "name": "Avatar - The Mandalorian",
+    "type": "72379",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:70336",
+    "name": "Avatar - Trick or Treat Sprite",
+    "type": "70336",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:70337",
+    "name": "Avatar - Trick or Treat Sprite Blinking",
+    "type": "70337",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66029",
+    "name": "Avatar - Turning Red Abby",
+    "type": "66029",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66030",
+    "name": "Avatar - Turning Red Mei",
+    "type": "66030",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66031",
+    "name": "Avatar - Turning Red Miriam",
+    "type": "66031",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66033",
+    "name": "Avatar - Turning Red Priya",
+    "type": "66033",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:68809",
+    "name": "Avatar - Ursula",
+    "type": "68809",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65258",
+    "name": "Avatar - Vampire Teddy",
+    "type": "65258",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:65292",
+    "name": "Avatar - Woody",
+    "type": "65292",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67394",
+    "name": "Avatar- HOST_Anastasia",
+    "type": "67394",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:67392",
+    "name": "Avatar- HOST_Anastasia 2",
+    "type": "67392",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66502",
+    "name": "Avi - Bat Ears Ember",
+    "type": "66502",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66512",
+    "name": "Avi - Coffin Backpack Back Pua",
+    "type": "66512",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66513",
+    "name": "Avi - Coffin Backpack Front Pua",
+    "type": "66513",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66515",
+    "name": "Avi - Cursed Skull Wings Sadness",
+    "type": "66515",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66518",
+    "name": "Avi - Facilier Tarot Aura Sadness",
+    "type": "66518",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66521",
+    "name": "Avi - Fallen Skull Wings Sadness",
+    "type": "66521",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66506",
+    "name": "Avi - Gargoyle Ears Ember",
+    "type": "66506",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66522",
+    "name": "Avi - Hades Fury Aura Sadness",
+    "type": "66522",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66524",
+    "name": "Avi - Leota Aura Sadness",
+    "type": "66524",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66501",
+    "name": "Avi - Oogie Witch Hat Candlehead",
+    "type": "66501",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:66509",
+    "name": "Avi - Ursula Mask Fiki",
+    "type": "66509",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:52125",
@@ -3223,6 +4887,19 @@
     "image": "44852_0.png"
   },
   {
+    "id": "clothing:6546",
+    "name": "Babyfier/Hat Bundle",
+    "type": "6546",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:74899",
     "name": "Backpack -  Mike Wazowski",
     "type": "74899",
@@ -3331,6 +5008,32 @@
     "tags": [],
     "description": "",
     "image": "82580_0.png"
+  },
+  {
+    "id": "clothing:82570",
+    "name": "Backpack - Bronze Treasure Chest",
+    "type": "82570",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:82568",
+    "name": "Backpack - Bronze Treasure Chest",
+    "type": "82568",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82435",
@@ -3639,6 +5342,45 @@
     "tags": [],
     "description": "",
     "image": "82577_0.png"
+  },
+  {
+    "id": "clothing:82566",
+    "name": "Backpack - Gold Treasure Chest",
+    "type": "82566",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:82569",
+    "name": "Backpack - Gold Treasure Chest",
+    "type": "82569",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:84167",
+    "name": "Backpack - Grogu in Pod",
+    "type": "84167",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82634",
@@ -4488,6 +6230,19 @@
     "image": "82578_0.png"
   },
   {
+    "id": "clothing:82567",
+    "name": "Backpack - Silver Treasure Chest",
+    "type": "82567",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:59551",
     "name": "Backpack - Skull & Crossbones",
     "type": "59551",
@@ -4541,6 +6296,19 @@
     "tags": [],
     "description": "",
     "image": "59235_0.png"
+  },
+  {
+    "id": "clothing:84205",
+    "name": "Backpack - Summer Pluto",
+    "type": "84205",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82132",
@@ -6534,6 +8302,19 @@
     "image": "26032_0.png"
   },
   {
+    "id": "clothing:48078",
+    "name": "Baseball Pants - Green",
+    "type": "48078",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:26033",
     "name": "Baseball Pants - Red",
     "type": "26033",
@@ -6554,6 +8335,19 @@
     "tags": [],
     "description": "",
     "image": "24183_0.png"
+  },
+  {
+    "id": "clothing:76646",
+    "name": "Baseball Shirt - Green",
+    "type": "76646",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:24184",
@@ -6752,6 +8546,110 @@
     "tags": [],
     "description": "",
     "image": "75991_0.png"
+  },
+  {
+    "id": "clothing:48148",
+    "name": "Bathing Suit Bottoms - Green",
+    "type": "48148",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48146",
+    "name": "Bathing Suit Bottoms - Pink",
+    "type": "48146",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48144",
+    "name": "Bathing Suit Bottoms - Teal",
+    "type": "48144",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48145",
+    "name": "Bathing Suit Bottoms - Yellow",
+    "type": "48145",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76797",
+    "name": "Bathing Suit Top - Green",
+    "type": "76797",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76795",
+    "name": "Bathing Suit Top - Pink",
+    "type": "76795",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76793",
+    "name": "Bathing Suit Top - Teal",
+    "type": "76793",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76796",
+    "name": "Bathing Suit Top - Yellow",
+    "type": "76796",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:49206",
@@ -7689,6 +9587,19 @@
     "image": "52881_0.png"
   },
   {
+    "id": "clothing:558",
+    "name": "Big Ben Top",
+    "type": "558",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:75570",
     "name": "Binx Mini Dress",
     "type": "75570",
@@ -7797,6 +9708,19 @@
     "tags": [],
     "description": "",
     "image": "49211_0.png"
+  },
+  {
+    "id": "clothing:52030",
+    "name": "Black Headband",
+    "type": "52030",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:52483",
@@ -8503,6 +10427,19 @@
     "image": "54402_0.png"
   },
   {
+    "id": "clothing:54401",
+    "name": "Bow Headband - Red",
+    "type": "54401",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52949",
     "name": "Bowler Hat",
     "type": "52949",
@@ -9097,6 +11034,19 @@
     "image": "53445_0.png"
   },
   {
+    "id": "clothing:54659",
+    "name": "Bucket Hat - Dory",
+    "type": "54659",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53956",
     "name": "Bucket Hat - Embroidered Goose",
     "type": "53956",
@@ -9119,6 +11069,19 @@
     "image": "53965_0.png"
   },
   {
+    "id": "clothing:54661",
+    "name": "Bucket Hat - Flounder",
+    "type": "54661",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53943",
     "name": "Bucket Hat - Frog",
     "type": "53943",
@@ -9139,6 +11102,19 @@
     "tags": [],
     "description": "",
     "image": "53979_0.png"
+  },
+  {
+    "id": "clothing:54660",
+    "name": "Bucket Hat - Nemo",
+    "type": "54660",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53980",
@@ -9194,6 +11170,19 @@
     "tags": [],
     "description": "",
     "image": "53268_0.png"
+  },
+  {
+    "id": "clothing:54646",
+    "name": "Bucket Hat - Stitch",
+    "type": "54646",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53446",
@@ -9381,6 +11370,19 @@
     "tags": [],
     "description": "",
     "image": "82444_0.png"
+  },
+  {
+    "id": "clothing:82437",
+    "name": "Bunny Cloak - Soft White",
+    "type": "82437",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82446",
@@ -9788,6 +11790,19 @@
     "tags": [],
     "description": "",
     "image": "47522_0.png"
+  },
+  {
+    "id": "clothing:48628",
+    "name": "Buzz Lightyear Shoes",
+    "type": "48628",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:74911",
@@ -10472,6 +12487,45 @@
     "image": "82142_0.png"
   },
   {
+    "id": "clothing:84189",
+    "name": "Cape Prom - Green",
+    "type": "84189",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:84190",
+    "name": "Cape Prom - Purple",
+    "type": "84190",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:84188",
+    "name": "Cape Prom - Silver",
+    "type": "84188",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:83198",
     "name": "Capelet - Madame Leota Tablecloth",
     "type": "83198",
@@ -10989,6 +13043,19 @@
     "image": "75670_0.png"
   },
   {
+    "id": "clothing:53673",
+    "name": "Cardboard Mei Red Panda Hat",
+    "type": "53673",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:45183",
     "name": "Cardigan - Light Blue",
     "type": "45183",
@@ -11176,6 +13243,19 @@
     "image": "82086_0.png"
   },
   {
+    "id": "clothing:820730",
+    "name": "Carrot Onesie - Bottoms",
+    "type": "820730",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53172",
     "name": "Carrot Onesie - Hat",
     "type": "53172",
@@ -11185,6 +13265,32 @@
     "tags": [],
     "description": "",
     "image": "53172_0.png"
+  },
+  {
+    "id": "clothing:476190",
+    "name": "Carrot Onesie - Hat",
+    "type": "476190",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:820700",
+    "name": "Carrot Onesie - Top",
+    "type": "820700",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:74343",
@@ -11372,6 +13478,45 @@
     "tags": [],
     "description": "",
     "image": "70500_0.png"
+  },
+  {
+    "id": "clothing:49326",
+    "name": "Celine Grom Shoes",
+    "type": "49326",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48108",
+    "name": "Celine Grom Skirt",
+    "type": "48108",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76719",
+    "name": "Celine Grom Top",
+    "type": "76719",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:83091",
@@ -11880,6 +14025,32 @@
     "image": "44571_0.png"
   },
   {
+    "id": "clothing:49290",
+    "name": "Cheerleader Shoes - Lime",
+    "type": "49290",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48077",
+    "name": "Cheerleader Skirt - Lime",
+    "type": "48077",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:48527",
     "name": "Cheerleader Teal Shoes",
     "type": "48527",
@@ -11911,6 +14082,19 @@
     "tags": [],
     "description": "",
     "image": "44572_0.png"
+  },
+  {
+    "id": "clothing:76645",
+    "name": "Cheerleader Top - Lime",
+    "type": "76645",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:47429",
@@ -12164,6 +14348,19 @@
     "tags": [],
     "description": "",
     "image": "42058_0.png"
+  },
+  {
+    "id": "clothing:52013",
+    "name": "Cheshire Cat Hat",
+    "type": "52013",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53785",
@@ -13277,6 +15474,19 @@
     "image": "48028_0.png"
   },
   {
+    "id": "clothing:40001",
+    "name": "Coral Magic Hair",
+    "type": "40001",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41032",
     "name": "Coral Magic Hat",
     "type": "41032",
@@ -13354,6 +15564,19 @@
     "image": "82098_0.png"
   },
   {
+    "id": "clothing:53871",
+    "name": "Cosmic Catfish Hat",
+    "type": "53871",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:84156",
     "name": "Costume - Cheeseburger",
     "type": "84156",
@@ -13429,6 +15652,32 @@
     "tags": [],
     "description": "",
     "image": "82589_0.png"
+  },
+  {
+    "id": "clothing:44866",
+    "name": "Couples Mickey Shirt Red",
+    "type": "44866",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:44867",
+    "name": "Couples Mickey Shirt White",
+    "type": "44867",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:46720",
@@ -13726,6 +15975,19 @@
     "tags": [],
     "description": "",
     "image": "53463_0.png"
+  },
+  {
+    "id": "clothing:53453",
+    "name": "Cowboy Hat - Black and Neon Purple",
+    "type": "53453",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53464",
@@ -14430,6 +16692,19 @@
     "tags": [],
     "description": "",
     "image": "44537_0.png"
+  },
+  {
+    "id": "clothing:44535",
+    "name": "Cowgirl Shirt Pink",
+    "type": "44535",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:49238",
@@ -15277,6 +17552,45 @@
     "tags": [],
     "description": "",
     "image": "53916_0.png"
+  },
+  {
+    "id": "clothing:54616",
+    "name": "Crown Mickey Ears - Green",
+    "type": "54616",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54617",
+    "name": "Crown Mickey Ears - Purple",
+    "type": "54617",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54618",
+    "name": "Crown Mickey Ears - Silver",
+    "type": "54618",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53658",
@@ -17193,6 +19507,32 @@
     "image": "41008_0.png"
   },
   {
+    "id": "clothing:44688",
+    "name": "Deep Sea Diving Blue Jacket",
+    "type": "44688",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:46652",
+    "name": "Deep Sea Diving Blue Pants",
+    "type": "46652",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:48013",
     "name": "Deep Sea Diving Boots",
     "type": "48013",
@@ -17213,6 +19553,32 @@
     "tags": [],
     "description": "",
     "image": "44231_0.png"
+  },
+  {
+    "id": "clothing:44257",
+    "name": "Deep Sea Diving Jacket with Oxygen Tank",
+    "type": "44257",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:46037",
+    "name": "Deep Sea Diving Pants",
+    "type": "46037",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:46023",
@@ -17796,6 +20162,32 @@
     "tags": [],
     "description": "",
     "image": "83237_0.png"
+  },
+  {
+    "id": "clothing:41820",
+    "name": "Dipper Pines Hat",
+    "type": "41820",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:44946",
+    "name": "Dipper Pines Shirt",
+    "type": "44946",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82045",
@@ -19217,6 +21609,45 @@
     "image": "74805_0.png"
   },
   {
+    "id": "clothing:48104",
+    "name": "Eda Grom Pants",
+    "type": "48104",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49322",
+    "name": "Eda Grom Shoes",
+    "type": "49322",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76706",
+    "name": "Eda Grom Top",
+    "type": "76706",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:83151",
     "name": "Eda's Staff - Owlbert",
     "type": "83151",
@@ -20526,6 +22957,19 @@
     "image": "59073_0.png"
   },
   {
+    "id": "clothing:42156",
+    "name": "Evil Queen Hat",
+    "type": "42156",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52382",
     "name": "Evil Queen Mask",
     "type": "52382",
@@ -21285,6 +23729,32 @@
     "image": "82503_0.png"
   },
   {
+    "id": "clothing:70600",
+    "name": "Fade - High Top Braids",
+    "type": "70600",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:70674",
+    "name": "Fade - High Top Bun",
+    "type": "70674",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:48681",
     "name": "Fairy Fawn Flats",
     "type": "48681",
@@ -21857,6 +24327,19 @@
     "image": "41502_0.png"
   },
   {
+    "id": "clothing:53680",
+    "name": "Finding Nemo - Mr.Ray Hat",
+    "type": "53680",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41068",
     "name": "Finding Nemo Hat",
     "type": "41068",
@@ -22141,6 +24624,19 @@
     "tags": [],
     "description": "",
     "image": "52557_0.png"
+  },
+  {
+    "id": "clothing:53050",
+    "name": "Flat Mask - Genie",
+    "type": "53050",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:75325",
@@ -22847,6 +25343,19 @@
     "image": "54486_0.png"
   },
   {
+    "id": "clothing:48076",
+    "name": "Football Player Pants - Black",
+    "type": "48076",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:47970",
     "name": "Football Player Pants - Goofy's Bayou Buccaneers",
     "type": "47970",
@@ -22856,6 +25365,19 @@
     "tags": [],
     "description": "",
     "image": "47970_0.png"
+  },
+  {
+    "id": "clothing:76644",
+    "name": "Football Player Shirt - Black",
+    "type": "76644",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:76506",
@@ -23375,6 +25897,19 @@
     "image": "41042_0.png"
   },
   {
+    "id": "clothing:72459",
+    "name": "Fourth of July Hat Ornament (NOT A REAL HAT)",
+    "type": "72459",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:75220",
     "name": "Fozzie's Big Floppy Bowtie",
     "type": "75220",
@@ -23716,6 +26251,19 @@
     "image": "53847_0.png"
   },
   {
+    "id": "clothing:84226",
+    "name": "G-Force - Glasses: Black",
+    "type": "84226",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:83435",
     "name": "G-Force - Glasses: Blaster",
     "type": "83435",
@@ -23747,6 +26295,19 @@
     "tags": [],
     "description": "",
     "image": "83439_0.png"
+  },
+  {
+    "id": "clothing:84224",
+    "name": "G-Force - Glasses: White",
+    "type": "84224",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:83540",
@@ -23859,6 +26420,19 @@
     "image": "41809_0.png"
   },
   {
+    "id": "clothing:40359",
+    "name": "Genie Hair",
+    "type": "40359",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:70579",
     "name": "Genie Hair - Boys",
     "type": "70579",
@@ -23936,6 +26510,19 @@
     "image": "74459_0.png"
   },
   {
+    "id": "clothing:40357",
+    "name": "Genie's Ponytail Hair",
+    "type": "40357",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52717",
     "name": "Gerald Hat",
     "type": "52717",
@@ -23967,6 +26554,19 @@
     "tags": [],
     "description": "",
     "image": "47337_0.png"
+  },
+  {
+    "id": "clothing:42126",
+    "name": "Ghost Phineas Top Hat",
+    "type": "42126",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:42136",
@@ -24022,6 +26622,45 @@
     "tags": [],
     "description": "",
     "image": "82014_0.png"
+  },
+  {
+    "id": "clothing:83865",
+    "name": "Giant Infinity Scarf - Green",
+    "type": "83865",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:83866",
+    "name": "Giant Infinity Scarf - Orange",
+    "type": "83866",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:83864",
+    "name": "Giant Infinity Scarf - Red",
+    "type": "83864",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53838",
@@ -24583,6 +27222,19 @@
     "tags": [],
     "description": "",
     "image": "82060_0.png"
+  },
+  {
+    "id": "clothing:52367",
+    "name": "Glasses - Powerline",
+    "type": "52367",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82261",
@@ -25795,6 +28447,19 @@
     "image": "52481_0.png"
   },
   {
+    "id": "clothing:3990584",
+    "name": "Grom Queen Tiara",
+    "type": "3990584",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52992",
     "name": "Groot - Head",
     "type": "52992",
@@ -25892,6 +28557,32 @@
     "tags": [],
     "description": "",
     "image": "75477_0.png"
+  },
+  {
+    "id": "clothing:53974",
+    "name": "HSM - Ryan Hat",
+    "type": "53974",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:53973",
+    "name": "HSM - Sharpay Hat",
+    "type": "53973",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:41639",
@@ -27016,6 +29707,19 @@
     "image": "74556_0.png"
   },
   {
+    "id": "clothing:42045",
+    "name": "Hamm Hat",
+    "type": "42045",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:46765",
     "name": "Han Solo Pants",
     "type": "46765",
@@ -27225,6 +29929,32 @@
     "image": "53118_0.png"
   },
   {
+    "id": "clothing:53116",
+    "name": "Hanukkah Gelt Hat",
+    "type": "53116",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:53117",
+    "name": "Hanukkah Gelt Hat",
+    "type": "53117",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:45108",
     "name": "Hanukkah Long Sleeve Shirt",
     "type": "45108",
@@ -27355,6 +30085,19 @@
     "tags": [],
     "description": "",
     "image": "74372_0.png"
+  },
+  {
+    "id": "clothing:41366",
+    "name": "Hathi's Host Hat with Tusks",
+    "type": "41366",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:54291",
@@ -31977,6 +34720,19 @@
     "image": "47601_0.png"
   },
   {
+    "id": "clothing:53108",
+    "name": "Holiday Top Hat",
+    "type": "53108",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53143",
     "name": "Hollywood Style Hat - Donald",
     "type": "53143",
@@ -32318,6 +35074,45 @@
     "image": "44243_0.png"
   },
   {
+    "id": "clothing:76656",
+    "name": "Hong Kong T-Shirt Cyan",
+    "type": "76656",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:44242",
+    "name": "Hong Kong T-Shirt Green",
+    "type": "44242",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:44517",
+    "name": "Hong Kong T-Shirt Light Blue",
+    "type": "44517",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:44506",
     "name": "Hong Kong T-Shirt Pink",
     "type": "44506",
@@ -32327,6 +35122,19 @@
     "tags": [],
     "description": "",
     "image": "44506_0.png"
+  },
+  {
+    "id": "clothing:76657",
+    "name": "Hong Kong T-Shirt Purple",
+    "type": "76657",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:44241",
@@ -33207,6 +36015,19 @@
     "tags": [],
     "description": "",
     "image": "53741_0.png"
+  },
+  {
+    "id": "clothing:41982",
+    "name": "Hunny Jar Hat",
+    "type": "41982",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:54169",
@@ -35387,6 +38208,19 @@
     "image": "74179_0.png"
   },
   {
+    "id": "clothing:53333",
+    "name": "Jester Hat - Carnivale",
+    "type": "53333",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53337",
     "name": "Jester Hat Carnivale",
     "type": "53337",
@@ -35396,6 +38230,19 @@
     "tags": [],
     "description": "",
     "image": "53337_0.png"
+  },
+  {
+    "id": "clothing:53335",
+    "name": "Jester Hat Carnivale",
+    "type": "53335",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:54600",
@@ -35462,6 +38309,32 @@
     "tags": [],
     "description": "",
     "image": "74448_0.png"
+  },
+  {
+    "id": "clothing:54437",
+    "name": "Jingle Elf Hat",
+    "type": "54437",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:52069",
+    "name": "Jingle Hat - Blue",
+    "type": "52069",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:52068",
@@ -36102,6 +38975,19 @@
     "image": "52854_0.png"
   },
   {
+    "id": "clothing:8230",
+    "name": "Kermit Onesie Bundle",
+    "type": "8230",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:42069",
     "name": "Kevin Beanie",
     "type": "42069",
@@ -36166,6 +39052,19 @@
     "tags": [],
     "description": "",
     "image": "44978_0.png"
+  },
+  {
+    "id": "clothing:42109",
+    "name": "Kida Hair",
+    "type": "42109",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:42135",
@@ -36397,6 +39296,19 @@
     "tags": [],
     "description": "",
     "image": "52172_0.png"
+  },
+  {
+    "id": "clothing:72430",
+    "name": "King's Crown Ornament (NOT A REAL HAT)",
+    "type": "72430",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:45141",
@@ -36828,6 +39740,19 @@
     "image": "74762_0.png"
   },
   {
+    "id": "clothing:72744",
+    "name": "Lagoona Gator Ornament (NOT A REAL HAT)",
+    "type": "72744",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41077",
     "name": "Lagoonagator Hat",
     "type": "41077",
@@ -37202,6 +40127,19 @@
     "image": "59357_0.png"
   },
   {
+    "id": "clothing:45025",
+    "name": "Life Jacket - Bruce",
+    "type": "45025",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:59358",
     "name": "Life Jacket - Bull Shark",
     "type": "59358",
@@ -37268,6 +40206,19 @@
     "image": "59365_0.png"
   },
   {
+    "id": "clothing:45026",
+    "name": "Life Jacket - Nemo",
+    "type": "45026",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:59362",
     "name": "Life Jacket - Neon Green",
     "type": "59362",
@@ -37332,6 +40283,84 @@
     "tags": [],
     "description": "",
     "image": "59356_0.png"
+  },
+  {
+    "id": "clothing:76814",
+    "name": "Lifeguard Shirt - Red",
+    "type": "76814",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76809",
+    "name": "Lifeguard Shirt - White",
+    "type": "76809",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48158",
+    "name": "Lifeguard Shorts - Red",
+    "type": "48158",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48156",
+    "name": "Lifeguard Shorts - White",
+    "type": "48156",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76812",
+    "name": "Lifeguard Swimsuit Top - Red",
+    "type": "76812",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76813",
+    "name": "Lifeguard Swimsuit Top - White",
+    "type": "76813",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:74251",
@@ -38753,6 +41782,58 @@
     "image": "76085_0.png"
   },
   {
+    "id": "clothing:76742",
+    "name": "Luz Boys Grom Top",
+    "type": "76742",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76741",
+    "name": "Luz Girls Grom Top",
+    "type": "76741",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48115",
+    "name": "Luz Grom Pants",
+    "type": "48115",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49329",
+    "name": "Luz Grom Shoes",
+    "type": "49329",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:74572",
     "name": "Luz's Shirt",
     "type": "74572",
@@ -39292,6 +42373,84 @@
     "image": "75587_0.png"
   },
   {
+    "id": "clothing:12136",
+    "name": "Magic - Inner-Space Suit Blue Single Use",
+    "type": "12136",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:12137",
+    "name": "Magic - Inner-Space Suit Green Single Use",
+    "type": "12137",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:12138",
+    "name": "Magic - Inner-Space Suit Pink Single Use",
+    "type": "12138",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:12139",
+    "name": "Magic - Inner-Space Suit Red Single Use",
+    "type": "12139",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:12032",
+    "name": "Magic - Pirate Costume Single Use",
+    "type": "12032",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:61072",
+    "name": "Magic Shell",
+    "type": "61072",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:83109",
     "name": "Magic Wand - Alex Russo",
     "type": "83109",
@@ -39402,6 +42561,19 @@
     "image": "45178_0.png"
   },
   {
+    "id": "clothing:24198",
+    "name": "Magician Red Boys Jacket",
+    "type": "24198",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:45177",
     "name": "Magician Red Girls Jacket",
     "type": "45177",
@@ -39411,6 +42583,19 @@
     "tags": [],
     "description": "",
     "image": "45177_0.png"
+  },
+  {
+    "id": "clothing:34170",
+    "name": "Magician Red Girls Jacket",
+    "type": "34170",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:46923",
@@ -39424,6 +42609,19 @@
     "image": "46923_0.png"
   },
   {
+    "id": "clothing:46061",
+    "name": "Magician Red Pants",
+    "type": "46061",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52179",
     "name": "Magician Red Top Hat",
     "type": "52179",
@@ -39433,6 +42631,19 @@
     "tags": [],
     "description": "",
     "image": "52179_0.png"
+  },
+  {
+    "id": "clothing:41097",
+    "name": "Magician Red Top Hat",
+    "type": "41097",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:48672",
@@ -39532,6 +42743,19 @@
     "tags": [],
     "description": "",
     "image": "53413_0.png"
+  },
+  {
+    "id": "clothing:53412",
+    "name": "Main Street Fire Department Hat",
+    "type": "53412",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53411",
@@ -41327,6 +44551,32 @@
     "image": "41864_0.png"
   },
   {
+    "id": "clothing:82100",
+    "name": "Merlin Beard",
+    "type": "82100",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:41367",
+    "name": "Merlin's Host Hat with Beard",
+    "type": "41367",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:75304",
     "name": "Merlin's Talisman",
     "type": "75304",
@@ -41347,6 +44597,19 @@
     "tags": [],
     "description": "",
     "image": "41341_0.png"
+  },
+  {
+    "id": "clothing:41365",
+    "name": "Merlin's Wizard Hat with Beard",
+    "type": "41365",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53705",
@@ -41633,6 +44896,19 @@
     "tags": [],
     "description": "",
     "image": "74375_0.png"
+  },
+  {
+    "id": "clothing:65313",
+    "name": "Mickey Cowboy Hat Furni Version",
+    "type": "65313",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:52314",
@@ -43043,6 +46319,19 @@
     "image": "41530_0.png"
   },
   {
+    "id": "clothing:41035",
+    "name": "Mickey Ears Deep Red",
+    "type": "41035",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41072",
     "name": "Mickey Ears Dreams",
     "type": "41072",
@@ -43582,6 +46871,19 @@
     "image": "41622_0.png"
   },
   {
+    "id": "clothing:41039",
+    "name": "Mickey Ears Teal",
+    "type": "41039",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41004",
     "name": "Mickey Ears Traditional",
     "type": "41004",
@@ -43602,6 +46904,19 @@
     "tags": [],
     "description": "",
     "image": "52246_0.png"
+  },
+  {
+    "id": "clothing:52239",
+    "name": "Mickey Ears Visor - Blue",
+    "type": "52239",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:52240",
@@ -43626,6 +46941,19 @@
     "image": "52245_0.png"
   },
   {
+    "id": "clothing:52241",
+    "name": "Mickey Ears Visor - Pink",
+    "type": "52241",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52247",
     "name": "Mickey Ears Visor - Pride",
     "type": "52247",
@@ -43637,6 +46965,45 @@
     "image": "52247_0.png"
   },
   {
+    "id": "clothing:52244",
+    "name": "Mickey Ears Visor - Purple",
+    "type": "52244",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:52238",
+    "name": "Mickey Ears Visor - Red",
+    "type": "52238",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:52242",
+    "name": "Mickey Ears Visor - Yellow",
+    "type": "52242",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41557",
     "name": "Mickey Ears YoYo Flamingo",
     "type": "41557",
@@ -43646,6 +47013,32 @@
     "tags": [],
     "description": "",
     "image": "41557_0.png"
+  },
+  {
+    "id": "clothing:6267",
+    "name": "Mickey Ears- Mater",
+    "type": "6267",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:41418",
+    "name": "Mickey Fuzzy Winter Hat",
+    "type": "41418",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:54420",
@@ -44550,6 +47943,19 @@
     "image": "75017_0.png"
   },
   {
+    "id": "clothing:44656",
+    "name": "Minne Dress Polka Dot Pink",
+    "type": "44656",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:31005",
     "name": "Minnie Beanie Red",
     "type": "31005",
@@ -44603,6 +48009,19 @@
     "tags": [],
     "description": "",
     "image": "44901_0.png"
+  },
+  {
+    "id": "clothing:65314",
+    "name": "Minnie Cowgirl Hat Prize Furni Version",
+    "type": "65314",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53106",
@@ -44946,6 +48365,19 @@
     "image": "52041_0.png"
   },
   {
+    "id": "clothing:41301",
+    "name": "Minnie Ears Polka Dot Pink",
+    "type": "41301",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41299",
     "name": "Minnie Ears Polka Dot Red",
     "type": "41299",
@@ -45021,6 +48453,19 @@
     "tags": [],
     "description": "",
     "image": "41564_0.png"
+  },
+  {
+    "id": "clothing:41417",
+    "name": "Minnie Fuzzy Winter Hat",
+    "type": "41417",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53157",
@@ -45947,6 +49392,19 @@
     "image": "74606_0.png"
   },
   {
+    "id": "clothing:41537",
+    "name": "Mortimer Mouse Hat",
+    "type": "41537",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:48558",
     "name": "Mother Gothel Shoes",
     "type": "48558",
@@ -46055,6 +49513,19 @@
     "tags": [],
     "description": "",
     "image": "84012_0.png"
+  },
+  {
+    "id": "clothing:84195",
+    "name": "Mount - Luca's Vespa",
+    "type": "84195",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:75318",
@@ -46398,6 +49869,110 @@
     "image": "75690_0.png"
   },
   {
+    "id": "clothing:54602",
+    "name": "Mr. Smee's Hat - Blue",
+    "type": "54602",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54604",
+    "name": "Mr. Smee's Hat - Dark Blue",
+    "type": "54604",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54607",
+    "name": "Mr. Smee's Hat - Dark Purple",
+    "type": "54607",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54601",
+    "name": "Mr. Smee's Hat - Gold",
+    "type": "54601",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:31060",
+    "name": "Mr. Smee's Hat - Pink",
+    "type": "31060",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54606",
+    "name": "Mr. Smee's Hat - Purple",
+    "type": "54606",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54605",
+    "name": "Mr. Smee's Hat - Seafoam",
+    "type": "54605",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54603",
+    "name": "Mr. Smee's Hat - White",
+    "type": "54603",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53994",
     "name": "Mr. Smee's Rainbow Hat",
     "type": "53994",
@@ -46440,6 +50015,84 @@
     "tags": [],
     "description": "",
     "image": "24200_0.png"
+  },
+  {
+    "id": "clothing:76667",
+    "name": "Mr. Smee's Shirt - Dark Blue",
+    "type": "76667",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76668",
+    "name": "Mr. Smee's Shirt - Dark Purple",
+    "type": "76668",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76669",
+    "name": "Mr. Smee's Shirt - Pink",
+    "type": "76669",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76664",
+    "name": "Mr. Smee's Shirt - Purple",
+    "type": "76664",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76665",
+    "name": "Mr. Smee's Shirt - Seafoam",
+    "type": "76665",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76666",
+    "name": "Mr. Smee's Shirt - White",
+    "type": "76666",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:74272",
@@ -46981,6 +50634,19 @@
     "image": "48566_0.png"
   },
   {
+    "id": "clothing:44763",
+    "name": "NBC Lock shirt",
+    "type": "44763",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:53068",
     "name": "NBC Mayor Head",
     "type": "53068",
@@ -47056,6 +50722,19 @@
     "tags": [],
     "description": "",
     "image": "46681_0.png"
+  },
+  {
+    "id": "clothing:44764",
+    "name": "NBC Shock shirt",
+    "type": "44764",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:75585",
@@ -49621,6 +53300,19 @@
     "image": "74616_0.png"
   },
   {
+    "id": "clothing:45016",
+    "name": "Orange Bird Bathing Suit",
+    "type": "45016",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:46835",
     "name": "Orange Bird Bathing Suit Bottom",
     "type": "46835",
@@ -49685,6 +53377,19 @@
     "tags": [],
     "description": "",
     "image": "45153_0.png"
+  },
+  {
+    "id": "clothing:45129",
+    "name": "Organization 13 Top",
+    "type": "45129",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:42009",
@@ -50303,6 +54008,19 @@
     "image": "74352_0.png"
   },
   {
+    "id": "clothing:54589",
+    "name": "Pancake Stack Hat",
+    "type": "54589",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:36020",
     "name": "Pants Capri Brown",
     "type": "36020",
@@ -50862,6 +54580,19 @@
     "tags": [],
     "description": "",
     "image": "75732_0.png"
+  },
+  {
+    "id": "clothing:75731",
+    "name": "Passover - Seder Plate Shirt",
+    "type": "75731",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82481",
@@ -51731,6 +55462,19 @@
     "tags": [],
     "description": "",
     "image": "44616_0.png"
+  },
+  {
+    "id": "clothing:44617",
+    "name": "Pirate Jacket White - Red Vest",
+    "type": "44617",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:46001",
@@ -53471,6 +57215,32 @@
     "image": "48540_0.png"
   },
   {
+    "id": "clothing:48138",
+    "name": "Princess Black Starry Night Hooped Skirt",
+    "type": "48138",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76758",
+    "name": "Princess Black with White Gloves Bodice",
+    "type": "76758",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:34150",
     "name": "Princess Blue Bodice",
     "type": "34150",
@@ -53513,6 +57283,19 @@
     "tags": [],
     "description": "",
     "image": "76647_0.png"
+  },
+  {
+    "id": "clothing:48095",
+    "name": "Princess Bubblegum Hooped Skirt",
+    "type": "48095",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:44838",
@@ -53612,6 +57395,58 @@
     "tags": [],
     "description": "",
     "image": "54292_0.png"
+  },
+  {
+    "id": "clothing:54655",
+    "name": "Princess Hat Crown - 'Tis the Night",
+    "type": "54655",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54654",
+    "name": "Princess Hat Crown - Minty Fresh",
+    "type": "54654",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54656",
+    "name": "Princess Hat Crown - Rainbow All the Way",
+    "type": "54656",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54657",
+    "name": "Princess Hat Crown - The Queen Has Arrived",
+    "type": "54657",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:41531",
@@ -53823,6 +57658,19 @@
     "image": "52344_0.png"
   },
   {
+    "id": "clothing:48093",
+    "name": "Princess Orange Hooped Skirt",
+    "type": "48093",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:34148",
     "name": "Princess Pink Bodice",
     "type": "34148",
@@ -53856,6 +57704,32 @@
     "image": "38012_0.png"
   },
   {
+    "id": "clothing:48139",
+    "name": "Princess Purple Starry Night Hooped Skirt",
+    "type": "48139",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76759",
+    "name": "Princess Purple with Cream Gloves Bodice",
+    "type": "76759",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:44716",
     "name": "Princess Rapunzel's Shirt",
     "type": "44716",
@@ -53878,6 +57752,45 @@
     "image": "46670_0.png"
   },
   {
+    "id": "clothing:48140",
+    "name": "Princess Royal Blue Starry Night Hooped Skirt",
+    "type": "48140",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76760",
+    "name": "Princess Royal Blue with Teal Gloves Bodice",
+    "type": "76760",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48094",
+    "name": "Princess Seafoam Hooped Skirt",
+    "type": "48094",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:49291",
     "name": "Princess Slippers - Lovely Pink",
     "type": "49291",
@@ -53889,6 +57802,58 @@
     "image": "49291_0.png"
   },
   {
+    "id": "clothing:54631",
+    "name": "Princess Tiara Mickey Ears Black - Green",
+    "type": "54631",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54632",
+    "name": "Princess Tiara Mickey Ears Black - Purple",
+    "type": "54632",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54629",
+    "name": "Princess Tiara Mickey Ears Red - Silver",
+    "type": "54629",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:31054",
+    "name": "Princess Tiara Pink",
+    "type": "31054",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:31001",
     "name": "Princess Tiara Silver",
     "type": "31001",
@@ -53898,6 +57863,19 @@
     "tags": [],
     "description": "",
     "image": "31001_0.png"
+  },
+  {
+    "id": "clothing:72431",
+    "name": "Princess Tiara Silver Ornament (NOT A REAL HAT)",
+    "type": "72431",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53776",
@@ -53986,6 +57964,396 @@
     "tags": [],
     "description": "",
     "image": "38013_0.png"
+  },
+  {
+    "id": "clothing:49332",
+    "name": "Prom Black Shoes",
+    "type": "49332",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48119",
+    "name": "Prom Black Suit Pants",
+    "type": "48119",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76750",
+    "name": "Prom Black Vest Boys Suit",
+    "type": "76750",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76751",
+    "name": "Prom Black Vest Girls Suit",
+    "type": "76751",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54627",
+    "name": "Prom Orange Top Hat",
+    "type": "54627",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76739",
+    "name": "Prom Orange Vest Boys Suit",
+    "type": "76739",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76740",
+    "name": "Prom Orange Vest Girls Suit",
+    "type": "76740",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54624",
+    "name": "Prom Pink Ribbon Black Top Hat",
+    "type": "54624",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49331",
+    "name": "Prom Pink Shoes",
+    "type": "49331",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76745",
+    "name": "Prom Pink Vest Boys Suit",
+    "type": "76745",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76746",
+    "name": "Prom Pink Vest Girls Suit",
+    "type": "76746",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49336",
+    "name": "Prom Purple Shoes",
+    "type": "49336",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48134",
+    "name": "Prom Purple Suit Pants",
+    "type": "48134",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54649",
+    "name": "Prom Purple Top Hat",
+    "type": "54649",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54650",
+    "name": "Prom Royal Blue Top Hat",
+    "type": "54650",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76729",
+    "name": "Prom Seafoam Boys Suit",
+    "type": "76729",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76737",
+    "name": "Prom Seafoam Girls Suit",
+    "type": "76737",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49330",
+    "name": "Prom Seafoam Shoes",
+    "type": "49330",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48117",
+    "name": "Prom Seafoam Suit Pants",
+    "type": "48117",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54623",
+    "name": "Prom Seafoam Top Hat",
+    "type": "54623",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49335",
+    "name": "Prom Teal Shoes",
+    "type": "49335",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48135",
+    "name": "Prom Teal Suit Pants",
+    "type": "48135",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76757",
+    "name": "Prom Teal Vest Boys Suit",
+    "type": "76757",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76753",
+    "name": "Prom Teal Vest Girls Suit",
+    "type": "76753",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54652",
+    "name": "Prom White Ribbon Black Top Hat",
+    "type": "54652",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49334",
+    "name": "Prom White Shoes",
+    "type": "49334",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48136",
+    "name": "Prom White Suit Pants",
+    "type": "48136",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76756",
+    "name": "Prom Yellow Vest Boys Suit",
+    "type": "76756",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76755",
+    "name": "Prom Yellow Vest Girls Suit",
+    "type": "76755",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:70619",
+    "name": "Proto Zoa Hair",
+    "type": "70619",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:52304",
@@ -55044,6 +59412,19 @@
     "image": "41749_0.png"
   },
   {
+    "id": "clothing:41769",
+    "name": "Reindeer Headband - Rudolph",
+    "type": "41769",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:47687",
     "name": "Relaxed Overalls - Pants",
     "type": "47687",
@@ -55284,6 +59665,19 @@
     "tags": [],
     "description": "",
     "image": "41612_0.png"
+  },
+  {
+    "id": "clothing:6547",
+    "name": "Reuben/Hat Bundle",
+    "type": "6547",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:46757",
@@ -55924,6 +60318,45 @@
     "image": "52352_0.png"
   },
   {
+    "id": "clothing:3990579",
+    "name": "Royal Crown - King Stefan",
+    "type": "3990579",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:3990581",
+    "name": "Royal Crown - Prince John",
+    "type": "3990581",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:3990580",
+    "name": "Royal Crown - Prince Naveen",
+    "type": "3990580",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:74162",
     "name": "Royal Jacket",
     "type": "74162",
@@ -56340,6 +60773,19 @@
     "tags": [],
     "description": "",
     "image": "74629_0.png"
+  },
+  {
+    "id": "clothing:74626",
+    "name": "Sally Slater Top BROKEN",
+    "type": "74626",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:52407",
@@ -57011,6 +61457,19 @@
     "tags": [],
     "description": "",
     "image": "74624_0.png"
+  },
+  {
+    "id": "clothing:41375",
+    "name": "Schweetz's Host Hat",
+    "type": "41375",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:83160",
@@ -57693,6 +62152,19 @@
     "tags": [],
     "description": "",
     "image": "74451_0.png"
+  },
+  {
+    "id": "clothing:31055",
+    "name": "ShellieMay Hat",
+    "type": "31055",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:41528",
@@ -59708,6 +64180,19 @@
     "image": "53387_0.png"
   },
   {
+    "id": "clothing:53394",
+    "name": "Silly Chip and Dale Pie Hat",
+    "type": "53394",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:47969",
     "name": "Silver Baggy Pants - Red Hearts",
     "type": "47969",
@@ -59750,6 +64235,19 @@
     "tags": [],
     "description": "",
     "image": "31058_0.png"
+  },
+  {
+    "id": "clothing:70741",
+    "name": "Simple And Short Hair",
+    "type": "70741",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53777",
@@ -59983,6 +64481,19 @@
     "image": "46610_0.png"
   },
   {
+    "id": "clothing:46598",
+    "name": "Skirt Flared Cherries",
+    "type": "46598",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:46622",
     "name": "Skirt Flared Cyan",
     "type": "46622",
@@ -60025,6 +64536,32 @@
     "tags": [],
     "description": "",
     "image": "46590_0.png"
+  },
+  {
+    "id": "clothing:46594",
+    "name": "Skirt Flared Floral Black and White",
+    "type": "46594",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:46595",
+    "name": "Skirt Flared Fractals",
+    "type": "46595",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:46614",
@@ -60080,6 +64617,19 @@
     "tags": [],
     "description": "",
     "image": "46593_0.png"
+  },
+  {
+    "id": "clothing:46596",
+    "name": "Skirt Flared Pink Flower",
+    "type": "46596",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:46608",
@@ -61435,6 +65985,19 @@
     "image": "53242_0.png"
   },
   {
+    "id": "clothing:47879",
+    "name": "SpaceCore Baggy Pants",
+    "type": "47879",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:76048",
     "name": "SpaceCore Coat",
     "type": "76048",
@@ -62667,6 +67230,19 @@
     "image": "52184_0.png"
   },
   {
+    "id": "clothing:41071",
+    "name": "Straw Hat Blue",
+    "type": "41071",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41069",
     "name": "Straw Hat Gold",
     "type": "41069",
@@ -62678,6 +67254,19 @@
     "image": "41069_0.png"
   },
   {
+    "id": "clothing:72460",
+    "name": "Straw Hat Gold Ornament (NOT A REAL HAT)",
+    "type": "72460",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52185",
     "name": "Straw Hat Pink",
     "type": "52185",
@@ -62687,6 +67276,19 @@
     "tags": [],
     "description": "",
     "image": "52185_0.png"
+  },
+  {
+    "id": "clothing:41070",
+    "name": "Straw Hat Pink",
+    "type": "41070",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:54578",
@@ -62918,6 +67520,84 @@
     "tags": [],
     "description": "",
     "image": "49038_0.png"
+  },
+  {
+    "id": "clothing:76770",
+    "name": "Summer Tank Top - Black",
+    "type": "76770",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76765",
+    "name": "Summer Tank Top - Grey",
+    "type": "76765",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76769",
+    "name": "Summer Tank Top - Pastel Pink",
+    "type": "76769",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76768",
+    "name": "Summer Tank Top - Pastel Yellow",
+    "type": "76768",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76762",
+    "name": "Summer Tank Top - Sage Green",
+    "type": "76762",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:76766",
+    "name": "Summer Tank Top - White",
+    "type": "76766",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53706",
@@ -63712,6 +68392,19 @@
     "image": "47746_0.png"
   },
   {
+    "id": "clothing:47743",
+    "name": "Sweat Pants - Pink/White",
+    "type": "47743",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:47734",
     "name": "Sweat Pants - Red/Yellow",
     "type": "47734",
@@ -63820,6 +68513,58 @@
     "tags": [],
     "description": "",
     "image": "74344_0.png"
+  },
+  {
+    "id": "clothing:48149",
+    "name": "Swim Board Shorts - Black",
+    "type": "48149",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48147",
+    "name": "Swim Board Shorts - Light Blue",
+    "type": "48147",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48150",
+    "name": "Swim Board Shorts - Red",
+    "type": "48150",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48152",
+    "name": "Swim Board Shorts - White",
+    "type": "48152",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53708",
@@ -64152,6 +68897,19 @@
     "image": "75922_0.png"
   },
   {
+    "id": "clothing:74401",
+    "name": "T-Shirt - Amy's Fanclub",
+    "type": "74401",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:76562",
     "name": "T-Shirt - Antique",
     "type": "76562",
@@ -64238,6 +68996,19 @@
     "tags": [],
     "description": "",
     "image": "76157_0.png"
+  },
+  {
+    "id": "clothing:76749",
+    "name": "T-Shirt - Canada",
+    "type": "76749",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:76450",
@@ -64348,6 +69119,19 @@
     "tags": [],
     "description": "",
     "image": "74328_0.png"
+  },
+  {
+    "id": "clothing:74323",
+    "name": "T-Shirt - Expedition Everest",
+    "type": "74323",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:44820",
@@ -64821,6 +69605,19 @@
     "tags": [],
     "description": "",
     "image": "76007_0.png"
+  },
+  {
+    "id": "clothing:76747",
+    "name": "T-Shirt - Stitch 626",
+    "type": "76747",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:74474",
@@ -66273,6 +71070,19 @@
     "tags": [],
     "description": "",
     "image": "44213_0.png"
+  },
+  {
+    "id": "clothing:75805",
+    "name": "T-Shirt Long Sleeve - MyVMK Amy Pink",
+    "type": "75805",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:44174",
@@ -68209,6 +73019,19 @@
     "tags": [],
     "description": "",
     "image": "44011_0.png"
+  },
+  {
+    "id": "clothing:44509",
+    "name": "T-Shirt Tink Blue",
+    "type": "44509",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:44019",
@@ -70532,6 +75355,19 @@
     "image": "24144_0.png"
   },
   {
+    "id": "clothing:24141",
+    "name": "Tank Top VMK Light Green",
+    "type": "24141",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:24147",
     "name": "Tank Top VMK Magenta",
     "type": "24147",
@@ -70565,6 +75401,19 @@
     "image": "24145_0.png"
   },
   {
+    "id": "clothing:70542",
+    "name": "Tarzan Hair",
+    "type": "70542",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:47182",
     "name": "Tarzan Loincloth",
     "type": "47182",
@@ -70574,6 +75423,19 @@
     "tags": [],
     "description": "",
     "image": "47182_0.png"
+  },
+  {
+    "id": "clothing:41665",
+    "name": "Teacup Hat",
+    "type": "41665",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53846",
@@ -70717,6 +75579,19 @@
     "tags": [],
     "description": "",
     "image": "41090_0.png"
+  },
+  {
+    "id": "clothing:48636",
+    "name": "Testing Shoes",
+    "type": "48636",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:75571",
@@ -71555,6 +76430,32 @@
     "image": "53215_0.png"
   },
   {
+    "id": "clothing:54645",
+    "name": "Tiara - Grom Queen",
+    "type": "54645",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54644",
+    "name": "Tiara - Killer Queen",
+    "type": "54644",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:70720",
     "name": "Tidus - Hair",
     "type": "70720",
@@ -71841,6 +76742,19 @@
     "image": "46729_0.png"
   },
   {
+    "id": "clothing:53661",
+    "name": "Tinkerbell's Thimble Hat",
+    "type": "53661",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:83997",
     "name": "To the Beat of My Heart",
     "type": "83997",
@@ -71960,6 +76874,19 @@
     "tags": [],
     "description": "",
     "image": "83626_0.png"
+  },
+  {
+    "id": "clothing:69017",
+    "name": "Toontown Coat Rack",
+    "type": "69017",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:53904",
@@ -73326,6 +78253,58 @@
     "image": "44255_0.png"
   },
   {
+    "id": "clothing:48089",
+    "name": "Tron Pants - Black",
+    "type": "48089",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48090",
+    "name": "Tron Pants - Green",
+    "type": "48090",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48091",
+    "name": "Tron Pants - Purple",
+    "type": "48091",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:48092",
+    "name": "Tron Pants - White",
+    "type": "48092",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:48026",
     "name": "Tron Pink Boots",
     "type": "48026",
@@ -74050,6 +79029,45 @@
     "tags": [],
     "description": "",
     "image": "44275_0.png"
+  },
+  {
+    "id": "clothing:54676",
+    "name": "UFO Hat - Blue",
+    "type": "54676",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54670",
+    "name": "UFO Hat - Green",
+    "type": "54670",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:54674",
+    "name": "UFO Hat - Red",
+    "type": "54674",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:48773",
@@ -75878,6 +80896,19 @@
     "image": "83171_0.png"
   },
   {
+    "id": "clothing:52807",
+    "name": "Wide Brim Hat - Burgundy",
+    "type": "52807",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:52808",
     "name": "Wide Brim Hat - Charcoal",
     "type": "52808",
@@ -76461,6 +81492,19 @@
     "image": "80014_0.png"
   },
   {
+    "id": "clothing:82455",
+    "name": "Wings - Crystal Fairy",
+    "type": "82455",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:59134",
     "name": "Wings - Cupid",
     "type": "59134",
@@ -76591,6 +81635,19 @@
     "tags": [],
     "description": "",
     "image": "59020_0.png"
+  },
+  {
+    "id": "clothing:83555",
+    "name": "Wings - Fairy Lights Dark",
+    "type": "83555",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:83564",
@@ -77108,6 +82165,19 @@
     "tags": [],
     "description": "",
     "image": "82366_0.png"
+  },
+  {
+    "id": "clothing:82365",
+    "name": "Wings - Red Roses and Pearls",
+    "type": "82365",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:82208",
@@ -78045,6 +83115,32 @@
     "image": "82866_0.png"
   },
   {
+    "id": "clothing:41937",
+    "name": "Winter Soldier Mask",
+    "type": "41937",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:45019",
+    "name": "Winter Soldier Top",
+    "type": "45019",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41158",
     "name": "Winter Teal Beanie",
     "type": "41158",
@@ -78683,6 +83779,19 @@
     "image": "52111_0.png"
   },
   {
+    "id": "clothing:52201",
+    "name": "Yensid Beard",
+    "type": "52201",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "clothing:41658",
     "name": "Yeti Hat",
     "type": "41658",
@@ -78923,6 +84032,19 @@
     "tags": [],
     "description": "",
     "image": "47471_0.png"
+  },
+  {
+    "id": "clothing:74763",
+    "name": "Zeus Toga Top",
+    "type": "74763",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "clothing:74764",
@@ -79178,6 +84300,19 @@
     "image": "76029_0.png"
   },
   {
+    "id": "pin:3411",
+    "name": " American McGee Cheshire Pin",
+    "type": "3411",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:3989053",
     "name": "\"With love\" from Mulan",
     "type": "3989053",
@@ -79209,6 +84344,19 @@
     "tags": [],
     "description": "",
     "image": "3989054_0.png"
+  },
+  {
+    "id": "pin:8908",
+    "name": "(1) Mystery Pin - Pixar Car Show Collection",
+    "type": "8908",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3988922",
@@ -87142,6 +92290,19 @@
     "image": "3989751_0.png"
   },
   {
+    "id": "pin:6939",
+    "name": "Comic - Iron Man Pin",
+    "type": "6939",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:6927",
     "name": "Comic - Starlord Pin",
     "type": "6927",
@@ -87151,6 +92312,32 @@
     "tags": [],
     "description": "",
     "image": "6927_0.png"
+  },
+  {
+    "id": "pin:6968",
+    "name": "Comic- Hulk Pin",
+    "type": "6968",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:6970",
+    "name": "Comic- Vision Pin",
+    "type": "6970",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3989566",
@@ -93995,6 +99182,19 @@
     "image": "5116_0.png"
   },
   {
+    "id": "pin:5041",
+    "name": "Epcot Pin",
+    "type": "5041",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:3989872",
     "name": "Epic Mickey - Animatronic Donald",
     "type": "3989872",
@@ -96228,6 +101428,45 @@
     "image": "2006_0.png"
   },
   {
+    "id": "pin:2239",
+    "name": "Fireworks Remixed Bronze Pin",
+    "type": "2239",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:2241",
+    "name": "Fireworks Remixed Gold Pin",
+    "type": "2241",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:2240",
+    "name": "Fireworks Remixed Silver Pin",
+    "type": "2240",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:8213",
     "name": "First Mate Sam Eagle",
     "type": "8213",
@@ -97922,6 +103161,45 @@
     "image": "5458_0.png"
   },
   {
+    "id": "pin:66504",
+    "name": "Furni - Ember Bride Pin",
+    "type": "66504",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:66507",
+    "name": "Furni - Ember Hatbox Ghost Pin",
+    "type": "66507",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:65848",
+    "name": "Furni Pin LNY Year of the Dragon",
+    "type": "65848",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:2263",
     "name": "Futureworld - Imagination",
     "type": "2263",
@@ -98041,6 +103319,71 @@
     "tags": [],
     "description": "",
     "image": "6952_0.png"
+  },
+  {
+    "id": "pin:6950",
+    "name": "GOTG Sticker - Gamora Pin",
+    "type": "6950",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:6957",
+    "name": "GOTG Sticker - Mantis Pin",
+    "type": "6957",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:6949",
+    "name": "GOTG Sticker - Nebula Pin",
+    "type": "6949",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:6951",
+    "name": "GOTG Sticker - Rocket Pin",
+    "type": "6951",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:6944",
+    "name": "GOTG Sticker- Groot Pin",
+    "type": "6944",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3989696",
@@ -98890,6 +104233,19 @@
     "image": "6042_0.png"
   },
   {
+    "id": "pin:6323",
+    "name": "Glass Fower Pin",
+    "type": "6323",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:2852",
     "name": "Gloria",
     "type": "2852",
@@ -99451,6 +104807,19 @@
     "image": "5673_0.png"
   },
   {
+    "id": "pin:6933",
+    "name": "HYDRA Pin",
+    "type": "6933",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:4406",
     "name": "Hades Flame Skull",
     "type": "4406",
@@ -99867,6 +105236,19 @@
     "tags": [],
     "description": "",
     "image": "4319_0.png"
+  },
+  {
+    "id": "pin:2203",
+    "name": "Halloween 06 Pin",
+    "type": "2203",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3988862",
@@ -101792,6 +107174,19 @@
     "tags": [],
     "description": "",
     "image": "8535_0.png"
+  },
+  {
+    "id": "pin:2215",
+    "name": "Holiday 2006 - Christmas Pin",
+    "type": "2215",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:2214",
@@ -106095,6 +111490,19 @@
     "image": "3430_0.png"
   },
   {
+    "id": "pin:6761",
+    "name": "Lady Pin",
+    "type": "6761",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:5153",
     "name": "Lady and the Tramp 01 of 15",
     "type": "5153",
@@ -109538,6 +114946,19 @@
     "image": "3426_0.png"
   },
   {
+    "id": "pin:2354",
+    "name": "Magic Checkers Pin",
+    "type": "2354",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:5117",
     "name": "Magic Kingdom Pin",
     "type": "5117",
@@ -112066,6 +117487,19 @@
     "tags": [],
     "description": "",
     "image": "6467_0.png"
+  },
+  {
+    "id": "pin:8853",
+    "name": "Mickey Shrub pin",
+    "type": "8853",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3815",
@@ -115027,6 +120461,19 @@
     "image": "2236_0.png"
   },
   {
+    "id": "pin:2367",
+    "name": "New Year 2008 Pin",
+    "type": "2367",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:2434",
     "name": "New Year's - 2014",
     "type": "2434",
@@ -115146,6 +120593,19 @@
     "tags": [],
     "description": "",
     "image": "3990363_0.png"
+  },
+  {
+    "id": "pin:2212",
+    "name": "New Year's 2007 Pin",
+    "type": "2212",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3990364",
@@ -117865,6 +123325,19 @@
     "image": "3990180_0.png"
   },
   {
+    "id": "pin:5016",
+    "name": "Pie Pin (Do not use)",
+    "type": "5016",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:3990541",
     "name": "Piece of Cake - Belle",
     "type": "3990541",
@@ -119966,6 +125439,19 @@
     "image": "8062_0.png"
   },
   {
+    "id": "pin:8321",
+    "name": "Preferred Pronoun Pin - It/Its",
+    "type": "8321",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:8063",
     "name": "Preferred Pronoun Pin - She/Her",
     "type": "8063",
@@ -120008,6 +125494,19 @@
     "tags": [],
     "description": "",
     "image": "6848_0.png"
+  },
+  {
+    "id": "pin:2394",
+    "name": "President's Day Pin",
+    "type": "2394",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:2395",
@@ -121726,6 +127225,19 @@
     "image": "4271_0.png"
   },
   {
+    "id": "pin:4316",
+    "name": "RF - Mystery KP Pin",
+    "type": "4316",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:8889",
     "name": "RF - Queen of Clubs - Spring Sprite",
     "type": "8889",
@@ -122463,6 +127975,19 @@
     "image": "2756_0.png"
   },
   {
+    "id": "pin:4146",
+    "name": "Retro Disney (1) Mystery - Pin",
+    "type": "4146",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:4141",
     "name": "Retro Disney - Adventureland",
     "type": "4141",
@@ -123013,6 +128538,19 @@
     "image": "8318_0.png"
   },
   {
+    "id": "pin:2646",
+    "name": "Room Pin - Club 33",
+    "type": "2646",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:3988640",
     "name": "Room Pin - Club Neon",
     "type": "3988640",
@@ -123231,6 +128769,19 @@
     "tags": [],
     "description": "",
     "image": "6103_0.png"
+  },
+  {
+    "id": "pin:2415",
+    "name": "Room Pin - High School Musical",
+    "type": "2415",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:5693",
@@ -123616,6 +129167,19 @@
     "tags": [],
     "description": "",
     "image": "2432_0.png"
+  },
+  {
+    "id": "pin:6101",
+    "name": "Room Pin - VMK Baseball Diamond",
+    "type": "6101",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3574",
@@ -124828,6 +130392,19 @@
     "image": "8967_0.png"
   },
   {
+    "id": "pin:8921",
+    "name": "Sidekicks (1) Mystery - Pin",
+    "type": "8921",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:8877",
     "name": "Sidekicks - Aladdin",
     "type": "8877",
@@ -125299,6 +130876,19 @@
     "tags": [],
     "description": "",
     "image": "3683_0.png"
+  },
+  {
+    "id": "pin:3477",
+    "name": "Sleeping Beauty 60th Anniversary Pin",
+    "type": "3477",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3988361",
@@ -127510,6 +133100,19 @@
     "tags": [],
     "description": "",
     "image": "8756_0.png"
+  },
+  {
+    "id": "pin:6818",
+    "name": "Star Wars Yoda Pin",
+    "type": "6818",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:2097",
@@ -130592,6 +136195,19 @@
     "image": "8148_0.png"
   },
   {
+    "id": "pin:2347",
+    "name": "Thanksgiving '07 Pin",
+    "type": "2347",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:2621",
     "name": "Thanksgiving - 2014",
     "type": "2621",
@@ -130689,6 +136305,19 @@
     "tags": [],
     "description": "",
     "image": "3990307_0.png"
+  },
+  {
+    "id": "pin:2218",
+    "name": "Thanksgiving 06 Pin",
+    "type": "2218",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:8532",
@@ -131527,6 +137156,19 @@
     "image": "2055_0.png"
   },
   {
+    "id": "pin:12055",
+    "name": "Tomorrowland Flying Saucer Retro Pin (1/5)",
+    "type": "12055",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:12058",
     "name": "Tomorrowland Motor Boat Retro Pin (4/5)",
     "type": "12058",
@@ -131560,6 +137202,19 @@
     "image": "2056_0.png"
   },
   {
+    "id": "pin:12056",
+    "name": "Tomorrowland People Mover Retro Pin (2/5)",
+    "type": "12056",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:2057",
     "name": "Tomorrowland Skyway Retro Pin (3/5)",
     "type": "2057",
@@ -131571,6 +137226,19 @@
     "image": "2057_0.png"
   },
   {
+    "id": "pin:12057",
+    "name": "Tomorrowland Skyway Retro Pin (3/5)",
+    "type": "12057",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:2059",
     "name": "Tomorrowland Submarine Voyage Retro Pin (5/5)",
     "type": "2059",
@@ -131580,6 +137248,19 @@
     "tags": [],
     "description": "",
     "image": "2059_0.png"
+  },
+  {
+    "id": "pin:12059",
+    "name": "Tomorrowland Submarine Voyage Retro Pin (5/5)",
+    "type": "12059",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:6983",
@@ -132922,6 +138603,149 @@
     "tags": [],
     "description": "",
     "image": "6651_0.png"
+  },
+  {
+    "id": "pin:8822",
+    "name": "Tsum Tsum (1) Mystery - Pin - ABL Collection",
+    "type": "8822",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:5979",
+    "name": "Tsum Tsum (1) Mystery - Pin - Big Hero 6 Collection",
+    "type": "5979",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8753",
+    "name": "Tsum Tsum (1) Mystery - Pin - HEA Collection - A = Princess",
+    "type": "8753",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8754",
+    "name": "Tsum Tsum (1) Mystery - Pin - HEA Collection - B - Prince",
+    "type": "8754",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8191",
+    "name": "Tsum Tsum (1) Mystery - Pin - Lilo & Stitch Collection",
+    "type": "8191",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8449",
+    "name": "Tsum Tsum (1) Mystery - Pin - NBC Collection",
+    "type": "8449",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8251",
+    "name": "Tsum Tsum (1) Mystery - Pin - POTC Collection",
+    "type": "8251",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8319",
+    "name": "Tsum Tsum (1) Mystery - Pin - TENG",
+    "type": "8319",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8205",
+    "name": "Tsum Tsum (1) Mystery - Pin - The Little Mermaid Collection",
+    "type": "8205",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:5978",
+    "name": "Tsum Tsum (1) Mystery - Pin - Toy Story Collection",
+    "type": "5978",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
+    "id": "pin:8667",
+    "name": "Tsum Tsum (1) Mystery - Pin - WTP Collection",
+    "type": "8667",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:6782",
@@ -135652,6 +141476,19 @@
     "image": "6369_0.png"
   },
   {
+    "id": "pin:6401",
+    "name": "Up - Russell Pin",
+    "type": "6401",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:8019",
     "name": "Up Balloons - Carl",
     "type": "8019",
@@ -135993,6 +141830,19 @@
     "image": "2741_0.png"
   },
   {
+    "id": "pin:2288",
+    "name": "VMK 2nd Birthday Pin",
+    "type": "2288",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:6188",
     "name": "VMK 3rd Birthday Pin",
     "type": "6188",
@@ -136046,6 +141896,19 @@
     "tags": [],
     "description": "",
     "image": "2158_0.png"
+  },
+  {
+    "id": "pin:2388",
+    "name": "VMK Bowl 2008 Pin",
+    "type": "2388",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:2064",
@@ -136123,6 +141986,19 @@
     "tags": [],
     "description": "",
     "image": "2201_0.png"
+  },
+  {
+    "id": "pin:2233",
+    "name": "VMK Race 07 Pin",
+    "type": "2233",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:5563",
@@ -136488,6 +142364,19 @@
     "image": "6948_0.png"
   },
   {
+    "id": "pin:2334",
+    "name": "VMKS 1st Time Reward Pin",
+    "type": "2334",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
+  },
+  {
     "id": "pin:12331",
     "name": "VMKS Key - Gold Single Use",
     "type": "12331",
@@ -136497,6 +142386,19 @@
     "tags": [],
     "description": "",
     "image": "12331_0.png"
+  },
+  {
+    "id": "pin:2368",
+    "name": "VMKS Level Pin",
+    "type": "2368",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:6830",
@@ -136860,6 +142762,19 @@
     "tags": [],
     "description": "",
     "image": "6318_0.png"
+  },
+  {
+    "id": "pin:6301",
+    "name": "Valentine's Schweetz Pin",
+    "type": "6301",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:6316",
@@ -139346,6 +145261,19 @@
     "tags": [],
     "description": "",
     "image": "3988881_0.png"
+  },
+  {
+    "id": "pin:3988905",
+    "name": "Western Emblem (1) Mystery - Pin",
+    "type": "3988905",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified"
+    ],
+    "description": "",
+    "image": "placeholder.png"
   },
   {
     "id": "pin:3988899",
