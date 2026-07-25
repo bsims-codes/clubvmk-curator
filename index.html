@@ -138,11 +138,18 @@ async function boot(){
 // ── shared DB layer ─────────────────────────────────────────────────────────
 async function pullFromDB(){
   try{
-    const {data,error}=await sb.from("overrides").select("item_id,tier");
-    if(error) throw error;
+    // PostgREST caps a response at 1000 rows — page through ALL overrides with a
+    // stable order so nothing is missed (otherwise some items show a stale rarity).
+    let all=[];
+    for(let f=0;;f+=1000){
+      const {data,error}=await sb.from("overrides").select("item_id,tier").order("item_id").range(f,f+999);
+      if(error) throw error;
+      all=all.concat(data||[]);
+      if(!data||data.length<1000) break;
+    }
     for(const it of items) rarity[it.id]="common";       // DB is the source of truth
-    for(const row of data) if(row.item_id in rarity) rarity[row.item_id]=row.tier;
-    setConn(true, `synced — ${data.length} tagged`);
+    for(const row of all) if(row.item_id in rarity) rarity[row.item_id]=row.tier;
+    setConn(true, `synced — ${all.length} tagged`);
   }catch(e){ setConn(false, "connect failed: "+(e.message||e)); banner("⚠ Could not reach Supabase — check the URL/key in config.js and that the table policy allows access. Error: "+(e.message||e)); }
 }
 
