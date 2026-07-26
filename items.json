@@ -7834,7 +7834,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54162_0.png"
   },
@@ -7977,7 +7981,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41623_0.png"
   },
@@ -7988,7 +7996,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54462_0.png"
   },
@@ -7999,7 +8011,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "52434_0.png"
   },
@@ -8010,7 +8026,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41915_0.png"
   },
@@ -8021,7 +8041,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41806_0.png"
   },
@@ -8032,7 +8056,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53233_0.png"
   },
@@ -8065,7 +8093,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "52380_0.png"
   },
@@ -8076,7 +8108,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53234_0.png"
   },
@@ -8087,7 +8123,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53235_0.png"
   },
@@ -8098,7 +8138,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54191_0.png"
   },
@@ -8109,7 +8153,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54573_0.png"
   },
@@ -8120,7 +8168,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54550_0.png"
   },
@@ -8132,9 +8184,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir1",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "54662_0.png"
@@ -8157,7 +8210,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41705_0.png"
   },
@@ -8168,7 +8225,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41802_0.png"
   },
@@ -8179,7 +8240,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53882_0.png"
   },
@@ -8190,7 +8255,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53316_0.png"
   },
@@ -8201,7 +8270,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53134_0.png"
   },
@@ -8212,7 +8285,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53236_0.png"
   },
@@ -8223,7 +8300,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "31057_0.png"
   },
@@ -8234,7 +8315,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54018_0.png"
   },
@@ -8245,7 +8330,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54017_0.png"
   },
@@ -8256,7 +8345,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53687_0.png"
   },
@@ -8267,7 +8360,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41669_0.png"
   },
@@ -8278,7 +8375,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53082_0.png"
   },
@@ -8289,7 +8390,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "53237_0.png"
   },
@@ -8300,7 +8405,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "52117_0.png"
   },
@@ -8311,7 +8420,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54546_0.png"
   },
@@ -8322,7 +8435,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41803_0.png"
   },
@@ -8333,7 +8450,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "42140_0.png"
   },
@@ -8344,7 +8465,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "52710_0.png"
   },
@@ -8355,7 +8480,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "52948_0.png"
   },
@@ -8366,7 +8495,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "54231_0.png"
   },
@@ -8377,7 +8510,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "41560_0.png"
   },
@@ -52247,7 +52384,11 @@
     "category": "clothing",
     "rarity": "common",
     "price": 0,
-    "tags": [],
+    "tags": [
+      "captured",
+      "dir1",
+      "sprite"
+    ],
     "description": "",
     "image": "52008_0.png"
   },
