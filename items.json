@@ -48,6 +48,22 @@
     "image": "70645_0.png"
   },
   {
+    "id": "clothing:42153",
+    "name": "",
+    "type": "42153",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite",
+      "unnamed"
+    ],
+    "description": "",
+    "image": "42153_0.png"
+  },
+  {
     "id": "clothing:42077",
     "name": " Mickey's Not So Scary Halloween Party Ears - 2018",
     "type": "42077",
@@ -40243,6 +40259,21 @@
     "image": "74178_0.png"
   },
   {
+    "id": "clothing:48121",
+    "name": "Leggings - Orange",
+    "type": "48121",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48121_0.png"
+  },
+  {
     "id": "clothing:59407",
     "name": "Lei - White",
     "type": "59407",
@@ -49922,10 +49953,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "84195_0.png"
   },
   {
     "id": "clothing:75318",
@@ -50330,10 +50363,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "31060_0.png"
   },
   {
     "id": "clothing:54606",
@@ -56378,6 +56413,21 @@
     "image": "49320_0.png"
   },
   {
+    "id": "clothing:49321",
+    "name": "Platforms - Pride Orange",
+    "type": "49321",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49321_0.png"
+  },
+  {
     "id": "clothing:49119",
     "name": "Platforms - Pride Rainbow",
     "type": "49119",
@@ -57836,10 +57886,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54655_0.png"
   },
   {
     "id": "clothing:54654",
@@ -62359,6 +62411,21 @@
     "image": "76774_0.png"
   },
   {
+    "id": "clothing:76776",
+    "name": "Seashell Tube Top - Orange",
+    "type": "76776",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76776_0.png"
+  },
+  {
     "id": "clothing:76777",
     "name": "Seashell Tube Top - Pink",
     "type": "76777",
@@ -64393,6 +64460,21 @@
     "tags": [],
     "description": "",
     "image": "82387_0.png"
+  },
+  {
+    "id": "clothing:84198",
+    "name": "Shoulder Pet - Luca's Goatfish",
+    "type": "84198",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84198_0.png"
   },
   {
     "id": "clothing:42170",
@@ -68121,10 +68203,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76768_0.png"
   },
   {
     "id": "clothing:76762",
@@ -79415,6 +79499,21 @@
     "tags": [],
     "description": "",
     "image": "47357_0.png"
+  },
+  {
+    "id": "clothing:84173",
+    "name": "Tutu - Pink",
+    "type": "84173",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84173_0.png"
   },
   {
     "id": "clothing:47230",
