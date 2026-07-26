@@ -72,6 +72,15 @@
       <option value="hold">🆕 hold / new (review)</option>
       <option value="__broken">⚠ broken images</option>
     </select>
+    <select id="ftag">
+      <option value="">All tags</option>
+      <option value="captured">📥 captured (extension)</option>
+      <option value="sprite">🎨 sprite-derived art</option>
+      <option value="thumb">🖼 thumbnail art</option>
+      <option value="unnamed">❓ unnamed in game</option>
+      <option value="unverified">unverified</option>
+      <option value="harvested">harvested (older)</option>
+    </select>
     <div class="bulk">
       <span style="color:var(--muted);font-size:12px">Set all shown →</span>
       <select id="bulkTier">
@@ -233,11 +242,12 @@ function cssEsc(s){ return (window.CSS&&CSS.escape)?CSS.escape(s):s.replace(/[^a
 
 function filtered(){
   const q=$("#search").value.trim().toLowerCase();
-  const fc=$("#fcat").value, fr=$("#frar").value;
+  const fc=$("#fcat").value, fr=$("#frar").value, ft=$("#ftag").value;
   return items.filter(it=>{
     if(fc && it.category!==fc) return false;
     if(fr==="__broken"){ if(!brokenSet.has(it.id)) return false; }
     else if(fr && rarity[it.id]!==fr) return false;
+    if(ft && !(it.tags||[]).includes(ft)) return false;
     if(q && !it.name.toLowerCase().includes(q)) return false;
     return true;
   });
@@ -297,6 +307,7 @@ function bindEvents(){
   $("#search").addEventListener("input",()=>{clearTimeout(deb);deb=setTimeout(()=>{lastClickedIdx=null;render();},180);});
   $("#fcat").addEventListener("change",()=>{lastClickedIdx=null;render();});
   $("#frar").addEventListener("change",()=>{lastClickedIdx=null;render();});
+  $("#ftag").addEventListener("change",()=>{lastClickedIdx=null;render();});
   grid.addEventListener("change",e=>{
     if(e.target.classList.contains("rar")){
       const id=e.target.dataset.id, val=e.target.value;
