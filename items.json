@@ -8606,10 +8606,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48078_0.png"
   },
   {
     "id": "clothing:26033",
@@ -8641,10 +8643,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76646_0.png"
   },
   {
     "id": "clothing:24184",
@@ -10746,10 +10750,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54401_0.png"
   },
   {
     "id": "clothing:52949",
@@ -11442,10 +11448,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54660_0.png"
   },
   {
     "id": "clothing:53980",
@@ -11510,10 +11518,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54646_0.png"
   },
   {
     "id": "clothing:53446",
@@ -14367,10 +14377,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49290_0.png"
   },
   {
     "id": "clothing:48077",
@@ -14380,10 +14392,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48077_0.png"
   },
   {
     "id": "clothing:48527",
@@ -14426,10 +14440,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76645_0.png"
   },
   {
     "id": "clothing:47429",
@@ -17896,10 +17912,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54616_0.png"
   },
   {
     "id": "clothing:54617",
@@ -17909,10 +17927,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54617_0.png"
   },
   {
     "id": "clothing:54618",
@@ -17922,10 +17942,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54618_0.png"
   },
   {
     "id": "clothing:53658",
@@ -21996,10 +22018,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48104_0.png"
   },
   {
     "id": "clothing:49322",
@@ -22009,10 +22033,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49322_0.png"
   },
   {
     "id": "clothing:76706",
@@ -22022,10 +22048,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76706_0.png"
   },
   {
     "id": "clothing:83151",
@@ -25160,6 +25188,21 @@
     "image": "48009_0.png"
   },
   {
+    "id": "clothing:49304",
+    "name": "Flip Flops - Dark Blue & White",
+    "type": "49304",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49304_0.png"
+  },
+  {
     "id": "clothing:48785",
     "name": "Flip Flops - Expedition Everest",
     "type": "48785",
@@ -25246,6 +25289,21 @@
     "tags": [],
     "description": "",
     "image": "48005_0.png"
+  },
+  {
+    "id": "clothing:49301",
+    "name": "Flip Flops - Purple & White",
+    "type": "49301",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49301_0.png"
   },
   {
     "id": "clothing:48006",
@@ -25821,6 +25879,21 @@
     "image": "44280_0.png"
   },
   {
+    "id": "clothing:54585",
+    "name": "Football Helmet - Black",
+    "type": "54585",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54585_0.png"
+  },
+  {
     "id": "clothing:54486",
     "name": "Football Helmet - Goofy's Bayou Buccaneers",
     "type": "54486",
@@ -25839,10 +25912,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48076_0.png"
   },
   {
     "id": "clothing:47970",
@@ -25863,10 +25938,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76644_0.png"
   },
   {
     "id": "clothing:76506",
@@ -27210,6 +27287,21 @@
     "tags": [],
     "description": "",
     "image": "53838_0.png"
+  },
+  {
+    "id": "clothing:84196",
+    "name": "Gills - Alberto",
+    "type": "84196",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84196_0.png"
   },
   {
     "id": "clothing:80001",
@@ -33406,6 +33498,21 @@
     "image": "83446_0.png"
   },
   {
+    "id": "clothing:84175",
+    "name": "Holdable - Grom Balloons",
+    "type": "84175",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84175_0.png"
+  },
+  {
     "id": "clothing:82249",
     "name": "Holdable - HM Bride's Axe",
     "type": "82249",
@@ -33965,6 +34072,21 @@
     "image": "82688_0.png"
   },
   {
+    "id": "clothing:84200",
+    "name": "Holdable - Paddle Board",
+    "type": "84200",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84200_0.png"
+  },
+  {
     "id": "clothing:83863",
     "name": "Holdable - Pawpsicle",
     "type": "83863",
@@ -34268,6 +34390,21 @@
     "tags": [],
     "description": "",
     "image": "84145_0.png"
+  },
+  {
+    "id": "clothing:84158",
+    "name": "Holdable - Stack of Pancakes",
+    "type": "84158",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84158_0.png"
   },
   {
     "id": "clothing:82635",
@@ -35700,6 +35837,21 @@
     "image": "48971_0.png"
   },
   {
+    "id": "clothing:76658",
+    "name": "Hong Kong Hooded Pullover Cyan",
+    "type": "76658",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76658_0.png"
+  },
+  {
     "id": "clothing:44245",
     "name": "Hong Kong Hooded Pullover Green",
     "type": "44245",
@@ -35729,10 +35881,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76656_0.png"
   },
   {
     "id": "clothing:44242",
@@ -36852,6 +37006,21 @@
     "tags": [],
     "description": "",
     "image": "54101_0.png"
+  },
+  {
+    "id": "clothing:54588",
+    "name": "Ice Cream Sundae Hat",
+    "type": "54588",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54588_0.png"
   },
   {
     "id": "clothing:52861",
@@ -42527,10 +42696,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76742_0.png"
   },
   {
     "id": "clothing:76741",
@@ -42553,10 +42724,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48115_0.png"
   },
   {
     "id": "clothing:49329",
@@ -42566,10 +42739,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49329_0.png"
   },
   {
     "id": "clothing:74572",
@@ -48296,6 +48471,21 @@
     "image": "44980_0.png"
   },
   {
+    "id": "clothing:84180",
+    "name": "Mini Flag - Canada",
+    "type": "84180",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84180_0.png"
+  },
+  {
     "id": "clothing:75060",
     "name": "Mini Flag - Fourth of July",
     "type": "75060",
@@ -50768,10 +50958,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76667_0.png"
   },
   {
     "id": "clothing:76668",
@@ -54048,6 +54240,96 @@
     "image": "74616_0.png"
   },
   {
+    "id": "clothing:76789",
+    "name": "Open Plaid Tank - Black",
+    "type": "76789",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76789_0.png"
+  },
+  {
+    "id": "clothing:76791",
+    "name": "Open Plaid Tank - Grey",
+    "type": "76791",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76791_0.png"
+  },
+  {
+    "id": "clothing:76787",
+    "name": "Open Plaid Tank - Light Blue",
+    "type": "76787",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76787_0.png"
+  },
+  {
+    "id": "clothing:76788",
+    "name": "Open Plaid Tank - Sage Green",
+    "type": "76788",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76788_0.png"
+  },
+  {
+    "id": "clothing:76792",
+    "name": "Open Plaid Tank - Tan",
+    "type": "76792",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76792_0.png"
+  },
+  {
+    "id": "clothing:76790",
+    "name": "Open Plaid Tank - White",
+    "type": "76790",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76790_0.png"
+  },
+  {
     "id": "clothing:45016",
     "name": "Orange Bird Bathing Suit",
     "type": "45016",
@@ -54763,10 +55045,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54589_0.png"
   },
   {
     "id": "clothing:36020",
@@ -56724,6 +57008,21 @@
     "image": "49318_0.png"
   },
   {
+    "id": "clothing:49319",
+    "name": "Platforms - Pride Lemon",
+    "type": "49319",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49319_0.png"
+  },
+  {
     "id": "clothing:49320",
     "name": "Platforms - Pride Lime",
     "type": "49320",
@@ -58227,10 +58526,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54654_0.png"
   },
   {
     "id": "clothing:54656",
@@ -58240,10 +58541,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54656_0.png"
   },
   {
     "id": "clothing:54657",
@@ -58783,10 +59086,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49332_0.png"
   },
   {
     "id": "clothing:48119",
@@ -58796,10 +59101,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48119_0.png"
   },
   {
     "id": "clothing:76750",
@@ -58809,10 +59116,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76750_0.png"
   },
   {
     "id": "clothing:76751",
@@ -58835,10 +59144,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54627_0.png"
   },
   {
     "id": "clothing:76739",
@@ -58848,10 +59159,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76739_0.png"
   },
   {
     "id": "clothing:76740",
@@ -58874,10 +59187,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54624_0.png"
   },
   {
     "id": "clothing:49331",
@@ -58887,10 +59202,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49331_0.png"
   },
   {
     "id": "clothing:76745",
@@ -58900,10 +59217,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76745_0.png"
   },
   {
     "id": "clothing:76746",
@@ -58926,10 +59245,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49336_0.png"
   },
   {
     "id": "clothing:48134",
@@ -58939,10 +59260,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48134_0.png"
   },
   {
     "id": "clothing:54649",
@@ -58952,10 +59275,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54649_0.png"
   },
   {
     "id": "clothing:54650",
@@ -58965,10 +59290,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54650_0.png"
   },
   {
     "id": "clothing:76729",
@@ -58978,10 +59305,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76729_0.png"
   },
   {
     "id": "clothing:76737",
@@ -59004,10 +59333,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49330_0.png"
   },
   {
     "id": "clothing:48117",
@@ -59017,10 +59348,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48117_0.png"
   },
   {
     "id": "clothing:54623",
@@ -59030,10 +59363,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54623_0.png"
   },
   {
     "id": "clothing:49335",
@@ -59043,10 +59378,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49335_0.png"
   },
   {
     "id": "clothing:48135",
@@ -59056,10 +59393,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48135_0.png"
   },
   {
     "id": "clothing:76757",
@@ -59069,10 +59408,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76757_0.png"
   },
   {
     "id": "clothing:76753",
@@ -59095,10 +59436,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54652_0.png"
   },
   {
     "id": "clothing:49334",
@@ -59108,10 +59451,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49334_0.png"
   },
   {
     "id": "clothing:48136",
@@ -59121,10 +59466,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48136_0.png"
   },
   {
     "id": "clothing:76756",
@@ -59134,10 +59481,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76756_0.png"
   },
   {
     "id": "clothing:76755",
@@ -70019,10 +70368,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76749_0.png"
   },
   {
     "id": "clothing:76450",
@@ -70628,10 +70979,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76747_0.png"
   },
   {
     "id": "clothing:74474",
@@ -77451,10 +77804,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54645_0.png"
   },
   {
     "id": "clothing:54644",
@@ -79267,6 +79622,66 @@
     "image": "44255_0.png"
   },
   {
+    "id": "clothing:54608",
+    "name": "Tron Helmet - Black",
+    "type": "54608",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54608_0.png"
+  },
+  {
+    "id": "clothing:54609",
+    "name": "Tron Helmet - Green",
+    "type": "54609",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54609_0.png"
+  },
+  {
+    "id": "clothing:54610",
+    "name": "Tron Helmet - Purple",
+    "type": "54610",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54610_0.png"
+  },
+  {
+    "id": "clothing:54611",
+    "name": "Tron Helmet - White",
+    "type": "54611",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54611_0.png"
+  },
+  {
     "id": "clothing:48089",
     "name": "Tron Pants - Black",
     "type": "48089",
@@ -79274,10 +79689,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48089_0.png"
   },
   {
     "id": "clothing:48090",
@@ -79287,10 +79704,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48090_0.png"
   },
   {
     "id": "clothing:48091",
@@ -79300,10 +79719,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48091_0.png"
   },
   {
     "id": "clothing:48092",
@@ -79313,10 +79734,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48092_0.png"
   },
   {
     "id": "clothing:48026",
@@ -79405,6 +79828,66 @@
     "tags": [],
     "description": "",
     "image": "76333_0.png"
+  },
+  {
+    "id": "clothing:76672",
+    "name": "Tron Vest - Black",
+    "type": "76672",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76672_0.png"
+  },
+  {
+    "id": "clothing:76673",
+    "name": "Tron Vest - Green",
+    "type": "76673",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76673_0.png"
+  },
+  {
+    "id": "clothing:76674",
+    "name": "Tron Vest - Purple",
+    "type": "76674",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76674_0.png"
+  },
+  {
+    "id": "clothing:76675",
+    "name": "Tron Vest - White",
+    "type": "76675",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76675_0.png"
   },
   {
     "id": "clothing:74087",
