@@ -100,6 +100,14 @@
              placeholder="Existing item — type to search…" />
       <button class="primary" id="sheetGo" disabled>Use selected frame as its image</button>
     </div>
+    <div class="row">
+      <span class="stats">Grid</span>
+      <input type="number" id="sheetCols" min="1" max="40" style="width:70px" title="columns" />
+      <span class="stats">×</span>
+      <input type="number" id="sheetRows" min="1" max="40" style="width:70px" title="rows" />
+      <button class="ghost" id="sheetReslice">Re-slice</button>
+      <span class="stats" id="sheetInfo"></span>
+    </div>
     <div class="frames" id="sheetFrames"><span class="stats">No sheet loaded.</span></div>
   </div>
 </details>
@@ -353,7 +361,90 @@ async function load() {
    frame manifest for it, so the frames are found by looking for the fully
    transparent gaps that separate them — which is how these sheets are laid out,
    whether that's a vertical strip or a grid. */
-let sheetImg = null, sheetFrames = [], sheetPick = -1;
+let sheetImg = null, sheetFrames = [], sheetPick = -1, sheetData = null;
+
+function showSheet(frames, how) {
+  sheetPick = -1;
+  sheetFrames = frames;
+  $("#sheetInfo").textContent =
+    `${sheetImg.width}×${sheetImg.height} · ${frames.length} frame(s) · ${how}`;
+  renderSheetFrames(); syncSheetBtn();
+}
+
+/* Pick the method that suits the sheet.
+
+   Gap-splitting is exact when the sprites are separated by clear transparent
+   margins, which is how the packaged atlases look. It collapses when they touch
+   — a tail reaching into the next cell merges a whole row — and that shows up as
+   a couple of frames swallowing most of the image. In that case the regular grid
+   is the better read. */
+function autoSlice() {
+  if (!sheetImg || !sheetData) return;
+  const W = sheetImg.width, H = sheetImg.height;
+  const gaps = detectFrames(sheetData, W, H);
+  const biggest = gaps.reduce((m, f) => Math.max(m, f.w * f.h), 0);
+  const collapsed = gaps.length < 3 && biggest > 0.4 * W * H;
+  if (gaps.length && !collapsed) {
+    showSheet(gaps, "split on transparent gaps");
+  } else {
+    resliceSheet("grid guessed from the sprite spacing");
+  }
+}
+
+function resliceSheet(how) {
+  if (!sheetImg || !sheetData) return;
+  const cols = Math.max(1, +$("#sheetCols").value || 1);
+  const rows = Math.max(1, +$("#sheetRows").value || 1);
+  let f = sliceGrid(sheetData, sheetImg.width, sheetImg.height, cols, rows);
+  if (!f.length) f = detectFrames(sheetData, sheetImg.width, sheetImg.height);
+  showSheet(f, typeof how === "string" ? how : `sliced ${cols}×${rows}`);
+}
+
+/* Guess the repeat pitch of a profile (column or row sums of opaque pixels).
+   Sprite sheets are laid out on a regular grid, so the strongest autocorrelation
+   lag is the cell size. Returns 1 when there's no convincing repeat — a single
+   column, say. */
+function guessCount(profile, span) {
+  const n = profile.length;
+  const mean = profile.reduce((a, b) => a + b, 0) / n;
+  const p = profile.map((v) => v - mean);
+  let best = null;
+  for (let T = 16; T <= Math.floor(n / 1.5); T++) {
+    let s = 0;
+    for (let i = 0; i + T < n; i++) s += p[i] * p[i + T];
+    s /= (n - T);
+    if (!best || s > best[0]) best = [s, T];
+  }
+  if (!best || best[0] <= 0) return 1;
+  // a cell narrower than this is noise, not a column of sprites
+  return Math.max(1, Math.min(Math.floor(n / 16), Math.round(n / best[1])));
+}
+
+/* Slice into a cols x rows grid, then trim each cell to its own content.
+
+   Gap-splitting alone isn't enough: on a busy sheet the figures touch (a tail
+   reaching into the next cell is all it takes) and every row collapses into one
+   blob. Slicing on the grid and trimming afterwards survives that, and empty
+   cells simply drop out. */
+function sliceGrid(data, W, H, cols, rows) {
+  const solid = (x, y) => data[(y * W + x) * 4 + 3] > 8;
+  const cw = W / cols, chh = H / rows, out = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const x0 = Math.floor(c * cw), x1 = Math.min(W, Math.floor((c + 1) * cw)) - 1;
+      const y0 = Math.floor(r * chh), y1 = Math.min(H, Math.floor((r + 1) * chh)) - 1;
+      let ax = x1 + 1, ay = y1 + 1, bx = x0 - 1, by = y0 - 1;
+      for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+        if (solid(x, y)) {
+          if (x < ax) ax = x; if (x > bx) bx = x;
+          if (y < ay) ay = y; if (y > by) by = y;
+        }
+      }
+      if (bx >= ax && by >= ay) out.push({ x: ax, y: ay, w: bx - ax + 1, h: by - ay + 1 });
+    }
+  }
+  return out.filter((f) => f.w > 3 && f.h > 3);
+}
 
 function detectFrames(data, W, H) {
   const solid = (x, y) => data[(y * W + x) * 4 + 3] > 8;
@@ -422,15 +513,30 @@ $("#sheetFile").onchange = (e) => {
     const g = c.getContext("2d");
     g.drawImage(im, 0, 0);
     const d = g.getImageData(0, 0, im.width, im.height).data;
-    sheetImg = im; sheetPick = -1;
-    sheetFrames = detectFrames(d, im.width, im.height);
-    note(`${im.width}×${im.height} — found ${sheetFrames.length} frame(s).`);
-    renderSheetFrames(); syncSheetBtn();
+    sheetImg = im; sheetPick = -1; sheetData = d;
+    // guess the grid from how the opaque pixels repeat, then let it be corrected
+    const colsP = [], rowsP = [];
+    for (let x = 0; x < im.width; x++) {
+      let n = 0;
+      for (let y = 0; y < im.height; y++) if (d[(y * im.width + x) * 4 + 3] > 8) n++;
+      colsP.push(n);
+    }
+    for (let y = 0; y < im.height; y++) {
+      let n = 0;
+      for (let x = 0; x < im.width; x++) if (d[(y * im.width + x) * 4 + 3] > 8) n++;
+      rowsP.push(n);
+    }
+    $("#sheetCols").value = guessCount(colsP, im.width);
+    $("#sheetRows").value = guessCount(rowsP, im.height);
+    autoSlice();
   };
   im.onerror = () => note("Couldn't read that image.", true);
   im.src = url;
 };
 $("#sheetTarget").oninput = syncSheetBtn;
+$("#sheetReslice").onclick = () => resliceSheet();
+$("#sheetCols").onchange = () => resliceSheet();
+$("#sheetRows").onchange = () => resliceSheet();
 
 $("#sheetGo").onclick = async () => {
   const target = catalogByLabel[$("#sheetTarget").value.trim()];
