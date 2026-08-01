@@ -106,6 +106,7 @@
       <span class="stats">×</span>
       <input type="number" id="sheetRows" min="1" max="40" style="width:70px" title="rows" />
       <button class="ghost" id="sheetReslice">Re-slice</button>
+      <label class="stats"><input type="checkbox" id="sheetSmooth" checked /> smooth upscale</label>
       <span class="stats" id="sheetInfo"></span>
     </div>
     <div class="frames" id="sheetFrames"><span class="stats">No sheet loaded.</span></div>
@@ -266,6 +267,39 @@ function loadImg(src) {
 
 const SPRITE_SCALE = 4;   // matches tools/vmk_merge_capture.py
 
+/* Draw a crop upscaled.
+
+   Nearest-neighbour is right for pixel art and wrong for these sprites, which
+   are rendered characters — blown up 4x with hard edges they look like mosaic.
+   Smoothing in steps (doubling at a time) keeps far more detail than one 4x
+   jump, and browsers only filter well over small ratios. */
+function upscale(src, sx, sy, sw, sh, scale, smooth) {
+  let cur = document.createElement("canvas");
+  cur.width = sw; cur.height = sh;
+  cur.getContext("2d").drawImage(src, sx, sy, sw, sh, 0, 0, sw, sh);
+  if (!smooth) {
+    const out = document.createElement("canvas");
+    out.width = sw * scale; out.height = sh * scale;
+    const g = out.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    g.drawImage(cur, 0, 0, out.width, out.height);
+    return out;
+  }
+  let f = scale;
+  while (f > 1) {
+    const step = f >= 2 ? 2 : f;
+    const next = document.createElement("canvas");
+    next.width = Math.round(cur.width * step);
+    next.height = Math.round(cur.height * step);
+    const g = next.getContext("2d");
+    g.imageSmoothingEnabled = true;
+    g.imageSmoothingQuality = "high";
+    g.drawImage(cur, 0, 0, next.width, next.height);
+    cur = next; f /= step;
+  }
+  return cur;
+}
+
 async function frameToPng(r, f) {
   const atlas = await loadImg(ATLAS(r.atlas));
   const c = document.createElement("canvas");
@@ -283,11 +317,8 @@ async function frameToPng(r, f) {
   }
   if (x1 < 0) throw new Error("that frame is empty");
   const w = x1 - x0 + 1, h = y1 - y0 + 1;
-  const out = document.createElement("canvas");
-  out.width = w * SPRITE_SCALE; out.height = h * SPRITE_SCALE;
-  const og = out.getContext("2d");
-  og.imageSmoothingEnabled = false;          // keep the pixels crisp when upscaling
-  og.drawImage(c, x0, y0, w, h, 0, 0, out.width, out.height);
+  const smooth = !$("#sheetSmooth") || $("#sheetSmooth").checked;
+  const out = upscale(c, x0, y0, w, h, SPRITE_SCALE, smooth);
   return new Promise((res, rej) =>
     out.toBlob((b) => (b ? res(b) : rej(new Error("couldn't encode the crop"))), "image/png"));
 }
@@ -594,11 +625,8 @@ $("#sheetGo").onclick = async () => {
   const f = sheetFrames[sheetPick];
   if (!f) return note("Click the frame you want.", true);
   try {
-    const c = document.createElement("canvas");
-    c.width = f.w * SPRITE_SCALE; c.height = f.h * SPRITE_SCALE;
-    const g = c.getContext("2d");
-    g.imageSmoothingEnabled = false;
-    g.drawImage(sheetImg, f.x, f.y, f.w, f.h, 0, 0, c.width, c.height);
+    const c = upscale(sheetImg, f.x, f.y, f.w, f.h, SPRITE_SCALE,
+                      $("#sheetSmooth").checked);
     const blob = await new Promise((res, rej) =>
       c.toBlob((b) => (b ? res(b) : rej(new Error("couldn't encode"))), "image/png"));
     const name = `${target.id.replace(/[^a-zA-Z0-9]+/g, "_")}_${Date.now()}.png`;
