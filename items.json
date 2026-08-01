@@ -90079,6 +90079,36 @@
     "image": "6680_0.png"
   },
   {
+    "id": "pin:3990657",
+    "name": "Blizzard Beach Series - Holiday in the Sun",
+    "type": "3990657",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "thumb"
+    ],
+    "description": "",
+    "image": "3990657_0.png"
+  },
+  {
+    "id": "pin:3990663",
+    "name": "Blizzard Beach Series - Mickey",
+    "type": "3990663",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "thumb"
+    ],
+    "description": "",
+    "image": "3990663_0.png"
+  },
+  {
     "id": "pin:3990665",
     "name": "Blizzard Beach Series - Mickey and Minnie",
     "type": "3990665",
@@ -90092,6 +90122,36 @@
     ],
     "description": "",
     "image": "3990665_0.png"
+  },
+  {
+    "id": "pin:3990664",
+    "name": "Blizzard Beach Series - Minnie",
+    "type": "3990664",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "thumb"
+    ],
+    "description": "",
+    "image": "3990664_0.png"
+  },
+  {
+    "id": "pin:3990658",
+    "name": "Blizzard Beach Series - Snow Much Fun",
+    "type": "3990658",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "thumb"
+    ],
+    "description": "",
+    "image": "3990658_0.png"
   },
   {
     "id": "pin:3542",
