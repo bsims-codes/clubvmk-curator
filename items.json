@@ -16043,6 +16043,21 @@
     "image": "82589_0.png"
   },
   {
+    "id": "clothing:84294",
+    "name": "Costume - Squirt",
+    "type": "84294",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84294_0.png"
+  },
+  {
     "id": "clothing:44866",
     "name": "Couples Mickey Shirt Red",
     "type": "44866",
