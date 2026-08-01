@@ -90079,6 +90079,21 @@
     "image": "6680_0.png"
   },
   {
+    "id": "pin:3990665",
+    "name": "Blizzard Beach Series - Mickey and Minnie",
+    "type": "3990665",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "thumb"
+    ],
+    "description": "",
+    "image": "3990665_0.png"
+  },
+  {
     "id": "pin:3542",
     "name": "Blood Moon - 2019",
     "type": "3542",
