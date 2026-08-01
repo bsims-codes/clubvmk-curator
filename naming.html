@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyVMK — Name new items</title>
+<style>
+  :root{
+    --bg:#0f1226; --panel:#1a1f3d; --border:#2c335c; --text:#e8eaf6; --muted:#9aa2cf;
+    --gold:#f0a13c; --ok:#4caf7d; --bad:#c0556a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{padding:16px 18px 10px;border-bottom:1px solid var(--border)}
+  h1{margin:0 0 6px;font-size:20px}
+  .lede{margin:0;color:var(--muted);font-size:13px;max-width:900px;line-height:1.5}
+  .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  select,input,button{background:var(--panel);border:1px solid var(--border);color:var(--text);
+    border-radius:8px;padding:8px 10px;font:inherit;font-size:13px}
+  button{cursor:pointer}
+  button.primary{background:var(--gold);color:#241802;border:none;font-weight:700}
+  button.ghost{background:transparent}
+  a{color:var(--gold)}
+  .stats{color:var(--muted);font-size:12px}
+  .wrap{padding:14px 18px 60px;display:grid;gap:14px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;
+        display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:start}
+  @media (max-width:640px){.card{grid-template-columns:1fr}}
+  .art{width:132px;height:132px;border-radius:12px;background:#0b0e1f;border:1px solid var(--border);
+       display:grid;place-items:center;overflow:hidden}
+  .art img{max-width:118px;max-height:118px;image-rendering:pixelated}
+  .meta{display:grid;gap:8px}
+  .idline{font-size:12px;color:var(--muted);font-family:ui-monospace,Consolas,monospace}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .row input.nm{flex:1;min-width:240px}
+  .frames{display:flex;gap:8px;flex-wrap:wrap;max-height:184px;overflow:auto;padding:4px;
+          border:1px dashed var(--border);border-radius:10px;background:#0b0e1f}
+  /* each frame is the shared atlas, shifted so only that rect shows */
+  .fr{width:64px;border:2px solid transparent;border-radius:8px;cursor:pointer;padding:2px;
+      background:#141833;display:grid;gap:2px;justify-items:center}
+  .fr:hover{border-color:var(--muted)}
+  .fr.on{border-color:var(--gold)}
+  .fr .box{width:56px;height:56px;background-repeat:no-repeat;image-rendering:pixelated}
+  .fr small{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;max-width:60px}
+  .tag{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+       border:1px solid var(--border);border-radius:99px;padding:2px 8px}
+  .tag.named{color:var(--ok);border-color:#2c5a3c}
+  .tag.skip{color:var(--bad);border-color:#5a2430}
+  .empty{color:var(--muted);padding:40px 0;text-align:center}
+  .warn{color:var(--gold);font-size:13px;margin:10px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏷️ Name new items</h1>
+  <p class="lede">Items the capture found but couldn't name. The importer won't invent a
+    catalog row for a nameless id — that guard keeps NPC and base avatar parts out of the
+    game, but it also drops genuinely new items, so they wait here. Name one and the next
+    import picks it up. For a sprite, click the frame you want used as its icon.
+    <a href="index.html">← back to the Rarity Curator</a></p>
+  <div class="bar">
+    <select id="filter">
+      <option value="pending">Needs a name</option>
+      <option value="named">Named</option>
+      <option value="skip">Skipped</option>
+      <option value="all">All</option>
+    </select>
+    <label class="stats"><input type="checkbox" id="allFrames" /> show every frame (not just standing poses)</label>
+    <span class="stats" id="conn">● connecting…</span>
+    <span class="stats" id="count"></span>
+  </div>
+  <p class="warn" id="warn"></p>
+</header>
+<div class="wrap" id="grid"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+const THUMB = (h) => `https://noimageshere.myvmk.com/thumbs/item_${h}.png`;
+const ATLAS = (c) => `https://mouse.myvmk.com/packages/clothes-linked/${c}-pkg32_0.webp`;
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+let sb, rows = [];
+
+/* Frame keys are <pose>_<part>_<figureId>_<dir>_<step>. The 4th field is the
+   direction the avatar faces, which is the "rotation" worth choosing between. */
+function dirOf(key) {
+  const p = String(key || "").split("_");
+  return p.length >= 4 ? p[p.length - 2] : "?";
+}
+const isStanding = (key) => String(key || "").startsWith("std_");
+
+function frameHTML(r, f, chosen) {
+  // scale the crop down to fit the 56px tile without distorting it
+  const s = Math.min(1, 56 / Math.max(f.w || 1, f.h || 1));
+  const style = `background-image:url('${ATLAS(r.atlas)}');`
+    + `background-position:-${Math.round(f.x * s)}px -${Math.round(f.y * s)}px;`
+    + `background-size:${Math.round(2048 * s)}px auto;`
+    + `width:${Math.round((f.w || 0) * s)}px;height:${Math.round((f.h || 0) * s)}px;`;
+  return `<div class="fr${chosen === f.key ? " on" : ""}" data-id="${esc(r.raw_id)}"
+            data-key="${esc(f.key)}" title="${esc(f.key)}">
+      <div class="box" style="${style}"></div><small>dir ${esc(dirOf(f.key))}</small></div>`;
+}
+
+function cardHTML(r) {
+  const frames = (r.frames || []).filter((f) => f && f.w && f.h);
+  const shown = $("#allFrames").checked ? frames : (frames.filter((f) => isStanding(f.key)).length
+    ? frames.filter((f) => isStanding(f.key)) : frames);
+  const art = r.source === "thumb"
+    ? `<img src="${THUMB(r.hash)}" alt="" loading="lazy" />`
+    : (r.frame_key && frames.find((f) => f.key === r.frame_key)
+        ? `<div>${frameHTML(r, frames.find((f) => f.key === r.frame_key), r.frame_key).replace(/class="fr[^"]*"/, 'class="fr on"')}</div>`
+        : `<span class="stats">pick a frame →</span>`);
+  const tag = r.status === "named" ? `<span class="tag named">named</span>`
+    : r.status === "skip" ? `<span class="tag skip">skipped</span>`
+    : `<span class="tag">needs a name</span>`;
+  return `<div class="card" data-id="${esc(r.raw_id)}">
+    <div class="art">${art}</div>
+    <div class="meta">
+      <div class="row">${tag}
+        <span class="idline">${esc(r.source)} · ${esc(r.raw_id)}${r.category ? " · " + esc(r.category) : ""}</span>
+      </div>
+      <div class="row">
+        <input class="nm" type="text" maxlength="80" placeholder="Item name — e.g. Costume - Squirt"
+               value="${esc(r.name || "")}" data-id="${esc(r.raw_id)}" />
+        <select class="cat" data-id="${esc(r.raw_id)}">
+          <option value=""${!r.category ? " selected" : ""}>category?</option>
+          <option value="pin"${r.category === "pin" ? " selected" : ""}>pin</option>
+          <option value="clothing"${r.category === "clothing" ? " selected" : ""}>clothing</option>
+        </select>
+        <button class="primary save" data-id="${esc(r.raw_id)}">Save</button>
+        <button class="ghost skip" data-id="${esc(r.raw_id)}">${r.status === "skip" ? "Un-skip" : "Not an item"}</button>
+      </div>
+      ${r.source === "sprite" ? `<div class="frames">${shown.map((f) => frameHTML(r, f, r.frame_key)).join("")
+        || `<span class="stats">no usable frames</span>`}</div>` : ""}
+    </div></div>`;
+}
+
+function render() {
+  const f = $("#filter").value;
+  const list = rows.filter((r) => f === "all" || (r.status || "pending") === f);
+  $("#count").textContent = `${list.length} shown · ${rows.length} total`;
+  $("#grid").innerHTML = list.map(cardHTML).join("") ||
+    `<div class="empty">Nothing here. 🎉</div>`;
+
+  $("#grid").querySelectorAll(".fr").forEach((el) => {
+    el.onclick = () => {
+      const r = rows.find((x) => x.raw_id === el.dataset.id);
+      r.frame_key = el.dataset.key;
+      render();
+    };
+  });
+  $("#grid").querySelectorAll("button.save").forEach((b) => {
+    b.onclick = () => save(b.dataset.id);
+  });
+  $("#grid").querySelectorAll("button.skip").forEach((b) => {
+    b.onclick = () => {
+      const r = rows.find((x) => x.raw_id === b.dataset.id);
+      save(b.dataset.id, r.status === "skip" ? "pending" : "skip");
+    };
+  });
+  $("#grid").querySelectorAll("input.nm").forEach((i) => {
+    i.oninput = () => { rows.find((x) => x.raw_id === i.dataset.id).name = i.value; };
+    i.onkeydown = (e) => { if (e.key === "Enter") save(i.dataset.id); };
+  });
+  $("#grid").querySelectorAll("select.cat").forEach((s) => {
+    s.onchange = () => { rows.find((x) => x.raw_id === s.dataset.id).category = s.value || null; };
+  });
+}
+
+async function save(id, forceStatus) {
+  const r = rows.find((x) => x.raw_id === id);
+  if (!r) return;
+  const name = (r.name || "").trim();
+  const status = forceStatus || (name ? "named" : "pending");
+  if (status === "named" && !r.category) return note("Pick a category first.", true);
+  if (status === "named" && r.source === "sprite" && !r.frame_key)
+    return note("Click the frame you want used as its icon.", true);
+  const patch = { name: name || null, category: r.category || null,
+                  frame_key: r.frame_key || null, status,
+                  updated_at: new Date().toISOString() };
+  const { error } = await sb.from("pending_items").update(patch).eq("raw_id", id);
+  if (error) return note("Save failed: " + error.message, true);
+  Object.assign(r, patch);
+  note(status === "skip" ? `Skipped ${id}` : `Saved ${name || id}`);
+  render();
+}
+
+let noteT;
+function note(msg, bad) {
+  const el = $("#warn");
+  el.textContent = msg;
+  el.style.color = bad ? "var(--bad)" : "var(--ok)";
+  clearTimeout(noteT); noteT = setTimeout(() => (el.textContent = ""), 3500);
+}
+
+async function load() {
+  const { data, error } = await sb.from("pending_items").select("*").order("source").order("raw_id");
+  if (error) {
+    $("#conn").textContent = "● table missing";
+    $("#warn").innerHTML = "Run <code>supabase-pending-items.sql</code> in Supabase, then reload.";
+    return;
+  }
+  rows = data || [];
+  $("#conn").textContent = "● connected";
+  $("#conn").style.color = "var(--ok)";
+  render();
+}
+
+sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+$("#filter").onchange = render;
+$("#allFrames").onchange = render;
+load();
+</script>
+</body>
+</html>
