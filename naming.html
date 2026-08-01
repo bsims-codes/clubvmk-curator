@@ -40,7 +40,13 @@
       background:#141833;display:grid;gap:2px;justify-items:center}
   .fr:hover{border-color:var(--muted)}
   .fr.on{border-color:var(--gold)}
-  .fr .box{width:56px;height:56px;background-repeat:no-repeat;image-rendering:pixelated}
+  .fr .box{width:56px;height:56px;display:grid;place-items:center}
+  /* the crop is the atlas at NATURAL size, shifted; the clip box is what shrinks
+     it to fit. Atlases are small and every one is a different shape (63x472,
+     211x79, 80x960 …) so nothing here may assume a size. */
+  .clip{display:block;overflow:hidden}
+  .clip i{display:block;background-repeat:no-repeat;image-rendering:pixelated;
+          transform-origin:top left}
   .fr small{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;max-width:60px}
   .tag{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
        border:1px solid var(--border);border-radius:99px;padding:2px 8px}
@@ -92,27 +98,37 @@ function dirOf(key) {
 }
 const isStanding = (key) => String(key || "").startsWith("std_");
 
+/* One frame, cropped out of the atlas.
+
+   The atlas is used at its NATURAL size and simply shifted, because every atlas
+   is a different shape — 63x472, 211x79, 80x960 — and any assumed width turns
+   every crop into a zoomed fragment of the wrong part of the sheet. Fitting is
+   done by scaling the cropped element and clipping to its scaled box. */
+function cropHTML(r, f, box) {
+  const w = f.w || 1, h = f.h || 1;
+  const k = Math.min(1, box / Math.max(w, h));
+  return `<span class="clip" style="width:${Math.max(1, Math.round(w * k))}px;
+            height:${Math.max(1, Math.round(h * k))}px">
+      <i style="background-image:url('${ATLAS(r.atlas)}');
+                background-position:-${f.x}px -${f.y}px;
+                width:${w}px;height:${h}px;transform:scale(${k})"></i></span>`;
+}
+
 function frameHTML(r, f, chosen) {
-  // scale the crop down to fit the 56px tile without distorting it
-  const s = Math.min(1, 56 / Math.max(f.w || 1, f.h || 1));
-  const style = `background-image:url('${ATLAS(r.atlas)}');`
-    + `background-position:-${Math.round(f.x * s)}px -${Math.round(f.y * s)}px;`
-    + `background-size:${Math.round(2048 * s)}px auto;`
-    + `width:${Math.round((f.w || 0) * s)}px;height:${Math.round((f.h || 0) * s)}px;`;
   return `<div class="fr${chosen === f.key ? " on" : ""}" data-id="${esc(r.raw_id)}"
-            data-key="${esc(f.key)}" title="${esc(f.key)}">
-      <div class="box" style="${style}"></div><small>dir ${esc(dirOf(f.key))}</small></div>`;
+            data-key="${esc(f.key)}" title="${esc(f.key)} · ${f.w}x${f.h}">
+      <div class="box">${cropHTML(r, f, 56)}</div>
+      <small>dir ${esc(dirOf(f.key))}</small></div>`;
 }
 
 function cardHTML(r) {
   const frames = (r.frames || []).filter((f) => f && f.w && f.h);
   const shown = $("#allFrames").checked ? frames : (frames.filter((f) => isStanding(f.key)).length
     ? frames.filter((f) => isStanding(f.key)) : frames);
+  const chosen = r.frame_key && frames.find((f) => f.key === r.frame_key);
   const art = r.source === "thumb"
     ? `<img src="${THUMB(r.hash)}" alt="" loading="lazy" />`
-    : (r.frame_key && frames.find((f) => f.key === r.frame_key)
-        ? `<div>${frameHTML(r, frames.find((f) => f.key === r.frame_key), r.frame_key).replace(/class="fr[^"]*"/, 'class="fr on"')}</div>`
-        : `<span class="stats">pick a frame →</span>`);
+    : (chosen ? cropHTML(r, chosen, 118) : `<span class="stats">pick a frame →</span>`);
   const tag = r.status === "named" ? `<span class="tag named">named</span>`
     : r.status === "skip" ? `<span class="tag skip">skipped</span>`
     : `<span class="tag">needs a name</span>`;
