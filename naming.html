@@ -56,6 +56,12 @@
   .warn{color:var(--gold);font-size:13px;margin:10px 0 0}
   .reface{border-top:1px dashed var(--border);padding-top:8px;margin-top:2px}
   .reface input.target{flex:1;min-width:240px}
+  .sheet{margin:14px 18px 0;background:var(--panel);border:1px solid var(--border);
+         border-radius:14px;padding:12px 14px}
+  .sheet summary{cursor:pointer}
+  .sheetbody{margin-top:10px;display:grid;gap:10px}
+  .sheetbody .row input.target{flex:1;min-width:220px}
+  .sheetbody canvas{image-rendering:pixelated}
 </style>
 </head>
 <body>
@@ -80,6 +86,24 @@
   <p class="warn" id="warn"></p>
 </header>
 <datalist id="itemlist"></datalist>
+
+<details class="sheet" id="sheetPanel">
+  <summary><b>📄 Reface an item from a sprite sheet</b>
+    <span class="stats">— for a sheet you just captured, without waiting for an export</span></summary>
+  <div class="sheetbody">
+    <p class="stats">Save the sheet out of the browser (right-click the image → <i>Save image as…</i>),
+      drop it here, then click the frame you want and pick the item it belongs to. The frames are
+      found by looking for the transparent gaps between them, so any strip or grid works.</p>
+    <div class="row">
+      <input type="file" id="sheetFile" accept="image/*" />
+      <input class="target" type="text" id="sheetTarget" list="itemlist"
+             placeholder="Existing item — type to search…" />
+      <button class="primary" id="sheetGo" disabled>Use selected frame as its image</button>
+    </div>
+    <div class="frames" id="sheetFrames"><span class="stats">No sheet loaded.</span></div>
+  </div>
+</details>
+
 <div class="wrap" id="grid"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -323,6 +347,116 @@ async function load() {
   $("#conn").style.color = "var(--ok)";
   render();
 }
+
+/* ---------- reface from an arbitrary sprite sheet ----------
+   For a sheet captured just now, which no export has reached yet. There's no
+   frame manifest for it, so the frames are found by looking for the fully
+   transparent gaps that separate them — which is how these sheets are laid out,
+   whether that's a vertical strip or a grid. */
+let sheetImg = null, sheetFrames = [], sheetPick = -1;
+
+function detectFrames(data, W, H) {
+  const solid = (x, y) => data[(y * W + x) * 4 + 3] > 8;
+  const rowUsed = [], colUsedIn = (y0, y1) => {
+    const cols = [];
+    for (let x = 0; x < W; x++) {
+      let on = false;
+      for (let y = y0; y <= y1 && !on; y++) if (solid(x, y)) on = true;
+      cols.push(on);
+    }
+    return cols;
+  };
+  for (let y = 0; y < H; y++) {
+    let on = false;
+    for (let x = 0; x < W && !on; x++) if (solid(x, y)) on = true;
+    rowUsed.push(on);
+  }
+  const bands = [];
+  let s0 = -1;
+  for (let y = 0; y <= H; y++) {
+    if (y < H && rowUsed[y]) { if (s0 < 0) s0 = y; }
+    else if (s0 >= 0) { bands.push([s0, y - 1]); s0 = -1; }
+  }
+  const out = [];
+  for (const [y0, y1] of bands) {
+    const cols = colUsedIn(y0, y1);
+    let c0 = -1;
+    for (let x = 0; x <= W; x++) {
+      if (x < W && cols[x]) { if (c0 < 0) c0 = x; }
+      else if (c0 >= 0) { out.push({ x: c0, y: y0, w: x - c0, h: y1 - y0 + 1 }); c0 = -1; }
+    }
+  }
+  return out.filter((f) => f.w > 3 && f.h > 3);
+}
+
+function renderSheetFrames() {
+  const box = $("#sheetFrames");
+  if (!sheetFrames.length) { box.innerHTML = `<span class="stats">No frames found.</span>`; return; }
+  box.innerHTML = sheetFrames.map((f, i) => {
+    const k = Math.min(1, 56 / Math.max(f.w, f.h));
+    const c = document.createElement("canvas");
+    c.width = f.w; c.height = f.h;
+    c.getContext("2d").drawImage(sheetImg, f.x, f.y, f.w, f.h, 0, 0, f.w, f.h);
+    return `<div class="fr${i === sheetPick ? " on" : ""}" data-i="${i}" title="${f.w}x${f.h}">
+        <div class="box"><img src="${c.toDataURL()}" style="width:${Math.round(f.w * k)}px;
+             height:${Math.round(f.h * k)}px;image-rendering:pixelated" /></div>
+        <small>${f.w}×${f.h}</small></div>`;
+  }).join("");
+  box.querySelectorAll(".fr").forEach((el) => {
+    el.onclick = () => { sheetPick = +el.dataset.i; renderSheetFrames(); syncSheetBtn(); };
+  });
+}
+
+function syncSheetBtn() {
+  $("#sheetGo").disabled = !(sheetImg && sheetPick >= 0 && $("#sheetTarget").value.trim());
+}
+
+$("#sheetFile").onchange = (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  const im = new Image();
+  im.onload = () => {
+    const c = document.createElement("canvas");
+    c.width = im.width; c.height = im.height;
+    const g = c.getContext("2d");
+    g.drawImage(im, 0, 0);
+    const d = g.getImageData(0, 0, im.width, im.height).data;
+    sheetImg = im; sheetPick = -1;
+    sheetFrames = detectFrames(d, im.width, im.height);
+    note(`${im.width}×${im.height} — found ${sheetFrames.length} frame(s).`);
+    renderSheetFrames(); syncSheetBtn();
+  };
+  im.onerror = () => note("Couldn't read that image.", true);
+  im.src = url;
+};
+$("#sheetTarget").oninput = syncSheetBtn;
+
+$("#sheetGo").onclick = async () => {
+  const target = catalogByLabel[$("#sheetTarget").value.trim()];
+  if (!target) return note("Pick an existing item from the list.", true);
+  const f = sheetFrames[sheetPick];
+  if (!f) return note("Click the frame you want.", true);
+  try {
+    const c = document.createElement("canvas");
+    c.width = f.w * SPRITE_SCALE; c.height = f.h * SPRITE_SCALE;
+    const g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    g.drawImage(sheetImg, f.x, f.y, f.w, f.h, 0, 0, c.width, c.height);
+    const blob = await new Promise((res, rej) =>
+      c.toBlob((b) => (b ? res(b) : rej(new Error("couldn't encode"))), "image/png"));
+    const name = `${target.id.replace(/[^a-zA-Z0-9]+/g, "_")}_${Date.now()}.png`;
+    const up = await sb.storage.from("item-images")
+      .upload(name, blob, { contentType: "image/png", upsert: true });
+    if (up.error) throw up.error;
+    const { error } = await sb.from("image_overrides")
+      .upsert({ item_id: target.id, image_name: name });
+    if (error) throw error;
+    note(`${target.n} repainted — the bot picks it up within ~2 min.`);
+  } catch (e) {
+    note("Failed: " + (e.message || e), true);
+  }
+};
 
 sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
 loadCatalog();
