@@ -426,24 +426,74 @@ function guessCount(profile, span) {
    reaching into the next cell is all it takes) and every row collapses into one
    blob. Slicing on the grid and trimming afterwards survives that, and empty
    cells simply drop out. */
-function sliceGrid(data, W, H, cols, rows) {
+/* Cut lines for an N-way split, snapped to the thinnest line near each ideal
+   position. An evenly-spaced cut lands mid-figure whenever the sheet has any
+   margin or drift; snapping to the local minimum of the opaque-pixel profile
+   puts the cut in the narrowest gap instead. */
+function snapCuts(profile, n, N) {
+  const P = n / N, out = [0];
+  for (let k = 1; k < N; k++) {
+    const ideal = Math.round(k * P), win = Math.max(2, Math.floor(P / 4));
+    let lo = Math.max(1, ideal - win), hi = Math.min(n - 1, ideal + win), best = lo;
+    for (let i = lo; i <= hi; i++) if (profile[i] < profile[best]) best = i;
+    out.push(best);
+  }
+  out.push(n);
+  return out;
+}
+
+/* The biggest connected blob inside a cell.
+
+   Even with snapped cuts a sprite's tail or raised arm can spill across the
+   line, and the bbox of everything in the cell then swallows that fragment.
+   The neighbour's leftovers are a separate blob, so keeping only the largest
+   one drops them. */
+function largestComponent(data, W, x0, y0, x1, y1) {
+  const cw = x1 - x0 + 1, ch = y1 - y0 + 1;
+  const seen = new Uint8Array(cw * ch);
   const solid = (x, y) => data[(y * W + x) * 4 + 3] > 8;
-  const cw = W / cols, chh = H / rows, out = [];
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      const x0 = Math.floor(c * cw), x1 = Math.min(W, Math.floor((c + 1) * cw)) - 1;
-      const y0 = Math.floor(r * chh), y1 = Math.min(H, Math.floor((r + 1) * chh)) - 1;
-      let ax = x1 + 1, ay = y1 + 1, bx = x0 - 1, by = y0 - 1;
-      for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
-        if (solid(x, y)) {
-          if (x < ax) ax = x; if (x > bx) bx = x;
-          if (y < ay) ay = y; if (y > by) by = y;
+  let best = null;
+  const q = new Int32Array(cw * ch * 2);
+  for (let sy = y0; sy <= y1; sy++) {
+    for (let sx = x0; sx <= x1; sx++) {
+      const si = (sy - y0) * cw + (sx - x0);
+      if (seen[si] || !solid(sx, sy)) continue;
+      let head = 0, tail = 0, n = 0;
+      let ax = sx, bx = sx, ay = sy, by = sy;
+      q[tail++] = sx; q[tail++] = sy; seen[si] = 1;
+      while (head < tail) {
+        const x = q[head++], y = q[head++];
+        n++;
+        if (x < ax) ax = x; if (x > bx) bx = x;
+        if (y < ay) ay = y; if (y > by) by = y;
+        const nb = [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]];
+        for (const [nx, ny] of nb) {
+          if (nx < x0 || nx > x1 || ny < y0 || ny > y1) continue;
+          const ni = (ny - y0) * cw + (nx - x0);
+          if (seen[ni] || !solid(nx, ny)) continue;
+          seen[ni] = 1; q[tail++] = nx; q[tail++] = ny;
         }
       }
-      if (bx >= ax && by >= ay) out.push({ x: ax, y: ay, w: bx - ax + 1, h: by - ay + 1 });
+      if (!best || n > best.n) best = { n, x: ax, y: ay, w: bx - ax + 1, h: by - ay + 1 };
     }
   }
-  return out.filter((f) => f.w > 3 && f.h > 3);
+  return best;
+}
+
+function sliceGrid(data, W, H, cols, rows) {
+  const colP = new Int32Array(W), rowP = new Int32Array(H);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    if (data[(y * W + x) * 4 + 3] > 8) { colP[x]++; rowP[y]++; }
+  }
+  const cx = snapCuts(colP, W, cols), cy = snapCuts(rowP, H, rows);
+  const out = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const f = largestComponent(data, W, cx[c], cy[r], cx[c + 1] - 1, cy[r + 1] - 1);
+      if (f && f.w > 3 && f.h > 3) out.push({ x: f.x, y: f.y, w: f.w, h: f.h });
+    }
+  }
+  return out;
 }
 
 function detectFrames(data, W, H) {
