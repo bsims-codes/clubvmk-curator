@@ -13851,10 +13851,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48108_0.png"
   },
   {
     "id": "clothing:76719",
@@ -25244,6 +25246,21 @@
     "tags": [],
     "description": "",
     "image": "48008_0.png"
+  },
+  {
+    "id": "clothing:49305",
+    "name": "Flip Flops - Grey & White",
+    "type": "49305",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49305_0.png"
   },
   {
     "id": "clothing:48050",
@@ -40749,6 +40766,21 @@
     "image": "74178_0.png"
   },
   {
+    "id": "clothing:48124",
+    "name": "Leggings - Blue",
+    "type": "48124",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48124_0.png"
+  },
+  {
     "id": "clothing:48121",
     "name": "Leggings - Orange",
     "type": "48121",
@@ -40762,6 +40794,21 @@
     ],
     "description": "",
     "image": "48121_0.png"
+  },
+  {
+    "id": "clothing:59315",
+    "name": "Lei",
+    "type": "59315",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "59315_0.png"
   },
   {
     "id": "clothing:59407",
@@ -41138,10 +41185,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76814_0.png"
   },
   {
     "id": "clothing:76809",
@@ -41177,10 +41226,27 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48156_0.png"
+  },
+  {
+    "id": "clothing:48159",
+    "name": "Lifeguard Swimsuit Bottoms - Red",
+    "type": "48159",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48159_0.png"
   },
   {
     "id": "clothing:76812",
@@ -41190,10 +41256,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76812_0.png"
   },
   {
     "id": "clothing:76813",
@@ -58788,6 +58856,21 @@
     "image": "52344_0.png"
   },
   {
+    "id": "clothing:76677",
+    "name": "Princess Orange Bodice",
+    "type": "76677",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76677_0.png"
+  },
+  {
     "id": "clothing:48093",
     "name": "Princess Orange Hooped Skirt",
     "type": "48093",
@@ -58795,10 +58878,27 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48093_0.png"
+  },
+  {
+    "id": "clothing:49313",
+    "name": "Princess Orange Slippers",
+    "type": "49313",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49313_0.png"
   },
   {
     "id": "clothing:34148",
@@ -58952,10 +59052,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54632_0.png"
   },
   {
     "id": "clothing:54629",
@@ -68897,10 +68999,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76769_0.png"
   },
   {
     "id": "clothing:76768",
