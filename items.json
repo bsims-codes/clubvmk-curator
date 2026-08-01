@@ -5707,6 +5707,21 @@
     "image": "74789_0.png"
   },
   {
+    "id": "clothing:84293",
+    "name": "Backpack - Lifeguard Preserver",
+    "type": "84293",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84293_0.png"
+  },
+  {
     "id": "clothing:59452",
     "name": "Backpack - Lil Devil",
     "type": "59452",
@@ -12875,6 +12890,21 @@
     ],
     "description": "",
     "image": "84188_0.png"
+  },
+  {
+    "id": "clothing:84185",
+    "name": "Cape Prom - Silver",
+    "type": "84185",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84185_0.png"
   },
   {
     "id": "clothing:83198",
@@ -79024,6 +79054,21 @@
     "image": "47696_0.png"
   },
   {
+    "id": "clothing:75209",
+    "name": "Travel Pet - Cybug",
+    "type": "75209",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "75209_0.png"
+  },
+  {
     "id": "clothing:47670",
     "name": "Travel Pet - Dalmatian",
     "type": "47670",
@@ -79187,6 +79232,21 @@
     "tags": [],
     "description": "",
     "image": "82992_0.png"
+  },
+  {
+    "id": "clothing:75207",
+    "name": "Travel Pet - Goose",
+    "type": "75207",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "75207_0.png"
   },
   {
     "id": "clothing:83587",
