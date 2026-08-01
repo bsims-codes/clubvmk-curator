@@ -200,7 +200,7 @@ async function load() {
   const { data, error } = await sb.from("pending_items").select("*").order("source").order("raw_id");
   if (error) {
     $("#conn").textContent = "● table missing";
-    $("#warn").innerHTML = "Run <code>supabase-pending-items.sql</code> in Supabase, then reload.";
+    $("#warn").innerHTML = "Run <code>CLUBVMKBOT/webportal/schema_pending_items.sql</code> in Supabase, then reload.";
     return;
   }
   rows = data || [];
