@@ -54,6 +54,8 @@
   .tag.skip{color:var(--bad);border-color:#5a2430}
   .empty{color:var(--muted);padding:40px 0;text-align:center}
   .warn{color:var(--gold);font-size:13px;margin:10px 0 0}
+  .reface{border-top:1px dashed var(--border);padding-top:8px;margin-top:2px}
+  .reface input.target{flex:1;min-width:240px}
 </style>
 </head>
 <body>
@@ -77,6 +79,7 @@
   </div>
   <p class="warn" id="warn"></p>
 </header>
+<datalist id="itemlist"></datalist>
 <div class="wrap" id="grid"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -88,7 +91,22 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-let sb, rows = [];
+let sb, rows = [], catalogByLabel = {};
+
+/* The existing catalogue, for "this is art for an item we already have". Names
+   aren't unique, so the picker's value carries the id and we map back from it. */
+async function loadCatalog() {
+  try {
+    const items = await (await fetch("items.json")).json();
+    const dl = document.getElementById("itemlist");
+    const seen = {};
+    dl.innerHTML = items.map((it) => {
+      const label = `${it.name}  (${it.id})`;
+      catalogByLabel[label] = { id: it.id, n: it.name };
+      return `<option value="${esc(label)}"></option>`;
+    }).join("");
+  } catch (e) { /* picker just stays empty */ }
+}
 
 /* Frame keys are <pose>_<part>_<figureId>_<dir>_<step>. The 4th field is the
    direction the avatar faces, which is the "rotation" worth choosing between. */
@@ -149,6 +167,12 @@ function cardHTML(r) {
         <button class="primary save" data-id="${esc(r.raw_id)}">Save</button>
         <button class="ghost skip" data-id="${esc(r.raw_id)}">${r.status === "skip" ? "Un-skip" : "Not an item"}</button>
       </div>
+      ${r.source === "sprite" ? `<div class="row reface">
+        <span class="stats">…or it's art for an item we already have:</span>
+        <input class="target" type="text" list="itemlist" placeholder="Existing item — type to search…"
+               data-id="${esc(r.raw_id)}" />
+        <button class="ghost useart" data-id="${esc(r.raw_id)}">Use selected frame as its image</button>
+      </div>` : ""}
       ${r.source === "sprite" ? `<div class="frames">${shown.map((f) => frameHTML(r, f, r.frame_key)).join("")
         || `<span class="stats">no usable frames</span>`}</div>` : ""}
     </div></div>`;
@@ -181,9 +205,84 @@ function render() {
     i.oninput = () => { rows.find((x) => x.raw_id === i.dataset.id).name = i.value; };
     i.onkeydown = (e) => { if (e.key === "Enter") save(i.dataset.id); };
   });
+  $("#grid").querySelectorAll("button.useart").forEach((b) => {
+    b.onclick = () => {
+      const box = $("#grid").querySelector(`input.target[data-id="${CSS.escape(b.dataset.id)}"]`);
+      useAsArt(b.dataset.id, box ? box.value.trim() : "");
+    };
+  });
   $("#grid").querySelectorAll("select.cat").forEach((s) => {
     s.onchange = () => { rows.find((x) => x.raw_id === s.dataset.id).category = s.value || null; };
   });
+}
+
+/* ---------- reface an existing item with a chosen sprite frame ----------
+   The atlas host sends access-control-allow-origin:*, so the canvas stays
+   untainted and we can export the crop as a real PNG — no server round trip.
+   From there it's the curator's existing replacement path: upload to the
+   item-images bucket, upsert image_overrides, and the bot repaints within
+   ~2 min without a redeploy. */
+function loadImg(src) {
+  return new Promise((res, rej) => {
+    const im = new Image();
+    im.crossOrigin = "anonymous";     // required, or toBlob() throws on a tainted canvas
+    im.onload = () => res(im);
+    im.onerror = () => rej(new Error("couldn't load the atlas"));
+    im.src = src;
+  });
+}
+
+const SPRITE_SCALE = 4;   // matches tools/vmk_merge_capture.py
+
+async function frameToPng(r, f) {
+  const atlas = await loadImg(ATLAS(r.atlas));
+  const c = document.createElement("canvas");
+  c.width = f.w; c.height = f.h;
+  const g = c.getContext("2d");
+  g.drawImage(atlas, f.x, f.y, f.w, f.h, 0, 0, f.w, f.h);
+  // trim fully-transparent edges so the icon isn't a small thing in a big box
+  const d = g.getImageData(0, 0, f.w, f.h).data;
+  let x0 = f.w, y0 = f.h, x1 = -1, y1 = -1;
+  for (let y = 0; y < f.h; y++) for (let x = 0; x < f.w; x++) {
+    if (d[(y * f.w + x) * 4 + 3] > 8) {
+      if (x < x0) x0 = x; if (x > x1) x1 = x;
+      if (y < y0) y0 = y; if (y > y1) y1 = y;
+    }
+  }
+  if (x1 < 0) throw new Error("that frame is empty");
+  const w = x1 - x0 + 1, h = y1 - y0 + 1;
+  const out = document.createElement("canvas");
+  out.width = w * SPRITE_SCALE; out.height = h * SPRITE_SCALE;
+  const og = out.getContext("2d");
+  og.imageSmoothingEnabled = false;          // keep the pixels crisp when upscaling
+  og.drawImage(c, x0, y0, w, h, 0, 0, out.width, out.height);
+  return new Promise((res, rej) =>
+    out.toBlob((b) => (b ? res(b) : rej(new Error("couldn't encode the crop"))), "image/png"));
+}
+
+async function useAsArt(rawId, targetLabel) {
+  const r = rows.find((x) => x.raw_id === rawId);
+  const target = catalogByLabel[targetLabel];
+  if (!target) return note("Pick an existing item from the list first.", true);
+  if (!r.frame_key) return note("Click the frame you want to use.", true);
+  const f = (r.frames || []).find((x) => x.key === r.frame_key);
+  if (!f) return note("That frame is gone — pick another.", true);
+  try {
+    note(`Rendering ${r.frame_key}…`);
+    const blob = await frameToPng(r, f);
+    const name = `${target.id.replace(/[^a-zA-Z0-9]+/g, "_")}_${Date.now()}.png`;
+    const up = await sb.storage.from("item-images")
+      .upload(name, blob, { contentType: "image/png", upsert: true });
+    if (up.error) throw up.error;
+    const { error } = await sb.from("image_overrides")
+      .upsert({ item_id: target.id, image_name: name });
+    if (error) throw error;
+    // it was art for an item we already had, not a new one
+    await save(rawId, "skip");
+    note(`${target.n} repainted from ${r.frame_key} — the bot picks it up within ~2 min.`);
+  } catch (e) {
+    note("Failed: " + (e.message || e), true);
+  }
 }
 
 async function save(id, forceStatus) {
@@ -226,6 +325,7 @@ async function load() {
 }
 
 sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+loadCatalog();
 $("#filter").onchange = render;
 $("#allFrames").onchange = render;
 load();
