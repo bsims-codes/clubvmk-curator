@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyVMK — Animated pin speed</title>
+<style>
+  :root{
+    --bg:#0f1226; --panel:#1a1f3d; --border:#2c335c; --text:#e8eaf6; --muted:#9aa2cf;
+    --gold:#f0a13c; --ok:#4caf7d; --bad:#c0556a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{padding:16px 18px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;
+         background:var(--bg);z-index:5}
+  h1{margin:0 0 6px;font-size:20px}
+  .lede{margin:0;color:var(--muted);font-size:13px;max-width:900px;line-height:1.5}
+  .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  select,input[type=text],button{background:var(--panel);border:1px solid var(--border);
+    color:var(--text);border-radius:8px;padding:8px 10px;font:inherit;font-size:13px}
+  button{cursor:pointer}
+  button.go{background:var(--gold);border-color:var(--gold);color:#2a1a06;font-weight:600}
+  button:disabled{opacity:.5;cursor:default}
+  a{color:var(--gold)}
+  .stats{color:var(--muted);font-size:12px}
+  .grid{padding:14px 18px 60px;display:grid;gap:14px;
+        grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:12px}
+  .card.changed{border-color:var(--gold)}
+  .stage{height:150px;display:grid;place-items:center;background:#0b0e1f;border-radius:10px;
+         margin-bottom:8px;overflow:hidden}
+  canvas{image-rendering:pixelated}
+  .nm{font-size:14px;font-weight:600;margin-bottom:2px}
+  .meta{font-size:11px;color:var(--muted);font-family:ui-monospace,Consolas,monospace;
+        margin-bottom:8px}
+  .row{display:flex;gap:8px;align-items:center}
+  input[type=range]{flex:1;accent-color:var(--gold)}
+  .ms{width:64px;text-align:right;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+  .note{color:var(--gold);font-size:13px;margin:10px 0 0;min-height:18px}
+  .empty{color:var(--muted);padding:40px 18px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1>⏱️ Animated pin speed</h1>
+  <p class="lede">82 pins are animations. The game ships their frames but says nothing about how
+    fast to play them, so the rate is ours to choose — and one rate doesn't suit a two-frame blink
+    and a 173-frame sequence alike. Each preview below runs at its current rate; drag to change it.
+    <a href="index.html">← back to the Rarity Curator</a></p>
+  <div class="bar">
+    <input id="q" type="text" placeholder="Find a pin…" />
+    <select id="sort">
+      <option value="name">By name</option>
+      <option value="frames">By length</option>
+      <option value="ms">By speed</option>
+    </select>
+    <button class="go" id="save" disabled>Save changes</button>
+    <button id="reset" disabled>Undo changes</button>
+    <span class="stats" id="conn">● connecting…</span>
+    <span class="stats" id="count"></span>
+  </div>
+  <p class="note" id="note"></p>
+</header>
+<div class="grid" id="grid"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+const PKG = (id) => `https://mouse.myvmk.com/packages/pins/item_${id}.json`;
+const SHEET = (f) => `https://mouse.myvmk.com/packages/pins/${f}`;
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+let sb, rows = [];
+const edited = new Map();      // raw_id -> ms, only what actually changed
+const players = new Map();     // raw_id -> {frames, timer, ms}
+
+function loadImage(url) {
+  return new Promise((res, rej) => {
+    const im = new Image();
+    im.crossOrigin = "anonymous";
+    im.onload = () => res(im);
+    im.onerror = () => rej(new Error("sheet " + url));
+    im.src = url;
+  });
+}
+
+/* Cut a package into its frames.
+
+   Play order comes from the trailing number, not the key name: packages are
+   inconsistent about it (item_5023_0, capitalised Item_3988257_0, and
+   item_5611_8_2 all occur). Each frame carries its own rect and the long ones
+   are laid out as a grid rather than a row, so every frame is cut where the
+   manifest says it is. Mirrors package_frames() in vmk_build_animated.py. */
+async function cutFrames(rawId) {
+  const man = await (await fetch(PKG(rawId))).json();
+  const sheets = [];
+  for (const name of man.imgs || []) {
+    const stem = name.replace(/\.[^.]+$/, "");
+    let im = null;
+    for (const ext of [".webp", ".png"]) {          // manifest says png; the game asks for webp
+      try { im = await loadImage(SHEET(stem + ext)); break; } catch (e) { /* try the other */ }
+    }
+    if (!im) throw new Error("no sheet for " + rawId);
+    sheets.push(im);
+  }
+  const entries = [];
+  for (const [key, v] of Object.entries(man)) {
+    if (key === "imgs" || !v || typeof v !== "object" || !("x" in v)) continue;
+    const tail = key.split("_").pop();
+    entries.push([/^\d+$/.test(tail) ? +tail : 0, v]);
+  }
+  entries.sort((a, b) => a[0] - b[0]);
+  const cw = Math.max(...entries.map(([, v]) => v.w));
+  const ch = Math.max(...entries.map(([, v]) => v.h));
+  return entries.map(([, v]) => {
+    const c = document.createElement("canvas");
+    c.width = cw; c.height = ch;
+    c.getContext("2d").drawImage(sheets[Math.min(v.s || 0, sheets.length - 1)],
+      v.x, v.y, v.w, v.h, ((cw - v.w) >> 1), ((ch - v.h) >> 1), v.w, v.h);
+    return c;
+  });
+}
+
+function play(rawId, canvas, frames, ms) {
+  const st = players.get(rawId) || {};
+  if (st.timer) clearInterval(st.timer);
+  const g = canvas.getContext("2d");
+  const k = Math.min(2, Math.max(1, Math.floor(140 / Math.max(frames[0].width, frames[0].height))));
+  canvas.width = frames[0].width * k;
+  canvas.height = frames[0].height * k;
+  let i = 0;
+  const draw = () => {
+    g.clearRect(0, 0, canvas.width, canvas.height);
+    g.imageSmoothingEnabled = false;
+    g.drawImage(frames[i], 0, 0, canvas.width, canvas.height);
+    i = (i + 1) % frames.length;
+  };
+  draw();
+  players.set(rawId, { frames, ms, timer: setInterval(draw, ms) });
+}
+
+function currentMs(r) {
+  return edited.has(r.raw_id) ? edited.get(r.raw_id) : r.ms;
+}
+
+function cardHTML(r) {
+  const ms = currentMs(r);
+  return `<div class="card${edited.has(r.raw_id) ? " changed" : ""}" data-id="${esc(r.raw_id)}">
+    <div class="stage"><canvas data-canvas="${esc(r.raw_id)}"></canvas></div>
+    <div class="nm">${esc(r.item_name)}</div>
+    <div class="meta">${esc(r.item_id)} · ${r.frames} frames · loop ${(r.frames * ms / 1000).toFixed(1)}s</div>
+    <div class="row">
+      <input type="range" min="60" max="600" step="10" value="${ms}" data-range="${esc(r.raw_id)}" />
+      <span class="ms" data-ms="${esc(r.raw_id)}">${ms} ms</span>
+    </div>
+  </div>`;
+}
+
+function visible() {
+  const q = $("#q").value.trim().toLowerCase();
+  const by = $("#sort").value;
+  let list = rows.filter((r) => !q || r.item_name.toLowerCase().includes(q) || r.raw_id.includes(q));
+  list.sort((a, b) => by === "frames" ? b.frames - a.frames
+                    : by === "ms" ? currentMs(a) - currentMs(b)
+                    : a.item_name.localeCompare(b.item_name));
+  return list;
+}
+
+function render() {
+  for (const st of players.values()) if (st.timer) clearInterval(st.timer);
+  players.clear();
+  const list = visible();
+  $("#count").textContent = `${list.length} shown · ${edited.size} changed`;
+  $("#save").disabled = $("#reset").disabled = edited.size === 0;
+  $("#grid").innerHTML = list.map(cardHTML).join("") || `<div class="empty">Nothing matches.</div>`;
+
+  $("#grid").querySelectorAll("input[type=range]").forEach((el) => {
+    el.oninput = () => {
+      const id = el.dataset.range, ms = +el.value;
+      const row = rows.find((r) => r.raw_id === id);
+      if (ms === row.ms) edited.delete(id); else edited.set(id, ms);
+      $(`[data-ms="${CSS.escape(id)}"]`).textContent = ms + " ms";
+      el.closest(".card").querySelector(".meta").textContent =
+        `${row.item_id} · ${row.frames} frames · loop ${(row.frames * ms / 1000).toFixed(1)}s`;
+      el.closest(".card").classList.toggle("changed", edited.has(id));
+      const st = players.get(id);
+      if (st) play(id, $(`[data-canvas="${CSS.escape(id)}"]`), st.frames, ms);
+      $("#count").textContent = `${visible().length} shown · ${edited.size} changed`;
+      $("#save").disabled = $("#reset").disabled = edited.size === 0;
+    };
+  });
+
+  // 82 packages is a lot of sheets; only fetch one when its card is on screen
+  const io = new IntersectionObserver((ents) => {
+    for (const e of ents) {
+      if (!e.isIntersecting) continue;
+      io.unobserve(e.target);
+      const id = e.target.dataset.id;
+      const row = rows.find((r) => r.raw_id === id);
+      cutFrames(id)
+        .then((frames) => play(id, e.target.querySelector("canvas"), frames, currentMs(row)))
+        .catch(() => {
+          e.target.querySelector(".stage").innerHTML =
+            `<span class="stats">couldn't load its frames</span>`;
+        });
+    }
+  }, { rootMargin: "200px" });
+  $("#grid").querySelectorAll(".card").forEach((c) => io.observe(c));
+}
+
+async function save() {
+  const payload = [...edited.entries()].map(([raw_id, ms]) => {
+    const r = rows.find((x) => x.raw_id === raw_id);
+    return { raw_id, item_id: r.item_id, item_name: r.item_name, frames: r.frames,
+             ms, built_ms: r.built_ms, updated_at: new Date().toISOString() };
+  });
+  const { error } = await sb.from("pin_animation").upsert(payload, { onConflict: "raw_id" });
+  if (error) return note("Save failed: " + error.message, true);
+  for (const p of payload) {
+    const r = rows.find((x) => x.raw_id === p.raw_id);
+    if (r) r.ms = p.ms;
+  }
+  const n = edited.size;
+  edited.clear();
+  render();
+  note(`Saved ${n} rate${n === 1 ? "" : "s"}. The art itself is rebuilt at these speeds by `
+     + `vmk_build_animated.py --packages --apply.`);
+}
+
+let noteT;
+function note(msg, bad) {
+  const el = $("#note");
+  el.textContent = msg;
+  el.style.color = bad ? "var(--bad)" : "var(--ok)";
+  clearTimeout(noteT);
+  noteT = setTimeout(() => (el.textContent = ""), 8000);
+}
+
+async function load() {
+  const { data, error } = await sb.from("pin_animation").select("*").order("item_name");
+  if (error) {
+    $("#conn").textContent = "● table missing";
+    $("#note").innerHTML = "Run <code>CLUBVMKBOT/webportal/schema_pin_animation.sql</code> in "
+      + "Supabase, then build the pins once with <code>vmk_build_animated.py --packages --apply</code>.";
+    return;
+  }
+  rows = data || [];
+  $("#conn").textContent = "● connected";
+  $("#conn").style.color = "var(--ok)";
+  render();
+}
+
+sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+$("#q").oninput = render;
+$("#sort").onchange = render;
+$("#save").onclick = save;
+$("#reset").onclick = () => { edited.clear(); render(); };
+load();
+</script>
+</body>
+</html>
