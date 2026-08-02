@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyVMK — Rebuild sprite art</title>
+<style>
+  :root{
+    --bg:#0f1226; --panel:#1a1f3d; --border:#2c335c; --text:#e8eaf6; --muted:#9aa2cf;
+    --gold:#f0a13c; --ok:#4caf7d; --bad:#c0556a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{padding:16px 18px 10px;border-bottom:1px solid var(--border)}
+  h1{margin:0 0 6px;font-size:20px}
+  .lede{margin:0;color:var(--muted);font-size:13px;max-width:940px;line-height:1.5}
+  .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  select,input,button{background:var(--panel);border:1px solid var(--border);color:var(--text);
+    border-radius:8px;padding:8px 10px;font:inherit;font-size:13px}
+  button{cursor:pointer}
+  button.ghost{background:transparent}
+  a{color:var(--gold)}
+  .stats{color:var(--muted);font-size:12px}
+  .wrap{padding:14px 18px 60px;display:grid;gap:14px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:12px 14px}
+  .head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+  .head b{font-size:15px}
+  .idline{font-size:12px;color:var(--muted);font-family:ui-monospace,Consolas,monospace}
+  .strip{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+  .opt{width:150px;border:2px solid transparent;border-radius:10px;padding:6px;
+       background:#0b0e1f;display:grid;gap:6px;justify-items:center;cursor:pointer}
+  .opt:hover{border-color:var(--muted)}
+  .opt.on{border-color:var(--gold)}
+  .opt.now{cursor:default}
+  .opt .frame{width:132px;height:132px;display:grid;place-items:center}
+  .opt img,.opt canvas{max-width:132px;max-height:132px;image-rendering:auto}
+  .opt small{font-size:11px;color:var(--muted)}
+  .opt.now small{color:#f0a0a0}
+  .acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
+  .tag{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+       border:1px solid var(--border);border-radius:99px;padding:2px 8px}
+  .tag.applied{color:var(--ok);border-color:#2c5a3c}
+  .tag.keep{color:var(--bad);border-color:#5a2430}
+  .empty{color:var(--muted);padding:40px 0;text-align:center}
+  .warn{color:var(--gold);font-size:13px;margin:10px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>🧩 Rebuild sprite art</h1>
+  <p class="lede">A garment is stored in pieces — a shirt is a chest plus two sleeves, shoes
+    are a left and a right — so the art in the game is often just one of those pieces. These
+    can be reassembled, but only some come out better, and <b>which way the figure faces
+    matters more than the assembly</b>. Pick a facing to use it, or keep what's there.
+    <a href="index.html">← back to the Rarity Curator</a></p>
+  <div class="bar">
+    <select id="filter">
+      <option value="pending">Not decided</option>
+      <option value="applied">Rebuilt</option>
+      <option value="keep">Kept as-is</option>
+      <option value="all">All</option>
+    </select>
+    <select id="parts"><option value="">Any parts</option></select>
+    <input id="q" type="text" placeholder="Find an item…" />
+    <span class="stats" id="conn">● connecting…</span>
+    <span class="stats" id="count"></span>
+  </div>
+  <p class="warn" id="warn"></p>
+</header>
+<div class="wrap" id="grid"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+const ATLAS = (c) => `https://mouse.myvmk.com/packages/clothes-linked/${c}-pkg32_0.webp`;
+const IMG_BUCKET = `${window.SUPABASE_URL}/storage/v1/object/public/item-images/`;
+const SPRITE_SCALE = 4;
+const DIRS = [["0","front"],["1","3/4"],["2","side"],["3","3/4 back"],["4","back"]];
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+let sb, rows = [], imgOverrides = {};
+const atlasCache = {};
+
+function loadAtlas(code) {
+  if (!atlasCache[code]) {
+    atlasCache[code] = new Promise((res, rej) => {
+      const im = new Image();
+      im.crossOrigin = "anonymous";   // needed or the canvas taints and can't export
+      im.onload = () => res(im);
+      im.onerror = () => rej(new Error("atlas " + code + " would not load"));
+      im.src = ATLAS(code);
+    });
+  }
+  return atlasCache[code];
+}
+
+/* Assemble one facing from its parts.
+
+   Each frame carries rx/ry (its registration point), ow/oh (the full canvas it
+   was trimmed out of) and ts (tile size). The canvas anchor is
+   (ow/2, oh - ts/2), and every piece is drawn at anchor - (rx, ry). Untrimmed
+   frames carry rx/ry equal to that anchor, so they land at 0,0 and one formula
+   covers both shapes. Mirrors compose_sprite in tools/vmk_merge_capture.py. */
+function composite(atlas, frames, dir) {
+  const group = {};
+  for (const f of frames) {
+    const p = String(f.key || "").split("_");
+    if (p.length < 5 || p[p.length - 2] !== dir) continue;
+    (group[p[p.length - 1]] = group[p[p.length - 1]] || []).push(f);
+  }
+  const steps = Object.values(group);
+  if (!steps.length) return null;
+  // the step showing the most body slots
+  const chosen = steps.sort((a, b) =>
+    new Set(b.map((f) => f.key.split("_")[1])).size -
+    new Set(a.map((f) => f.key.split("_")[1])).size)[0];
+
+  const cw = Math.max(...chosen.map((f) => f.ow || f.w));
+  const ch = Math.max(...chosen.map((f) => f.oh || f.h));
+  const ts = chosen[0].ts || 32;
+  const ax = Math.floor(cw / 2), ay = ch - Math.floor(ts / 2);
+
+  const c = document.createElement("canvas");
+  c.width = cw; c.height = ch;
+  const g = c.getContext("2d");
+  for (const f of chosen) {
+    g.drawImage(atlas, f.x, f.y, f.w, f.h,
+                ax - f.rx, ay - f.ry, f.w, f.h);
+  }
+  // trim the transparent margin so the icon isn't mostly empty canvas
+  const d = g.getImageData(0, 0, cw, ch).data;
+  let x0 = cw, y0 = ch, x1 = -1, y1 = -1;
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    if (d[(y * cw + x) * 4 + 3] > 8) {
+      if (x < x0) x0 = x; if (x > x1) x1 = x;
+      if (y < y0) y0 = y; if (y > y1) y1 = y;
+    }
+  }
+  if (x1 < 0) return null;
+  const w = x1 - x0 + 1, h = y1 - y0 + 1;
+  const out = document.createElement("canvas");
+  out.width = w * SPRITE_SCALE; out.height = h * SPRITE_SCALE;
+  const og = out.getContext("2d");
+  og.imageSmoothingEnabled = true; og.imageSmoothingQuality = "high";
+  og.drawImage(c, x0, y0, w, h, 0, 0, out.width, out.height);
+  return out;
+}
+
+function currentArtUrl(r) {
+  // an item that has already been refaced is served from the bucket
+  return imgOverrides[r.item_id]
+    ? IMG_BUCKET + imgOverrides[r.item_id]
+    : "assets/items/" + r.image_name;
+}
+
+function cardHTML(r) {
+  const tag = r.status === "applied"
+      ? `<span class="tag applied">rebuilt · dir ${esc(r.chosen_dir)}</span>`
+    : r.status === "keep" ? `<span class="tag keep">kept as-is</span>`
+    : `<span class="tag">not decided</span>`;
+  return `<div class="card" data-id="${esc(r.raw_id)}">
+    <div class="head"><b>${esc(r.item_name)}</b>${tag}
+      <span class="idline">${esc(r.item_id)} · ${esc((r.parts || []).join("+"))}</span></div>
+    <div class="strip">
+      <div class="opt now"><div class="frame">
+        <img src="${esc(currentArtUrl(r))}" alt="" loading="lazy" /></div>
+        <small>in the game now</small></div>
+      ${DIRS.map(([d, label]) => `<div class="opt" data-dir="${d}">
+        <div class="frame" data-slot="${esc(r.raw_id)}-${d}"><small>…</small></div>
+        <small>dir ${d} ${label}</small></div>`).join("")}
+    </div>
+    <div class="acts">
+      <button class="ghost keep" data-id="${esc(r.raw_id)}">Keep what's there</button>
+      <span class="stats">click a facing to use it</span>
+    </div></div>`;
+}
+
+async function paint(r) {
+  let atlas;
+  try { atlas = await loadAtlas(r.atlas); }
+  catch (e) {
+    for (const [d] of DIRS) {
+      const slot = document.querySelector(`[data-slot="${CSS.escape(r.raw_id + "-" + d)}"]`);
+      if (slot) slot.innerHTML = `<small>no atlas</small>`;
+    }
+    return;
+  }
+  for (const [d] of DIRS) {
+    const slot = document.querySelector(`[data-slot="${CSS.escape(r.raw_id + "-" + d)}"]`);
+    if (!slot) continue;
+    const c = composite(atlas, r.frames || [], d);
+    slot.innerHTML = "";
+    if (c) slot.appendChild(c);
+    else slot.innerHTML = `<small>—</small>`;
+  }
+}
+
+function render() {
+  const f = $("#filter").value, want = $("#parts").value;
+  const q = $("#q").value.trim().toLowerCase();
+  const list = rows.filter((r) =>
+    (f === "all" || (r.status || "pending") === f) &&
+    (!want || (r.parts || []).join("+") === want) &&
+    (!q || r.item_name.toLowerCase().includes(q) || r.raw_id.includes(q)));
+  $("#count").textContent = `${list.length} shown · ${rows.length} total`;
+  $("#grid").innerHTML = list.map(cardHTML).join("") ||
+    `<div class="empty">Nothing here.</div>`;
+  $("#grid").querySelectorAll(".opt[data-dir]").forEach((el) => {
+    el.onclick = () => {
+      const id = el.closest(".card").dataset.id;
+      apply(id, el.dataset.dir, el.querySelector("canvas"));
+    };
+  });
+  $("#grid").querySelectorAll("button.keep").forEach((b) => {
+    b.onclick = () => decide(b.dataset.id, "keep", null);
+  });
+  list.forEach(paint);
+}
+
+async function apply(rawId, dir, canvas) {
+  const r = rows.find((x) => x.raw_id === rawId);
+  if (!r || !canvas) return note("That facing has nothing to use.", true);
+  try {
+    note(`Rebuilding ${r.item_name} from dir ${dir}…`);
+    const blob = await new Promise((res, rej) =>
+      canvas.toBlob((b) => (b ? res(b) : rej(new Error("could not encode"))), "image/png"));
+    const name = `${r.item_id.replace(/[^a-zA-Z0-9]+/g, "_")}_${Date.now()}.png`;
+    const up = await sb.storage.from("item-images")
+      .upload(name, blob, { contentType: "image/png", upsert: true });
+    if (up.error) throw up.error;
+    const ov = await sb.from("image_overrides")
+      .upsert({ item_id: r.item_id, image_name: name });
+    if (ov.error) throw ov.error;
+    imgOverrides[r.item_id] = name;
+    await decide(rawId, "applied", dir);
+    note(`${r.item_name} rebuilt — the bot repaints within ~2 min.`);
+  } catch (e) {
+    note("Failed: " + (e.message || e), true);
+  }
+}
+
+async function decide(rawId, status, dir) {
+  const { error } = await sb.from("composite_candidates")
+    .update({ status, chosen_dir: dir, updated_at: new Date().toISOString() })
+    .eq("raw_id", rawId);
+  if (error) return note("Save failed: " + error.message, true);
+  const r = rows.find((x) => x.raw_id === rawId);
+  if (r) { r.status = status; r.chosen_dir = dir; }
+  render();
+}
+
+let noteT;
+function note(msg, bad) {
+  const el = $("#warn");
+  el.textContent = msg;
+  el.style.color = bad ? "var(--bad)" : "var(--ok)";
+  clearTimeout(noteT); noteT = setTimeout(() => (el.textContent = ""), 4000);
+}
+
+async function load() {
+  try {
+    const { data } = await sb.from("image_overrides").select("item_id,image_name");
+    for (const r of data || []) imgOverrides[r.item_id] = r.image_name;
+  } catch (e) { /* replacement table may not exist */ }
+  const { data, error } = await sb.from("composite_candidates").select("*").order("item_name");
+  if (error) {
+    $("#conn").textContent = "● table missing";
+    $("#warn").innerHTML = "Run <code>CLUBVMKBOT/webportal/schema_composite_candidates.sql</code>"
+      + " in Supabase, then publish with <code>tools/vmk_publish_composites.py</code>.";
+    return;
+  }
+  rows = data || [];
+  $("#conn").textContent = "● connected";
+  $("#conn").style.color = "var(--ok)";
+  const seen = [...new Set(rows.map((r) => (r.parts || []).join("+")))].sort();
+  $("#parts").innerHTML = `<option value="">Any parts</option>`
+    + seen.map((p) => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+  render();
+}
+
+sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+$("#filter").onchange = render;
+$("#parts").onchange = render;
+$("#q").oninput = render;
+load();
+</script>
+</body>
+</html>
