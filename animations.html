@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MyVMK — Animated pin speed</title>
+<title>MyVMK — Animation speed</title>
 <style>
   :root{
     --bg:#0f1226; --panel:#1a1f3d; --border:#2c335c; --text:#e8eaf6; --muted:#9aa2cf;
@@ -42,13 +42,20 @@
 </head>
 <body>
 <header>
-  <h1>⏱️ Animated pin speed</h1>
-  <p class="lede">82 pins are animations. The game ships their frames but says nothing about how
-    fast to play them, so the rate is ours to choose — and one rate doesn't suit a two-frame blink
-    and a 173-frame sequence alike. Each preview below runs at its current rate; drag to change it.
+  <h1>⏱️ Animation speed</h1>
+  <p class="lede">82 pins and 106 clothing items are animations. The game ships their frames but
+    says nothing about how fast to play them, so the rate is ours to choose — and one rate doesn't
+    suit a two-frame blink and a 173-frame sequence alike. Each preview runs at its current rate;
+    drag to change it. Saving records the rate — the art carries its timing inside it, so it is
+    rebuilt by <code>vmk_build_animated.py</code>.
     <a href="index.html">← back to the Rarity Curator</a></p>
   <div class="bar">
-    <input id="q" type="text" placeholder="Find a pin…" />
+    <input id="q" type="text" placeholder="Find an item…" />
+    <select id="kind">
+      <option value="">Pins and clothing</option>
+      <option value="pin">Pins only</option>
+      <option value="clothing">Clothing only</option>
+    </select>
     <select id="sort">
       <option value="name">By name</option>
       <option value="frames">By length</option>
@@ -68,6 +75,7 @@
 <script>
 const PKG = (id) => `https://mouse.myvmk.com/packages/pins/item_${id}.json`;
 const SHEET = (f) => `https://mouse.myvmk.com/packages/pins/${f}`;
+const CLOTH_ATLAS = (c) => `https://mouse.myvmk.com/packages/clothes-linked/${c}-pkg32_0.webp`;
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -93,6 +101,54 @@ function loadImage(url) {
    item_5611_8_2 all occur). Each frame carries its own rect and the long ones
    are laid out as a grid rather than a row, so every frame is cut where the
    manifest says it is. Mirrors package_frames() in vmk_build_animated.py. */
+/* Clothing has no package endpoint to fetch — its frames come from a sprite
+   capture the browser can't read, so they are recorded alongside the rate. Each
+   step is reassembled from its parts the way the builder does: anchor at
+   (ow/2, oh - ts/2), every piece drawn at anchor - (rx, ry), and one shared
+   crop across every step so the preview doesn't jitter. */
+async function clothingFrames(row) {
+  const atlas = await loadImage(CLOTH_ATLAS(row.atlas));
+  const rects = row.frame_rects || [];
+  if (rects.length < 2) throw new Error("no frames recorded");
+  const cw = Math.max(...rects.map((r) => r.ow || r.w));
+  const ch = Math.max(...rects.map((r) => r.oh || r.h));
+  const ts = rects[0].ts || 32;
+  const ax = cw >> 1, ay = ch - (ts >> 1);
+  // group the pieces by step: several body slots share one step
+  const steps = [];
+  const per = Math.max(1, Math.round(rects.length / row.frames));
+  for (let i = 0; i < rects.length; i += per) steps.push(rects.slice(i, i + per));
+
+  const drawn = steps.map((parts) => {
+    const c = document.createElement("canvas");
+    c.width = cw; c.height = ch;
+    const g = c.getContext("2d");
+    for (const r of parts) {
+      g.drawImage(atlas, r.x, r.y, r.w, r.h, ax - r.rx, ay - r.ry, r.w, r.h);
+    }
+    return c;
+  });
+  // one crop for all of them, or the artwork jumps as the frames change size
+  let x0 = cw, y0 = ch, x1 = -1, y1 = -1;
+  for (const c of drawn) {
+    const d = c.getContext("2d").getImageData(0, 0, cw, ch).data;
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      if (d[(y * cw + x) * 4 + 3] > 8) {
+        if (x < x0) x0 = x; if (x > x1) x1 = x;
+        if (y < y0) y0 = y; if (y > y1) y1 = y;
+      }
+    }
+  }
+  if (x1 < 0) throw new Error("nothing drawn");
+  const w = x1 - x0 + 1, h = y1 - y0 + 1;
+  return drawn.map((c) => {
+    const o = document.createElement("canvas");
+    o.width = w; o.height = h;
+    o.getContext("2d").drawImage(c, x0, y0, w, h, 0, 0, w, h);
+    return o;
+  });
+}
+
 async function cutFrames(rawId) {
   const man = await (await fetch(PKG(rawId))).json();
   const sheets = [];
@@ -161,7 +217,9 @@ function cardHTML(r) {
 function visible() {
   const q = $("#q").value.trim().toLowerCase();
   const by = $("#sort").value;
-  let list = rows.filter((r) => !q || r.item_name.toLowerCase().includes(q) || r.raw_id.includes(q));
+  const kind = $("#kind").value;
+  let list = rows.filter((r) => (!kind || (r.kind || "pin") === kind)
+    && (!q || r.item_name.toLowerCase().includes(q) || r.raw_id.includes(q)));
   list.sort((a, b) => by === "frames" ? b.frames - a.frames
                     : by === "ms" ? currentMs(a) - currentMs(b)
                     : a.item_name.localeCompare(b.item_name));
@@ -199,11 +257,12 @@ function render() {
       io.unobserve(e.target);
       const id = e.target.dataset.id;
       const row = rows.find((r) => r.raw_id === id);
-      cutFrames(id)
-        .then((frames) => play(id, e.target.querySelector("canvas"), frames, currentMs(row)))
-        .catch(() => {
+      const src = row.kind === "clothing" ? clothingFrames(row) : cutFrames(id);
+      src.then((frames) => play(id, e.target.querySelector("canvas"), frames, currentMs(row)))
+        .catch((err) => {
           e.target.querySelector(".stage").innerHTML =
-            `<span class="stats">couldn't load its frames</span>`;
+            `<span class="stats">${row.kind === "clothing" && !row.atlas
+              ? "rebuild it to record its frames" : "couldn't load its frames"}</span>`;
         });
     }
   }, { rootMargin: "200px" });
@@ -255,6 +314,7 @@ async function load() {
 sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
 $("#q").oninput = render;
 $("#sort").onchange = render;
+$("#kind").onchange = render;
 $("#save").onclick = save;
 $("#reset").onclick = () => { edited.clear(); render(); };
 load();
