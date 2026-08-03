@@ -48,6 +48,8 @@
   .card.onhold::before{content:"🆕 NEW";position:absolute;bottom:34px;left:6px;z-index:2;background:var(--hold);color:#0b0e20;font-size:9px;font-weight:700;padding:1px 5px;border-radius:5px}
   .card.removed{opacity:.5}
   .card.removed img{filter:grayscale(1)}
+  .card.anim::after{content:"🎞 ANIMATED";position:absolute;top:26px;left:6px;z-index:2;
+    background:#3d8bfd;color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:5px}
   .card.brokenimg{outline:2px solid var(--remove);outline-offset:-1px}
   .card.brokenimg::after{content:"⚠ broken image";position:absolute;top:26px;left:6px;z-index:2;
     background:var(--remove);color:#0b0e20;font-size:9px;font-weight:700;padding:1px 5px;border-radius:5px}
@@ -81,6 +83,7 @@
       <option value="sprite">🎨 sprite-derived art</option>
       <option value="thumb">🖼 thumbnail art</option>
       <option value="unnamed">❓ unnamed in game</option>
+      <option value="__animated">🎞 animated</option>
       <option value="unverified">unverified</option>
       <option value="harvested">harvested (older)</option>
     </select>
@@ -147,6 +150,7 @@ async function boot(){
     sb=window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
     await pullFromDB();
     await pullImageOverrides();
+    await pullAnimated();
     try{ const {error}=await sb.from("overrides").select("editor").limit(1); hasEditor=!error; }catch(e){}
     subscribe();
   }else{
@@ -174,6 +178,19 @@ async function pullFromDB(){
     for(const row of all) if(row.item_id in rarity) rarity[row.item_id]=row.tier;
     setConn(true, `synced — ${all.length} tagged`);
   }catch(e){ setConn(false, "connect failed: "+(e.message||e)); banner("⚠ Could not reach Supabase — check the URL/key in config.js and that the table policy allows access. Error: "+(e.message||e)); }
+}
+
+let animatedSet=new Set();
+// Which items animate is already recorded for the animation-speed page, so it
+// just gets read here too. An animated item is showier than a still one and
+// tends to deserve a higher tier, which is hard to act on if you can't find them.
+async function pullAnimated(){
+  if(!sb) return;
+  try{
+    const {data,error}=await sb.from("pin_animation").select("item_id");
+    if(error) throw error;
+    animatedSet=new Set((data||[]).map(r=>r.item_id));
+  }catch(e){ /* table not created yet — the filter just finds nothing */ }
 }
 
 async function pullImageOverrides(){
@@ -250,7 +267,8 @@ function filtered(){
     if(fc && it.category!==fc) return false;
     if(fr==="__broken"){ if(!brokenSet.has(it.id)) return false; }
     else if(fr && rarity[it.id]!==fr) return false;
-    if(ft && !(it.tags||[]).includes(ft)) return false;
+    if(ft==="__animated"){ if(!animatedSet.has(it.id)) return false; }
+    else if(ft && !(it.tags||[]).includes(ft)) return false;
     if(q && !it.name.toLowerCase().includes(q)) return false;
     return true;
   });
@@ -265,7 +283,7 @@ function render(){
     const r=rarity[it.id], sid=String(it.id);
     renderedIds.push(sid);
     const card=document.createElement("div");
-    card.className="card"+(r==="remove"?" removed":"")+(r==="hold"?" onhold":"")+(selected.has(sid)?" selected":"")+(imgOverrides[it.id]?" hasimg":"");
+    card.className="card"+(r==="remove"?" removed":"")+(r==="hold"?" onhold":"")+(selected.has(sid)?" selected":"")+(imgOverrides[it.id]?" hasimg":"")+(animatedSet.has(it.id)?" anim":"");
     card.dataset.id=sid;
     card.innerHTML=`
       <input type="checkbox" class="sel" ${selected.has(sid)?"checked":""}>
@@ -302,7 +320,8 @@ function setCardSelected(id,on){
 function updateStats(){
   const c={}; for(const t of TIERS) c[t]=0;
   for(const id in rarity) c[rarity[id]]=(c[rarity[id]]||0)+1;
-  $("#statPills").innerHTML=TIERS.map(t=>`<span class="pill" style="background:var(--${t});color:#0b0e20">${t}</span> <b>${c[t].toLocaleString()}</b>`).join("&nbsp;&nbsp;");
+  $("#statPills").innerHTML=TIERS.map(t=>`<span class="pill" style="background:var(--${t});color:#0b0e20">${t}</span> <b>${c[t].toLocaleString()}</b>`).join("&nbsp;&nbsp;")
+    +(animatedSet.size?`&nbsp;&nbsp;<span class="pill" style="background:#3d8bfd;color:#fff">🎞 animated</span> <b>${animatedSet.size}</b>`:"");
 }
 
 function bindEvents(){
