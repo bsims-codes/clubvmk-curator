@@ -80,8 +80,12 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
+const DIRNAME = {"0":"0 front","1":"1 three-quarter","2":"2 side","3":"3 three-quarter back","4":"4 back"};
+const dirOptions = (r) => Object.keys(r.facings || {}).sort();
+const currentFacing = (r) => facing.has(r.raw_id) ? facing.get(r.raw_id) : r.facing;
 let sb, rows = [];
 const edited = new Map();      // raw_id -> ms, only what actually changed
+const facing = new Map();      // raw_id -> direction, for clothing
 const players = new Map();     // raw_id -> {frames, timer, ms}
 
 function loadImage(url) {
@@ -106,14 +110,18 @@ function loadImage(url) {
    step is reassembled from its parts the way the builder does: anchor at
    (ow/2, oh - ts/2), every piece drawn at anchor - (rx, ry), and one shared
    crop across every step so the preview doesn't jitter. */
-async function clothingFrames(row) {
+async function clothingFrames(row, dir) {
   const atlas = await loadImage(CLOTH_ATLAS(row.atlas));
-  const rects = row.frame_rects || [];
+  const rects = (dir != null && row.facings && row.facings[dir]) || row.frame_rects || [];
   if (rects.length < 2) throw new Error("no frames recorded");
-  const cw = Math.max(...rects.map((r) => r.ow || r.w));
-  const ch = Math.max(...rects.map((r) => r.oh || r.h));
-  const ts = rects[0].ts || 32;
-  const ax = cw >> 1, ay = ch - (ts >> 1);
+  // Size the canvas from the registration points, not from ow/oh. Some frames
+  // carry no ow/oh and their rx/ry is nowhere near the ow/2, oh - ts/2 anchor —
+  // Wings - Maleficent drew at (-9, -46) that way and came out a sliver. Taking
+  // the anchor as the largest registration point lands every piece inside.
+  const ax = Math.max(...rects.map((r) => r.rx));
+  const ay = Math.max(...rects.map((r) => r.ry));
+  const cw = ax + Math.max(...rects.map((r) => r.w - r.rx));
+  const ch = ay + Math.max(...rects.map((r) => r.h - r.ry));
   // group the pieces by step: several body slots share one step
   const steps = [];
   const per = Math.max(1, Math.round(rects.length / row.frames));
@@ -197,13 +205,20 @@ function play(rawId, canvas, frames, ms) {
   players.set(rawId, { frames, ms, timer: setInterval(draw, ms) });
 }
 
+const dirty = (id) => edited.has(id) || facing.has(id);
+
+function refreshBar() {
+  $("#count").textContent = `${visible().length} shown · ${edited.size + facing.size} changed`;
+  $("#save").disabled = $("#reset").disabled = (edited.size + facing.size) === 0;
+}
+
 function currentMs(r) {
   return edited.has(r.raw_id) ? edited.get(r.raw_id) : r.ms;
 }
 
 function cardHTML(r) {
   const ms = currentMs(r);
-  return `<div class="card${edited.has(r.raw_id) ? " changed" : ""}" data-id="${esc(r.raw_id)}">
+  return `<div class="card${dirty(r.raw_id) ? " changed" : ""}" data-id="${esc(r.raw_id)}">
     <div class="stage"><canvas data-canvas="${esc(r.raw_id)}"></canvas></div>
     <div class="nm">${esc(r.item_name)}</div>
     <div class="meta">${esc(r.item_id)} · ${r.frames} frames · loop ${(r.frames * ms / 1000).toFixed(1)}s</div>
@@ -211,6 +226,12 @@ function cardHTML(r) {
       <input type="range" min="60" max="600" step="10" value="${ms}" data-range="${esc(r.raw_id)}" />
       <span class="ms" data-ms="${esc(r.raw_id)}">${ms} ms</span>
     </div>
+    ${dirOptions(r).length > 1 ? `<div class="row" style="margin-top:6px">
+      <span class="stats">facing</span>
+      <select data-face="${esc(r.raw_id)}">${dirOptions(r).map((d) =>
+        `<option value="${d}"${String(d) === String(currentFacing(r)) ? " selected" : ""}>${
+          DIRNAME[d] || ("dir " + d)}</option>`).join("")}</select>
+    </div>` : ""}
   </div>`;
 }
 
@@ -230,8 +251,7 @@ function render() {
   for (const st of players.values()) if (st.timer) clearInterval(st.timer);
   players.clear();
   const list = visible();
-  $("#count").textContent = `${list.length} shown · ${edited.size} changed`;
-  $("#save").disabled = $("#reset").disabled = edited.size === 0;
+  refreshBar();
   $("#grid").innerHTML = list.map(cardHTML).join("") || `<div class="empty">Nothing matches.</div>`;
 
   $("#grid").querySelectorAll("input[type=range]").forEach((el) => {
@@ -242,11 +262,23 @@ function render() {
       $(`[data-ms="${CSS.escape(id)}"]`).textContent = ms + " ms";
       el.closest(".card").querySelector(".meta").textContent =
         `${row.item_id} · ${row.frames} frames · loop ${(row.frames * ms / 1000).toFixed(1)}s`;
-      el.closest(".card").classList.toggle("changed", edited.has(id));
+      el.closest(".card").classList.toggle("changed", dirty(id));
       const st = players.get(id);
       if (st) play(id, $(`[data-canvas="${CSS.escape(id)}"]`), st.frames, ms);
-      $("#count").textContent = `${visible().length} shown · ${edited.size} changed`;
-      $("#save").disabled = $("#reset").disabled = edited.size === 0;
+      refreshBar();
+    };
+  });
+
+  $("#grid").querySelectorAll("select[data-face]").forEach((el) => {
+    el.onchange = () => {
+      const id = el.dataset.face, row = rows.find((r) => r.raw_id === id);
+      if (String(el.value) === String(row.facing)) facing.delete(id);
+      else facing.set(id, el.value);
+      el.closest(".card").classList.toggle("changed", dirty(id));
+      clothingFrames(row, el.value)
+        .then((fr) => play(id, el.closest(".card").querySelector("canvas"), fr, currentMs(row)))
+        .catch(() => note("that facing has no frames recorded", true));
+      refreshBar();
     };
   });
 
@@ -257,7 +289,7 @@ function render() {
       io.unobserve(e.target);
       const id = e.target.dataset.id;
       const row = rows.find((r) => r.raw_id === id);
-      const src = row.kind === "clothing" ? clothingFrames(row) : cutFrames(id);
+      const src = row.kind === "clothing" ? clothingFrames(row, currentFacing(row)) : cutFrames(id);
       src.then((frames) => play(id, e.target.querySelector("canvas"), frames, currentMs(row)))
         .catch((err) => {
           e.target.querySelector(".stage").innerHTML =
@@ -270,22 +302,25 @@ function render() {
 }
 
 async function save() {
-  const payload = [...edited.entries()].map(([raw_id, ms]) => {
+  const ids = new Set([...edited.keys(), ...facing.keys()]);
+  const payload = [...ids].map((raw_id) => {
     const r = rows.find((x) => x.raw_id === raw_id);
     return { raw_id, item_id: r.item_id, item_name: r.item_name, frames: r.frames,
-             ms, built_ms: r.built_ms, updated_at: new Date().toISOString() };
+             ms: currentMs(r), facing: currentFacing(r), built_ms: r.built_ms,
+             updated_at: new Date().toISOString() };
   });
   const { error } = await sb.from("pin_animation").upsert(payload, { onConflict: "raw_id" });
   if (error) return note("Save failed: " + error.message, true);
   for (const p of payload) {
     const r = rows.find((x) => x.raw_id === p.raw_id);
-    if (r) r.ms = p.ms;
+    if (r) { r.ms = p.ms; r.facing = p.facing; }
   }
-  const n = edited.size;
+  const n = payload.length;
   edited.clear();
+  facing.clear();
   render();
-  note(`Saved ${n} rate${n === 1 ? "" : "s"}. The art itself is rebuilt at these speeds by `
-     + `vmk_build_animated.py --packages --apply.`);
+  note(`Saved ${n} change${n === 1 ? "" : "s"}. The art carries its speed and facing inside it, `
+     + `so run vmk_build_animated.py to rebuild at these settings.`);
 }
 
 let noteT;
@@ -316,7 +351,7 @@ $("#q").oninput = render;
 $("#sort").onchange = render;
 $("#kind").onchange = render;
 $("#save").onclick = save;
-$("#reset").onclick = () => { edited.clear(); render(); };
+$("#reset").onclick = () => { edited.clear(); facing.clear(); render(); };
 load();
 </script>
 </body>
