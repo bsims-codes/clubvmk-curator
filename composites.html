@@ -61,6 +61,13 @@
       <option value="all">All</option>
     </select>
     <select id="parts"><option value="">Any parts</option></select>
+    <select id="tier">
+      <option value="">Any rarity</option>
+      <option value="hold">🆕 hold / new</option>
+      <option value="common">common</option><option value="uncommon">uncommon</option>
+      <option value="rare">rare</option><option value="epic">epic</option>
+      <option value="legendary">legendary</option>
+    </select>
     <input id="q" type="text" placeholder="Find an item…" />
     <span class="stats" id="conn">● connecting…</span>
     <span class="stats" id="count"></span>
@@ -80,7 +87,7 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-let sb, rows = [], imgOverrides = {};
+let sb, rows = [], imgOverrides = {}, tiers = {};
 const atlasCache = {};
 
 function loadAtlas(code) {
@@ -162,7 +169,8 @@ function cardHTML(r) {
     : `<span class="tag">not decided</span>`;
   return `<div class="card" data-id="${esc(r.raw_id)}">
     <div class="head"><b>${esc(r.item_name)}</b>${tag}
-      <span class="idline">${esc(r.item_id)} · ${esc((r.parts || []).join("+"))}</span></div>
+      <span class="idline">${esc(r.item_id)} · ${esc((r.parts || []).join("+"))}</span>
+      <span class="tag">${esc(tiers[r.item_id] || "common")}</span></div>
     <div class="strip">
       <div class="opt now"><div class="frame">
         <img src="${esc(currentArtUrl(r))}" alt="" loading="lazy" /></div>
@@ -200,8 +208,10 @@ async function paint(r) {
 function render() {
   const f = $("#filter").value, want = $("#parts").value;
   const q = $("#q").value.trim().toLowerCase();
+  const want_tier = $("#tier").value;
   const list = rows.filter((r) =>
     (f === "all" || (r.status || "pending") === f) &&
+    (!want_tier || (tiers[r.item_id] || "common") === want_tier) &&
     (!want || (r.parts || []).join("+") === want) &&
     (!q || r.item_name.toLowerCase().includes(q) || r.raw_id.includes(q)));
   $("#count").textContent = `${list.length} shown · ${rows.length} total`;
@@ -264,6 +274,18 @@ async function load() {
     const { data } = await sb.from("image_overrides").select("item_id,image_name");
     for (const r of data || []) imgOverrides[r.item_id] = r.image_name;
   } catch (e) { /* replacement table may not exist */ }
+  // Newly imported items sit on "hold" until they are tiered, and those are
+  // exactly the ones whose art still needs a facing picked — so they are worth
+  // being able to single out.
+  try {
+    for (let off = 0; ; off += 1000) {
+      const { data, error } = await sb.from("overrides").select("item_id,tier")
+        .range(off, off + 999);
+      if (error || !data || !data.length) break;
+      for (const r of data) tiers[r.item_id] = r.tier;
+      if (data.length < 1000) break;
+    }
+  } catch (e) { /* no curation yet — the filter just matches nothing */ }
   const { data, error } = await sb.from("composite_candidates").select("*").order("item_name");
   if (error) {
     $("#conn").textContent = "● table missing";
@@ -283,6 +305,7 @@ async function load() {
 sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
 $("#filter").onchange = render;
 $("#parts").onchange = render;
+$("#tier").onchange = render;
 $("#q").oninput = render;
 load();
 </script>
