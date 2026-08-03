@@ -174,7 +174,10 @@ async function pullFromDB(){
       all=all.concat(data||[]);
       if(!data||data.length<1000) break;
     }
-    for(const it of items) rarity[it.id]="common";       // DB is the source of truth
+    // Same rule the bot uses: a curated tier wins, anything unjudged keeps the
+    // rarity baked into the catalogue — which is "hold" for a fresh import, so
+    // new items show as held here exactly as they behave in game.
+    for(const it of items) rarity[it.id]=it.rarity||"common";
     for(const row of all) if(row.item_id in rarity) rarity[row.item_id]=row.tier;
     setConn(true, `synced — ${all.length} tagged`);
   }catch(e){ setConn(false, "connect failed: "+(e.message||e)); banner("⚠ Could not reach Supabase — check the URL/key in config.js and that the table policy allows access. Error: "+(e.message||e)); }
@@ -223,7 +226,8 @@ function subscribe(){
     .on("postgres_changes",{event:"*",schema:"public",table:"overrides"},payload=>{
       const row=payload.new&&payload.new.item_id?payload.new:payload.old;
       if(!row||!(row.item_id in rarity)) return;
-      rarity[row.item_id]=(payload.eventType==="DELETE")?"common":row.tier;
+      const baked=(items.find(i=>i.id===row.item_id)||{}).rarity||"common";
+      rarity[row.item_id]=(payload.eventType==="DELETE")?baked:row.tier;
       const sel=document.querySelector(`select.rar[data-id="${cssEsc(row.item_id)}"]`);
       if(sel){ sel.value=rarity[row.item_id]; sel.dataset.r=rarity[row.item_id];
         sel.closest(".card").classList.toggle("removed", rarity[row.item_id]==="remove"); }
@@ -239,19 +243,19 @@ async function pushOne(id,tier){
   saveLocal();
   if(!online||!sb) return;
   try{
-    if(tier==="common") await sb.from("overrides").delete().eq("item_id",id);
-    else await sb.from("overrides").upsert(withEditor({item_id:id,tier}));
+    // "common" is a decision too — it has to be written down. Deleting the row
+    // used to mean the same as never having judged the item, which now falls
+    // back to the catalogue's baked rarity (hold, for a fresh import).
+    await sb.from("overrides").upsert(withEditor({item_id:id,tier}));
   }catch(e){ msg("save failed: "+(e.message||e)); }
 }
 
 async function pushMany(pairs){ // [{item_id,tier}]
   saveLocal();
   if(!online||!sb) return;
-  const up=pairs.filter(p=>p.tier!=="common").map(withEditor);
-  const del=pairs.filter(p=>p.tier==="common").map(p=>p.item_id);
+  const up=pairs.map(withEditor);
   try{
     for(let i=0;i<up.length;i+=500) await sb.from("overrides").upsert(up.slice(i,i+500));
-    for(let i=0;i<del.length;i+=500) await sb.from("overrides").delete().in("item_id",del.slice(i,i+500));
   }catch(e){ msg("bulk save failed: "+(e.message||e)); }
 }
 
