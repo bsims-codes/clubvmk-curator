@@ -13896,10 +13896,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76719_0.png"
   },
   {
     "id": "clothing:83091",
@@ -25223,6 +25225,21 @@
     "image": "48038_0.png"
   },
   {
+    "id": "clothing:49306",
+    "name": "Flip Flops - Black & White",
+    "type": "49306",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49306_0.png"
+  },
+  {
     "id": "clothing:48010",
     "name": "Flip Flops - Blue",
     "type": "48010",
@@ -25243,6 +25260,21 @@
     "tags": [],
     "description": "",
     "image": "48009_0.png"
+  },
+  {
+    "id": "clothing:49302",
+    "name": "Flip Flops - Cyan & White",
+    "type": "49302",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49302_0.png"
   },
   {
     "id": "clothing:49304",
@@ -25306,6 +25338,51 @@
     ],
     "description": "",
     "image": "49305_0.png"
+  },
+  {
+    "id": "clothing:49303",
+    "name": "Flip Flops - Light Blue & White",
+    "type": "49303",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49303_0.png"
+  },
+  {
+    "id": "clothing:49298",
+    "name": "Flip Flops - Lime & White",
+    "type": "49298",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49298_0.png"
+  },
+  {
+    "id": "clothing:49297",
+    "name": "Flip Flops - Magenta & White",
+    "type": "49297",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49297_0.png"
   },
   {
     "id": "clothing:48050",
@@ -25389,6 +25466,21 @@
     "image": "48006_0.png"
   },
   {
+    "id": "clothing:49300",
+    "name": "Flip Flops - Red &  White",
+    "type": "49300",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49300_0.png"
+  },
+  {
     "id": "clothing:48796",
     "name": "Flip Flops - Red & White",
     "type": "48796",
@@ -25453,6 +25545,21 @@
     "tags": [],
     "description": "",
     "image": "38001_0.png"
+  },
+  {
+    "id": "clothing:49299",
+    "name": "Flip Flops - Yellow & White",
+    "type": "49299",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49299_0.png"
   },
   {
     "id": "clothing:53178",
@@ -33150,6 +33257,21 @@
     "image": "82689_0.png"
   },
   {
+    "id": "clothing:84199",
+    "name": "Holdable - Beach Ball",
+    "type": "84199",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84199_0.png"
+  },
+  {
     "id": "clothing:82301",
     "name": "Holdable - Blankie White",
     "type": "82301",
@@ -35939,6 +36061,51 @@
     "image": "44245_0.png"
   },
   {
+    "id": "clothing:76663",
+    "name": "Hong Kong Hooded Pullover Light Blue",
+    "type": "76663",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76663_0.png"
+  },
+  {
+    "id": "clothing:76662",
+    "name": "Hong Kong Hooded Pullover Pink",
+    "type": "76662",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76662_0.png"
+  },
+  {
+    "id": "clothing:76659",
+    "name": "Hong Kong Hooded Pullover Purple",
+    "type": "76659",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76659_0.png"
+  },
+  {
     "id": "clothing:44243",
     "name": "Hong Kong T-Shirt Blue",
     "type": "44243",
@@ -36009,10 +36176,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76657_0.png"
   },
   {
     "id": "clothing:44241",
@@ -40839,6 +41008,21 @@
     ],
     "description": "",
     "image": "48121_0.png"
+  },
+  {
+    "id": "clothing:48130",
+    "name": "Leggings - Purple",
+    "type": "48130",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48130_0.png"
   },
   {
     "id": "clothing:59315",
