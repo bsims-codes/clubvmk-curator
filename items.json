@@ -140779,10 +140779,10 @@
     "image": "6405_0.png"
   },
   {
-    "id": "pin:82000",
+    "id": "clothing:82000",
     "name": "Travel Pet - Baby Yeti",
     "type": "82000",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140812,10 +140812,10 @@
     "image": "4105_0.png"
   },
   {
-    "id": "pin:82164",
+    "id": "clothing:82164",
     "name": "Travel Pet - Fairy Clarion",
     "type": "82164",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140823,10 +140823,10 @@
     "image": "82164_0.png"
   },
   {
-    "id": "pin:82158",
+    "id": "clothing:82158",
     "name": "Travel Pet - Fairy Fawn",
     "type": "82158",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140834,10 +140834,10 @@
     "image": "82158_0.png"
   },
   {
-    "id": "pin:82159",
+    "id": "clothing:82159",
     "name": "Travel Pet - Fairy Iridessa",
     "type": "82159",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140845,10 +140845,10 @@
     "image": "82159_0.png"
   },
   {
-    "id": "pin:82160",
+    "id": "clothing:82160",
     "name": "Travel Pet - Fairy Silvermist",
     "type": "82160",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140856,10 +140856,10 @@
     "image": "82160_0.png"
   },
   {
-    "id": "pin:82161",
+    "id": "clothing:82161",
     "name": "Travel Pet - Fairy Terence",
     "type": "82161",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140867,10 +140867,10 @@
     "image": "82161_0.png"
   },
   {
-    "id": "pin:82162",
+    "id": "clothing:82162",
     "name": "Travel Pet - Fairy Tink",
     "type": "82162",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140878,10 +140878,10 @@
     "image": "82162_0.png"
   },
   {
-    "id": "pin:82163",
+    "id": "clothing:82163",
     "name": "Travel Pet - Fairy Vidia",
     "type": "82163",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140889,10 +140889,10 @@
     "image": "82163_0.png"
   },
   {
-    "id": "pin:83813",
+    "id": "clothing:83813",
     "name": "Travel Pet - Puffle Demon",
     "type": "83813",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140900,10 +140900,10 @@
     "image": "83813_0.png"
   },
   {
-    "id": "pin:83812",
+    "id": "clothing:83812",
     "name": "Travel Pet - Puffle Zombie",
     "type": "83812",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
@@ -140911,10 +140911,10 @@
     "image": "83812_0.png"
   },
   {
-    "id": "pin:82322",
+    "id": "clothing:82322",
     "name": "Travel Pet - Rajah",
     "type": "82322",
-    "category": "pin",
+    "category": "clothing",
     "rarity": "common",
     "price": 0,
     "tags": [],
