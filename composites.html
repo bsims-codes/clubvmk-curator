@@ -228,7 +228,7 @@ function cardHTML(r) {
         isAnimated(r) ? `<span class="tag">🎞 animated</span>` : ""}</div>
     <div class="strip">
       <div class="opt now"><div class="frame">
-        <img src="${esc(currentArtUrl(r))}" alt="" loading="lazy" /></div>
+        <img src="${esc(currentArtUrl(r))}" alt="" loading="lazy" data-current="${esc(r.item_id)}" /></div>
         <small>in the game now</small></div>
       ${shownDirs().map(([d, label]) => `<div class="opt" data-dir="${d}">
         <div class="frame" data-slot="${esc(r.raw_id)}-${d}"><small>…</small></div>
@@ -329,12 +329,33 @@ async function apply(rawId, dir) {
     imgOverrides[r.item_id] = name;
     await decide(rawId, "applied", dir);
     const st2 = players.get(rawId + "-" + dir);
-    note(st2 && st2.frames.length > 1
+    const animated = st2 && st2.frames.length > 1;
+    note(animated
       ? `${r.item_name} rebuilt — the bot builds the ANIMATED version within ~5 min.`
       : `${r.item_name} rebuilt — the bot repaints within ~2 min.`);
+    if (animated) watchForAnimatedSwap(r.item_id, name);
   } catch (e) {
     note("Failed: " + (e.message || e), true);
   }
+}
+
+// After an animated apply, the page holds the static PNG it uploaded while the
+// bot rebuilds the override as a GIF — poll until the swap lands, then update
+// the "in the game now" cell so the page never shows stale art.
+function watchForAnimatedSwap(itemId, uploadedName) {
+  let tries = 0;
+  const t = setInterval(async () => {
+    if (++tries > 20) return clearInterval(t);
+    const { data } = await sb.from("image_overrides")
+      .select("image_name").eq("item_id", itemId).maybeSingle();
+    const name = data && data.image_name;
+    if (!name || name === uploadedName) return;
+    clearInterval(t);
+    imgOverrides[itemId] = name;
+    const img = document.querySelector(`img[data-current="${itemId.replace(/"/g, '\\"')}"]`);
+    if (img) img.src = IMG_BUCKET + name;
+    note(`${itemId} now animated ✓`);
+  }, 20000);
 }
 
 async function decide(rawId, status, dir) {
