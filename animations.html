@@ -80,7 +80,9 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-const DIRNAME = {"0":"0 front","1":"1 three-quarter","2":"2 side","3":"3 three-quarter back","4":"4 back"};
+// 0=back … 4=front — verified empirically on composites.html (Miguel Skeleton
+// Mask: face fully visible at dir 4, a sliver at dir 0).
+const DIRNAME = {"0":"0 back","1":"1 three-quarter back","2":"2 side","3":"3 three-quarter front","4":"4 front"};
 const dirOptions = (r) => Object.keys(r.facings || {}).sort();
 const currentFacing = (r) => facing.has(r.raw_id) ? facing.get(r.raw_id) : r.facing;
 let sb, rows = [];

@@ -68,6 +68,12 @@
       <option value="rare">rare</option><option value="epic">epic</option>
       <option value="legendary">legendary</option>
     </select>
+    <select id="dir"><option value="">All facings</option></select>
+    <select id="anim">
+      <option value="">Animated or not</option>
+      <option value="animated">🎞 animated only</option>
+      <option value="still">still only</option>
+    </select>
     <input id="q" type="text" placeholder="Find an item…" />
     <span class="stats" id="conn">● connecting…</span>
     <span class="stats" id="count"></span>
@@ -82,13 +88,23 @@
 const ATLAS = (c) => `https://mouse.myvmk.com/packages/clothes-linked/${c}-pkg32_0.webp`;
 const IMG_BUCKET = `${window.SUPABASE_URL}/storage/v1/object/public/item-images/`;
 const SPRITE_SCALE = 4;
-const DIRS = [["0","front"],["1","3/4"],["2","side"],["3","3/4 back"],["4","back"]];
+// dir 0 faces away from the camera and 4 looks straight out of it — checked
+// against face masks, which only show their face from the front.
+const DIRS = [["0","back"],["1","3/4 back"],["2","side"],["3","3/4 front"],["4","front"]];
+// Preview frame rate: the speed curated on animations.html when there is one,
+// else the same length-scaled default vmk_build_animated.py bakes into the art.
+const MS_BY_LENGTH = [[2, 400], [8, 250], [20, 200], [40, 150]];
+const defaultMs = (n) => {
+  for (const [upto, ms] of MS_BY_LENGTH) if (n <= upto) return ms;
+  return 120;
+};
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-let sb, rows = [], imgOverrides = {}, tiers = {};
+let sb, rows = [], imgOverrides = {}, tiers = {}, animMs = {};
 const atlasCache = {};
+const players = new Map();   // "<raw_id>-<dir>" -> {frames, primary, timer}
 
 function loadAtlas(code) {
   if (!atlasCache[code]) {
@@ -109,7 +125,12 @@ function loadAtlas(code) {
    was trimmed out of) and ts (tile size). The canvas anchor is
    (ow/2, oh - ts/2), and every piece is drawn at anchor - (rx, ry). Untrimmed
    frames carry rx/ry equal to that anchor, so they land at 0,0 and one formula
-   covers both shapes. Mirrors compose_sprite in tools/vmk_merge_capture.py. */
+   covers both shapes. Mirrors compose_sprite in tools/vmk_merge_capture.py.
+
+   Every step of the facing is built, not just one: an animated garment (an
+   aura, a blink) plays in the preview, and the "primary" step — the one
+   showing the most body slots — is what gets exported as the icon.
+   Returns { frames: [canvas, …], primary } or null. */
 function composite(atlas, frames, dir) {
   const group = {};
   for (const f of frames) {
@@ -117,43 +138,71 @@ function composite(atlas, frames, dir) {
     if (p.length < 5 || p[p.length - 2] !== dir) continue;
     (group[p[p.length - 1]] = group[p[p.length - 1]] || []).push(f);
   }
-  const steps = Object.values(group);
+  const steps = Object.keys(group).sort((a, b) => a - b).map((k) => group[k]);
   if (!steps.length) return null;
-  // the step showing the most body slots
-  const chosen = steps.sort((a, b) =>
-    new Set(b.map((f) => f.key.split("_")[1])).size -
-    new Set(a.map((f) => f.key.split("_")[1])).size)[0];
+  // the step showing the most body slots is the one worth keeping as an icon
+  const slots = (fs) => new Set(fs.map((f) => f.key.split("_")[1])).size;
+  let primary = 0;
+  for (let i = 1; i < steps.length; i++) {
+    if (slots(steps[i]) > slots(steps[primary])) primary = i;
+  }
 
-  const cw = Math.max(...chosen.map((f) => f.ow || f.w));
-  const ch = Math.max(...chosen.map((f) => f.oh || f.h));
-  const ts = chosen[0].ts || 32;
+  const all = steps.flat();
+  const cw = Math.max(...all.map((f) => f.ow || f.w));
+  const ch = Math.max(...all.map((f) => f.oh || f.h));
+  const ts = all[0].ts || 32;
   const ax = Math.floor(cw / 2), ay = ch - Math.floor(ts / 2);
 
-  const c = document.createElement("canvas");
-  c.width = cw; c.height = ch;
-  const g = c.getContext("2d");
-  for (const f of chosen) {
-    g.drawImage(atlas, f.x, f.y, f.w, f.h,
-                ax - f.rx, ay - f.ry, f.w, f.h);
-  }
-  // trim the transparent margin so the icon isn't mostly empty canvas
-  const d = g.getImageData(0, 0, cw, ch).data;
+  const drawn = steps.map((parts) => {
+    const c = document.createElement("canvas");
+    c.width = cw; c.height = ch;
+    const g = c.getContext("2d");
+    for (const f of parts) {
+      g.drawImage(atlas, f.x, f.y, f.w, f.h,
+                  ax - f.rx, ay - f.ry, f.w, f.h);
+    }
+    return c;
+  });
+  // one crop shared by every step — trims the empty canvas without making the
+  // animation jump as the frames change size
   let x0 = cw, y0 = ch, x1 = -1, y1 = -1;
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
-    if (d[(y * cw + x) * 4 + 3] > 8) {
-      if (x < x0) x0 = x; if (x > x1) x1 = x;
-      if (y < y0) y0 = y; if (y > y1) y1 = y;
+  for (const c of drawn) {
+    const d = c.getContext("2d").getImageData(0, 0, cw, ch).data;
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      if (d[(y * cw + x) * 4 + 3] > 8) {
+        if (x < x0) x0 = x; if (x > x1) x1 = x;
+        if (y < y0) y0 = y; if (y > y1) y1 = y;
+      }
     }
   }
   if (x1 < 0) return null;
   const w = x1 - x0 + 1, h = y1 - y0 + 1;
-  const out = document.createElement("canvas");
-  out.width = w * SPRITE_SCALE; out.height = h * SPRITE_SCALE;
-  const og = out.getContext("2d");
-  og.imageSmoothingEnabled = true; og.imageSmoothingQuality = "high";
-  og.drawImage(c, x0, y0, w, h, 0, 0, out.width, out.height);
-  return out;
+  const outs = drawn.map((c) => {
+    const out = document.createElement("canvas");
+    out.width = w * SPRITE_SCALE; out.height = h * SPRITE_SCALE;
+    const og = out.getContext("2d");
+    og.imageSmoothingEnabled = true; og.imageSmoothingQuality = "high";
+    og.drawImage(c, x0, y0, w, h, 0, 0, out.width, out.height);
+    return out;
+  });
+  return { frames: outs, primary };
 }
+
+// More than one step recorded for any facing means the garment animates.
+function isAnimated(r) {
+  const seen = {};
+  for (const f of r.frames || []) {
+    const p = String(f.key || "").split("_");
+    if (p.length < 5) continue;
+    (seen[p[p.length - 2]] = seen[p[p.length - 2]] || new Set()).add(p[p.length - 1]);
+  }
+  return Object.values(seen).some((s) => s.size > 1);
+}
+
+const shownDirs = () => {
+  const d = $("#dir").value;
+  return d ? DIRS.filter(([k]) => k === d) : DIRS;
+};
 
 function currentArtUrl(r) {
   // an item that has already been refaced is served from the bucket
@@ -170,12 +219,13 @@ function cardHTML(r) {
   return `<div class="card" data-id="${esc(r.raw_id)}">
     <div class="head"><b>${esc(r.item_name)}</b>${tag}
       <span class="idline">${esc(r.item_id)} · ${esc((r.parts || []).join("+"))}</span>
-      <span class="tag">${esc(tiers[r.item_id] || "common")}</span></div>
+      <span class="tag">${esc(tiers[r.item_id] || "common")}</span>${
+        isAnimated(r) ? `<span class="tag">🎞 animated</span>` : ""}</div>
     <div class="strip">
       <div class="opt now"><div class="frame">
         <img src="${esc(currentArtUrl(r))}" alt="" loading="lazy" /></div>
         <small>in the game now</small></div>
-      ${DIRS.map(([d, label]) => `<div class="opt" data-dir="${d}">
+      ${shownDirs().map(([d, label]) => `<div class="opt" data-dir="${d}">
         <div class="frame" data-slot="${esc(r.raw_id)}-${d}"><small>…</small></div>
         <small>dir ${d} ${label}</small></div>`).join("")}
     </div>
@@ -189,29 +239,54 @@ async function paint(r) {
   let atlas;
   try { atlas = await loadAtlas(r.atlas); }
   catch (e) {
-    for (const [d] of DIRS) {
+    for (const [d] of shownDirs()) {
       const slot = document.querySelector(`[data-slot="${CSS.escape(r.raw_id + "-" + d)}"]`);
       if (slot) slot.innerHTML = `<small>no atlas</small>`;
     }
     return;
   }
-  for (const [d] of DIRS) {
+  for (const [d] of shownDirs()) {
     const slot = document.querySelector(`[data-slot="${CSS.escape(r.raw_id + "-" + d)}"]`);
     if (!slot) continue;
-    const c = composite(atlas, r.frames || [], d);
+    const res = composite(atlas, r.frames || [], d);
     slot.innerHTML = "";
-    if (c) slot.appendChild(c);
-    else slot.innerHTML = `<small>—</small>`;
+    if (!res) { slot.innerHTML = `<small>—</small>`; continue; }
+    const el = document.createElement("canvas");
+    el.width = res.frames[res.primary].width;
+    el.height = res.frames[res.primary].height;
+    const g = el.getContext("2d");
+    const show = (i) => {
+      g.clearRect(0, 0, el.width, el.height);
+      g.drawImage(res.frames[i], 0, 0);
+    };
+    show(res.primary);
+    slot.appendChild(el);
+    const st = { frames: res.frames, primary: res.primary, timer: null };
+    if (res.frames.length > 1) {   // every facing plays, not just the art in the game
+      let i = res.primary;
+      st.timer = setInterval(() => { i = (i + 1) % res.frames.length; show(i); },
+                             animMs[r.raw_id] || defaultMs(res.frames.length));
+      const label = slot.nextElementSibling;
+      if (label) label.textContent += ` · 🎞 ${res.frames.length}`;
+    }
+    const key = r.raw_id + "-" + d;
+    const old = players.get(key);      // two renders can race on one slot
+    if (old && old.timer) clearInterval(old.timer);
+    players.set(key, st);
   }
 }
 
 function render() {
+  for (const st of players.values()) if (st.timer) clearInterval(st.timer);
+  players.clear();
   const f = $("#filter").value, want = $("#parts").value;
   const q = $("#q").value.trim().toLowerCase();
   const want_tier = $("#tier").value;
+  const want_anim = $("#anim").value;
   const list = rows.filter((r) =>
     (f === "all" || (r.status || "pending") === f) &&
     (!want_tier || (tiers[r.item_id] || "common") === want_tier) &&
+    (!want_anim || (want_anim === "animated") === isAnimated(r)) &&
     (!want || (r.parts || []).join("+") === want) &&
     (!q || r.item_name.toLowerCase().includes(q) || r.raw_id.includes(q)));
   $("#count").textContent = `${list.length} shown · ${rows.length} total`;
@@ -220,7 +295,7 @@ function render() {
   $("#grid").querySelectorAll(".opt[data-dir]").forEach((el) => {
     el.onclick = () => {
       const id = el.closest(".card").dataset.id;
-      apply(id, el.dataset.dir, el.querySelector("canvas"));
+      apply(id, el.dataset.dir);
     };
   });
   $("#grid").querySelectorAll("button.keep").forEach((b) => {
@@ -229,8 +304,11 @@ function render() {
   list.forEach(paint);
 }
 
-async function apply(rawId, dir, canvas) {
+async function apply(rawId, dir) {
   const r = rows.find((x) => x.raw_id === rawId);
+  // export the primary step directly, never whatever tick the preview is on
+  const st = players.get(rawId + "-" + dir);
+  const canvas = st && st.frames[st.primary];
   if (!r || !canvas) return note("That facing has nothing to use.", true);
   try {
     note(`Rebuilding ${r.item_name} from dir ${dir}…`);
@@ -274,6 +352,10 @@ async function load() {
     const { data } = await sb.from("image_overrides").select("item_id,image_name");
     for (const r of data || []) imgOverrides[r.item_id] = r.image_name;
   } catch (e) { /* replacement table may not exist */ }
+  try {
+    const { data } = await sb.from("pin_animation").select("raw_id,ms");
+    for (const r of data || []) if (r.ms) animMs[r.raw_id] = r.ms;
+  } catch (e) { /* speeds not curated yet — the length-scaled default is fine */ }
   // Newly imported items sit on "hold" until they are tiered, and those are
   // exactly the ones whose art still needs a facing picked — so they are worth
   // being able to single out.
@@ -303,9 +385,13 @@ async function load() {
 }
 
 sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+$("#dir").innerHTML = `<option value="">All facings</option>`
+  + DIRS.map(([d, label]) => `<option value="${d}">dir ${d} ${label}</option>`).join("");
 $("#filter").onchange = render;
 $("#parts").onchange = render;
 $("#tier").onchange = render;
+$("#dir").onchange = render;
+$("#anim").onchange = render;
 $("#q").oninput = render;
 load();
 </script>
