@@ -147,11 +147,16 @@ function composite(atlas, frames, dir) {
     if (slots(steps[i]) > slots(steps[primary])) primary = i;
   }
 
+  // Canvas sized from the registration extents of EVERY piece, so nothing can
+  // draw off-canvas: sizing to the largest single piece with a centre anchor
+  // clipped wide-reaching layers (angel/fairy wings) to slivers.
   const all = steps.flat();
-  const cw = Math.max(...all.map((f) => f.ow || f.w));
-  const ch = Math.max(...all.map((f) => f.oh || f.h));
-  const ts = all[0].ts || 32;
-  const ax = Math.floor(cw / 2), ay = ch - Math.floor(ts / 2);
+  const maxL = Math.max(...all.map((f) => f.rx));
+  const maxR = Math.max(...all.map((f) => f.w - f.rx));
+  const maxT = Math.max(...all.map((f) => f.ry));
+  const maxB = Math.max(...all.map((f) => f.h - f.ry));
+  const cw = maxL + maxR, ch = maxT + maxB;
+  const ax = maxL, ay = maxT;
 
   const drawn = steps.map((parts) => {
     const c = document.createElement("canvas");
