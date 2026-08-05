@@ -68,7 +68,7 @@
     &nbsp;·&nbsp; <a href="animations.html" style="color:var(--legendary)">⏱️ Animation speed →</a> &nbsp;how fast the 188 animated pins and clothes play</p>
   <div class="controls">
     <input id="search" type="search" placeholder="Search name… (try: magic, wings, mickey ears)">
-    <select id="fcat"><option value="">All categories</option><option>clothing</option><option>pin</option></select>
+    <select id="fcat"><option value="">All categories</option><option>clothing</option><option>pin</option><option>custom</option></select>
     <select id="frar">
       <option value="">All rarities</option>
       <option value="common">common</option><option value="uncommon">uncommon</option>
@@ -128,7 +128,12 @@ let items=[], rarity={}, viewLimit=300, sb=null, online=false;
 let selected=new Set(), renderedIds=[], lastClickedIdx=null;
 let imgOverrides={}, currentReplaceId=null, brokenSet=new Set();
 const IMG_BUCKET=(window.SUPABASE_URL||"")+"/storage/v1/object/public/item-images/";
-function imgSrc(it){ return imgOverrides[it.id] ? IMG_BUCKET+imgOverrides[it.id] : "assets/items/"+it.image; }
+const CUSTOM_BUCKET=(window.SUPABASE_URL||"")+"/storage/v1/object/public/custom-items/";
+function imgSrc(it){
+  if(imgOverrides[it.id]) return IMG_BUCKET+imgOverrides[it.id];
+  if(it.custom_image) return CUSTOM_BUCKET+it.custom_image;   // portal-made custom item
+  return "assets/items/"+it.image;
+}
 let hasEditor=false; // true once the overrides table has the `editor` column (supabase-audit.sql)
 const $=s=>document.querySelector(s);
 const grid=$("#grid");
@@ -148,7 +153,8 @@ async function boot(){
 
   if(configured()){
     sb=window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
-    await pullFromDB();
+    await pullCustomItems();   // append portal-made items BEFORE the overrides
+    await pullFromDB();        // pass, so their baseline + curated tier line up
     await pullImageOverrides();
     await pullAnimated();
     try{ const {error}=await sb.from("overrides").select("editor").limit(1); hasEditor=!error; }catch(e){}
@@ -163,6 +169,23 @@ async function boot(){
 }
 
 // ── shared DB layer ─────────────────────────────────────────────────────────
+async function pullCustomItems(){
+  // Portal-made items live in custom_items, not items.json. They join the grid
+  // like any other item; a curated tier written to overrides beats the rarity
+  // they were uploaded with (the bot and both sites apply the same rule).
+  try{
+    const {data,error}=await sb.from("custom_items")
+      .select("id,name,rarity,image_name").eq("active",true);
+    if(error) throw error;
+    for(const r of data||[]){
+      items.push({id:r.id,name:r.name||r.id,type:r.id.split(":").pop(),
+        category:"custom",rarity:r.rarity||"common",price:0,tags:["custom"],
+        description:"",image:"",custom_image:r.image_name});
+      rarity[r.id]=r.rarity||"common";
+    }
+  }catch(e){ /* custom_items table absent — nothing to add */ }
+}
+
 async function pullFromDB(){
   try{
     // PostgREST caps a response at 1000 rows — page through ALL overrides with a
