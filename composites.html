@@ -328,7 +328,10 @@ async function apply(rawId, dir) {
     if (ov.error) throw ov.error;
     imgOverrides[r.item_id] = name;
     await decide(rawId, "applied", dir);
-    note(`${r.item_name} rebuilt — the bot repaints within ~2 min.`);
+    const st2 = players.get(rawId + "-" + dir);
+    note(st2 && st2.frames.length > 1
+      ? `${r.item_name} rebuilt — the bot builds the ANIMATED version within ~5 min.`
+      : `${r.item_name} rebuilt — the bot repaints within ~2 min.`);
   } catch (e) {
     note("Failed: " + (e.message || e), true);
   }
