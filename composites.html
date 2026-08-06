@@ -135,7 +135,9 @@ function composite(atlas, frames, dir) {
   const group = {};
   for (const f of frames) {
     const p = String(f.key || "").split("_");
-    if (p.length < 5 || p[p.length - 2] !== dir) continue;
+    // standing frames only — wlk_/wav_/drk_ are body animations (walking,
+    // waving, drinking) and must never leak into the item's art
+    if (p.length < 5 || p[0] !== "std" || p[p.length - 2] !== dir) continue;
     (group[p[p.length - 1]] = group[p[p.length - 1]] || []).push(f);
   }
   const steps = Object.keys(group).sort((a, b) => a - b).map((k) => group[k]);
@@ -198,7 +200,7 @@ function isAnimated(r) {
   const seen = {};
   for (const f of r.frames || []) {
     const p = String(f.key || "").split("_");
-    if (p.length < 5) continue;
+    if (p.length < 5 || p[0] !== "std") continue;   // standing animation only
     (seen[p[p.length - 2]] = seen[p[p.length - 2]] || new Set()).add(p[p.length - 1]);
   }
   return Object.values(seen).some((s) => s.size > 1);
