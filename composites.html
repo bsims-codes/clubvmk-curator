@@ -132,22 +132,25 @@ function loadAtlas(code) {
    showing the most body slots — is what gets exported as the icon.
    Returns { frames: [canvas, …], primary } or null. */
 function composite(atlas, frames, dir) {
-  const group = {};
+  const layers = {};
   for (const f of frames) {
     const p = String(f.key || "").split("_");
     // standing frames only — wlk_/wav_/drk_ are body animations (walking,
     // waving, drinking) and must never leak into the item's art
     if (p.length < 5 || p[0] !== "std" || p[p.length - 2] !== dir) continue;
-    (group[p[p.length - 1]] = group[p[p.length - 1]] || []).push(f);
+    const lay = p.slice(1, -2).join("_");
+    (layers[lay] = layers[lay] || []).push(f);
   }
-  const steps = Object.keys(group).sort((a, b) => a - b).map((k) => group[k]);
-  if (!steps.length) return null;
-  // the step showing the most body slots is the one worth keeping as an icon
-  const slots = (fs) => new Set(fs.map((f) => f.key.split("_")[1])).size;
-  let primary = 0;
-  for (let i = 1; i < steps.length; i++) {
-    if (slots(steps[i]) > slots(steps[primary])) primary = i;
-  }
+  const lays = Object.values(layers);
+  if (!lays.length) return null;
+  lays.forEach((v) => v.sort((a, b) =>
+    Number(a.key.split("_").pop()) - Number(b.key.split("_").pop())));
+  const n = Math.max(...lays.map((v) => v.length));
+  // Cycle each layer at its own length: a static layer (a robe) repeats under
+  // an animated one (its doves). Grouping purely by step index put the robe in
+  // step 0 only, so the body flashed off for the rest of the loop.
+  const steps = Array.from({ length: n }, (_, i) => lays.map((v) => v[i % v.length]));
+  const primary = 0;   // every step now carries every layer
 
   // Canvas sized from the registration extents of EVERY piece, so nothing can
   // draw off-canvas: sizing to the largest single piece with a centre anchor
