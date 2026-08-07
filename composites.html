@@ -311,7 +311,29 @@ function render() {
   $("#grid").querySelectorAll("button.keep").forEach((b) => {
     b.onclick = () => decide(b.dataset.id, "keep", null);
   });
-  list.forEach(paint);
+  // Paint lazily: with 800+ cards, painting everything up front meant hundreds
+  // of atlas fetches and animation timers before the first scroll. Cards paint
+  // as they approach the viewport and their timers stop when they leave it.
+  if (window._painter) window._painter.disconnect();
+  const byId = new Map(list.map((r) => [String(r.raw_id), r]));
+  const painted = new Set();
+  window._painter = new IntersectionObserver((ents) => {
+    for (const e of ents) {
+      const id = e.target.dataset.id, r = byId.get(id);
+      if (!r) continue;
+      if (e.isIntersecting) {
+        if (!painted.has(id)) { painted.add(id); paint(r); }
+      } else if (painted.has(id)) {
+        painted.delete(id);   // repainting on return also restarts its timers
+        for (const [k, st] of players) {
+          if (k.startsWith(id + "-") && st.timer) {
+            clearInterval(st.timer); st.timer = null;
+          }
+        }
+      }
+    }
+  }, { rootMargin: "400px" });
+  $("#grid").querySelectorAll(".card").forEach((el) => window._painter.observe(el));
 }
 
 async function apply(rawId, dir) {
