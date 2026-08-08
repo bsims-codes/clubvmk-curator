@@ -25562,6 +25562,21 @@
     "image": "49299_0.png"
   },
   {
+    "id": "clothing:49307",
+    "name": "Flip Flops Cyan",
+    "type": "49307",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49307_0.png"
+  },
+  {
     "id": "clothing:53178",
     "name": "Flit Hummingbird",
     "type": "53178",
@@ -43069,6 +43084,66 @@
     "image": "74572_0.png"
   },
   {
+    "id": "clothing:76799",
+    "name": "MOD ONLY - Blizzard Beach Top",
+    "type": "76799",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76799_0.png"
+  },
+  {
+    "id": "clothing:76801",
+    "name": "MOD ONLY - Blizzard Beach Vest",
+    "type": "76801",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76801_0.png"
+  },
+  {
+    "id": "clothing:54680",
+    "name": "MOD ONLY - Straw Hat",
+    "type": "54680",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54680_0.png"
+  },
+  {
+    "id": "clothing:76798",
+    "name": "MOD ONLY - Typhoon Lagoon Top",
+    "type": "76798",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76798_0.png"
+  },
+  {
     "id": "clothing:41043",
     "name": "MOD ONLY Mickey Ears - Dark Red",
     "type": "41043",
@@ -51118,10 +51193,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54602_0.png"
   },
   {
     "id": "clothing:54604",
@@ -58641,10 +58718,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "48138_0.png"
   },
   {
     "id": "clothing:76758",
@@ -58654,10 +58733,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76758_0.png"
   },
   {
     "id": "clothing:34150",
@@ -58715,6 +58796,21 @@
     ],
     "description": "",
     "image": "placeholder.png"
+  },
+  {
+    "id": "clothing:49314",
+    "name": "Princess Bubblegum Slippers",
+    "type": "49314",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49314_0.png"
   },
   {
     "id": "clothing:44838",
@@ -59128,6 +59224,21 @@
     ],
     "description": "",
     "image": "49313_0.png"
+  },
+  {
+    "id": "clothing:49340",
+    "name": "Princess Pearl White Slippers",
+    "type": "49340",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49340_0.png"
   },
   {
     "id": "clothing:34148",
@@ -63481,6 +63592,21 @@
     ],
     "description": "",
     "image": "76771_0.png"
+  },
+  {
+    "id": "clothing:76778",
+    "name": "Seashell Tube Top - Red",
+    "type": "76778",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76778_0.png"
   },
   {
     "id": "clothing:47673",
@@ -69202,10 +69328,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76770_0.png"
   },
   {
     "id": "clothing:76765",
@@ -69215,10 +69343,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76765_0.png"
   },
   {
     "id": "clothing:76769",
@@ -69271,10 +69401,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76766_0.png"
   },
   {
     "id": "clothing:53706",
@@ -79055,6 +79187,17 @@
     "image": "82658_0.png"
   },
   {
+    "id": "clothing:82000",
+    "name": "Travel Pet - Baby Yeti",
+    "type": "82000",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82000_0.png"
+  },
+  {
     "id": "clothing:47501",
     "name": "Travel Pet - Bambi",
     "type": "47501",
@@ -79411,6 +79554,83 @@
     "image": "74925_0.png"
   },
   {
+    "id": "clothing:82164",
+    "name": "Travel Pet - Fairy Clarion",
+    "type": "82164",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82164_0.png"
+  },
+  {
+    "id": "clothing:82158",
+    "name": "Travel Pet - Fairy Fawn",
+    "type": "82158",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82158_0.png"
+  },
+  {
+    "id": "clothing:82159",
+    "name": "Travel Pet - Fairy Iridessa",
+    "type": "82159",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82159_0.png"
+  },
+  {
+    "id": "clothing:82160",
+    "name": "Travel Pet - Fairy Silvermist",
+    "type": "82160",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82160_0.png"
+  },
+  {
+    "id": "clothing:82161",
+    "name": "Travel Pet - Fairy Terence",
+    "type": "82161",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82161_0.png"
+  },
+  {
+    "id": "clothing:82162",
+    "name": "Travel Pet - Fairy Tink",
+    "type": "82162",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82162_0.png"
+  },
+  {
+    "id": "clothing:82163",
+    "name": "Travel Pet - Fairy Vidia",
+    "type": "82163",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82163_0.png"
+  },
+  {
     "id": "clothing:82479",
     "name": "Travel Pet - Flower",
     "type": "82479",
@@ -79569,6 +79789,17 @@
     "image": "83581_0.png"
   },
   {
+    "id": "clothing:83813",
+    "name": "Travel Pet - Puffle Demon",
+    "type": "83813",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "83813_0.png"
+  },
+  {
     "id": "clothing:83578",
     "name": "Travel Pet - Puffle Green",
     "type": "83578",
@@ -79646,6 +79877,17 @@
     "image": "83582_0.png"
   },
   {
+    "id": "clothing:83812",
+    "name": "Travel Pet - Puffle Zombie",
+    "type": "83812",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "83812_0.png"
+  },
+  {
     "id": "clothing:83584",
     "name": "Travel Pet - Pufflecorn",
     "type": "83584",
@@ -79666,6 +79908,17 @@
     "tags": [],
     "description": "",
     "image": "82850_0.png"
+  },
+  {
+    "id": "clothing:82322",
+    "name": "Travel Pet - Rajah",
+    "type": "82322",
+    "category": "clothing",
+    "rarity": "common",
+    "price": 0,
+    "tags": [],
+    "description": "",
+    "image": "82322_0.png"
   },
   {
     "id": "clothing:83418",
@@ -111127,6 +111380,21 @@
     "image": "3988655_0.png"
   },
   {
+    "id": "pin:3990652",
+    "name": "Ice Gator",
+    "type": "3990652",
+    "category": "pin",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "thumb"
+    ],
+    "description": "",
+    "image": "3990652_0.png"
+  },
+  {
     "id": "pin:2990",
     "name": "Ice Gator Pin",
     "type": "2990",
@@ -140779,17 +141047,6 @@
     "image": "6405_0.png"
   },
   {
-    "id": "clothing:82000",
-    "name": "Travel Pet - Baby Yeti",
-    "type": "82000",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82000_0.png"
-  },
-  {
     "id": "pin:4469",
     "name": "Travel Pet - Dalmatian PLACEHOLDER",
     "type": "4469",
@@ -140810,116 +141067,6 @@
     "tags": [],
     "description": "",
     "image": "4105_0.png"
-  },
-  {
-    "id": "clothing:82164",
-    "name": "Travel Pet - Fairy Clarion",
-    "type": "82164",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82164_0.png"
-  },
-  {
-    "id": "clothing:82158",
-    "name": "Travel Pet - Fairy Fawn",
-    "type": "82158",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82158_0.png"
-  },
-  {
-    "id": "clothing:82159",
-    "name": "Travel Pet - Fairy Iridessa",
-    "type": "82159",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82159_0.png"
-  },
-  {
-    "id": "clothing:82160",
-    "name": "Travel Pet - Fairy Silvermist",
-    "type": "82160",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82160_0.png"
-  },
-  {
-    "id": "clothing:82161",
-    "name": "Travel Pet - Fairy Terence",
-    "type": "82161",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82161_0.png"
-  },
-  {
-    "id": "clothing:82162",
-    "name": "Travel Pet - Fairy Tink",
-    "type": "82162",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82162_0.png"
-  },
-  {
-    "id": "clothing:82163",
-    "name": "Travel Pet - Fairy Vidia",
-    "type": "82163",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82163_0.png"
-  },
-  {
-    "id": "clothing:83813",
-    "name": "Travel Pet - Puffle Demon",
-    "type": "83813",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "83813_0.png"
-  },
-  {
-    "id": "clothing:83812",
-    "name": "Travel Pet - Puffle Zombie",
-    "type": "83812",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "83812_0.png"
-  },
-  {
-    "id": "clothing:82322",
-    "name": "Travel Pet - Rajah",
-    "type": "82322",
-    "category": "clothing",
-    "rarity": "common",
-    "price": 0,
-    "tags": [],
-    "description": "",
-    "image": "82322_0.png"
   },
   {
     "id": "pin:8453",
