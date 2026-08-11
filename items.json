@@ -31551,9 +31551,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "84272_0.png"
@@ -31717,9 +31718,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "84263_0.png"
