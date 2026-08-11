@@ -5707,6 +5707,51 @@
     "image": "74789_0.png"
   },
   {
+    "id": "clothing:84235",
+    "name": "Backpack - Life Preserver Blizzard Beach",
+    "type": "84235",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84235_0.png"
+  },
+  {
+    "id": "clothing:84243",
+    "name": "Backpack - Life Preserver Blue & White",
+    "type": "84243",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84243_0.png"
+  },
+  {
+    "id": "clothing:84246",
+    "name": "Backpack - Life Preserver Typhoon Lagoon",
+    "type": "84246",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84246_0.png"
+  },
+  {
     "id": "clothing:84293",
     "name": "Backpack - Lifeguard Preserver",
     "type": "84293",
@@ -37623,6 +37668,22 @@
     "image": "82200_0.png"
   },
   {
+    "id": "clothing:84285",
+    "name": "Inner Tube - Blizzard Beach",
+    "type": "84285",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "captured",
+      "dir0",
+      "sprite",
+      "unverified"
+    ],
+    "description": "",
+    "image": "84285_0.png"
+  },
+  {
     "id": "clothing:82201",
     "name": "Inner Tube - Condor Black",
     "type": "82201",
@@ -37687,6 +37748,22 @@
     "tags": [],
     "description": "",
     "image": "82196_0.png"
+  },
+  {
+    "id": "clothing:84287",
+    "name": "Inner Tube - Typhoon Lagoon",
+    "type": "84287",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "captured",
+      "dir0",
+      "sprite",
+      "unverified"
+    ],
+    "description": "",
+    "image": "84287_0.png"
   },
   {
     "id": "clothing:52819",
