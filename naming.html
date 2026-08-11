@@ -44,9 +44,11 @@
   /* the crop is the atlas at NATURAL size, shifted; the clip box is what shrinks
      it to fit. Atlases are small and every one is a different shape (63x472,
      211x79, 80x960 …) so nothing here may assume a size. */
-  .clip{display:block;overflow:hidden}
+  /* position:relative + absolute layers so one rotation's parts (a backpack is
+     bpk over bpkb) stack in a single box instead of becoming separate tiles */
+  .clip{display:block;overflow:hidden;position:relative}
   .clip i{display:block;background-repeat:no-repeat;image-rendering:pixelated;
-          transform-origin:top left}
+          transform-origin:top left;position:absolute;top:0;left:0}
   .fr small{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;max-width:60px}
   .tag{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
        border:1px solid var(--border);border-radius:99px;padding:2px 8px}
@@ -155,21 +157,75 @@ const isStanding = (key) => String(key || "").startsWith("std_");
    is a different shape — 63x472, 211x79, 80x960 — and any assumed width turns
    every crop into a zoomed fragment of the wrong part of the sheet. Fitting is
    done by scaling the cropped element and clipping to its scaled box. */
-function cropHTML(r, f, box) {
-  const w = f.w || 1, h = f.h || 1;
-  const k = Math.min(1, box / Math.max(w, h));
-  return `<span class="clip" style="width:${Math.max(1, Math.round(w * k))}px;
-            height:${Math.max(1, Math.round(h * k))}px">
-      <i style="background-image:url('${ATLAS(r.atlas)}');
-                background-position:-${f.x}px -${f.y}px;
-                width:${w}px;height:${h}px;transform:scale(${k})"></i></span>`;
+/* A rotation is every layer that shares a direction.
+
+   An item's art is split across body slots — a backpack is a `bpk` over a
+   `bpkb`, a shirt is a chest plus two sleeves — and listing each slot as its own
+   tile made one item look like a pile of unrelated pictures. Worse, the layers
+   that are mostly hidden in a given facing (a backpack's rear band seen from the
+   front) render as blank tiles. Group by direction and stack the parts, and the
+   strip becomes what it should always have been: this item, rotating. */
+function framesByDir(frames) {
+  const out = new Map();
+  for (const f of frames) {
+    const d = dirOf(f.key);
+    if (!out.has(d)) out.set(d, []);
+    out.get(d).push(f);
+  }
+  // capture order is arbitrary — walk the facings 0..4 so the strip always
+  // reads back to front instead of a different shuffle per item
+  return new Map([...out.entries()].sort((a, b) =>
+    (parseInt(a[0], 10) || 0) - (parseInt(b[0], 10) || 0)));
 }
 
-function frameHTML(r, f, chosen) {
-  return `<div class="fr${chosen === f.key ? " on" : ""}" data-id="${esc(r.raw_id)}"
-            data-key="${esc(f.key)}" title="${esc(f.key)} · ${f.w}x${f.h}">
-      <div class="box">${cropHTML(r, f, 56)}</div>
-      <small>dir ${esc(dirOf(f.key))}</small></div>`;
+/* Where each layer sits, anchored on its registration point when the capture
+   recorded one (v2+). Without registration every layer starts at the origin,
+   which is right for the uniform full-canvas rects these packages ship. */
+function layout(group) {
+  const rx = group.map((f) => f.rx || 0), ry = group.map((f) => f.ry || 0);
+  const mx = Math.max(...rx), my = Math.max(...ry);
+  const w = mx + Math.max(...group.map((f, i) => (f.w || 1) - rx[i]));
+  const h = my + Math.max(...group.map((f, i) => (f.h || 1) - ry[i]));
+  return { w: Math.max(1, w), h: Math.max(1, h),
+           at: group.map((f, i) => ({ x: mx - rx[i], y: my - ry[i] })) };
+}
+
+/* The layer to record as frame_key. Downstream still stores a single real
+   frame, so prefer the one present in the most facings — an accent or rear
+   layer typically appears in only one or two, the main body in all five. */
+function primaryOf(group, all) {
+  const seen = {};
+  for (const f of all) {
+    const p = String(f.key || "").split("_");
+    if (p.length >= 5) seen[p[1]] = (seen[p[1]] || 0) + 1;
+  }
+  const facings = (f) => seen[String(f.key).split("_")[1]] || 0;
+  // a shirt's chest, sleeves and collar all appear in five facings, so break the
+  // tie on rect size — the chest is the garment, a sleeve is a detail of it
+  return group.slice().sort((a, b) =>
+    facings(b) - facings(a) || (b.w * b.h) - (a.w * a.h))[0];
+}
+
+function cropHTML(r, group, box) {
+  const g = Array.isArray(group) ? group : [group];
+  const L = layout(g);
+  const k = Math.min(1, box / Math.max(L.w, L.h));
+  const layers = g.map((f, i) => `<i style="background-image:url('${ATLAS(r.atlas)}');
+                background-position:-${f.x}px -${f.y}px;
+                width:${f.w}px;height:${f.h}px;
+                transform:translate(${L.at[i].x * k}px,${L.at[i].y * k}px) scale(${k})"></i>`).join("");
+  return `<span class="clip" style="width:${Math.max(1, Math.round(L.w * k))}px;
+            height:${Math.max(1, Math.round(L.h * k))}px">${layers}</span>`;
+}
+
+function rotHTML(r, dir, group, all, chosenKey) {
+  const primary = primaryOf(group, all);
+  const on = group.some((f) => f.key === chosenKey);
+  const parts = group.map((f) => String(f.key).split("_")[1]).join(" + ");
+  return `<div class="fr${on ? " on" : ""}" data-id="${esc(r.raw_id)}"
+            data-key="${esc(primary.key)}" title="${esc(group.map((f) => f.key).join("\n"))}">
+      <div class="box">${cropHTML(r, group, 56)}</div>
+      <small>dir ${esc(dir)}${group.length > 1 ? " · " + esc(parts) : ""}</small></div>`;
 }
 
 function cardHTML(r) {
@@ -177,9 +233,12 @@ function cardHTML(r) {
   const shown = $("#allFrames").checked ? frames : (frames.filter((f) => isStanding(f.key)).length
     ? frames.filter((f) => isStanding(f.key)) : frames);
   const chosen = r.frame_key && frames.find((f) => f.key === r.frame_key);
+  const byDir = framesByDir(shown);
+  // the big preview shows the whole rotation, not just the layer that got stored
+  const chosenGroup = chosen ? (byDir.get(dirOf(chosen.key)) || [chosen]) : null;
   const art = r.source === "thumb"
     ? `<img src="${THUMB(r.hash)}" alt="" loading="lazy" />`
-    : (chosen ? cropHTML(r, chosen, 118) : `<span class="stats">pick a frame →</span>`);
+    : (chosenGroup ? cropHTML(r, chosenGroup, 118) : `<span class="stats">pick a rotation →</span>`);
   const tag = r.status === "named" ? `<span class="tag named">named</span>`
     : r.status === "skip" ? `<span class="tag skip">skipped</span>`
     : `<span class="tag">needs a name</span>`;
@@ -206,7 +265,8 @@ function cardHTML(r) {
                data-id="${esc(r.raw_id)}" />
         <button class="ghost useart" data-id="${esc(r.raw_id)}">Use selected frame as its image</button>
       </div>` : ""}
-      ${r.source === "sprite" ? `<div class="frames">${shown.map((f) => frameHTML(r, f, r.frame_key)).join("")
+      ${r.source === "sprite" ? `<div class="frames">${
+        [...byDir.entries()].map(([d, g]) => rotHTML(r, d, g, frames, r.frame_key)).join("")
         || `<span class="stats">no usable frames</span>`}</div>` : ""}
     </div></div>`;
 }
@@ -300,22 +360,27 @@ function upscale(src, sx, sy, sw, sh, scale, smooth) {
   return cur;
 }
 
-async function frameToPng(r, f) {
+/* The whole rotation, not the one layer whose key got stored — otherwise a
+   backpack exports as its rear band and a shirt as a bare sleeve. */
+async function frameToPng(r, group) {
+  const g0 = Array.isArray(group) ? group : [group];
   const atlas = await loadImg(ATLAS(r.atlas));
+  const L = layout(g0);
   const c = document.createElement("canvas");
-  c.width = f.w; c.height = f.h;
+  c.width = L.w; c.height = L.h;
   const g = c.getContext("2d");
-  g.drawImage(atlas, f.x, f.y, f.w, f.h, 0, 0, f.w, f.h);
+  g0.forEach((f, i) => g.drawImage(atlas, f.x, f.y, f.w, f.h,
+                                   L.at[i].x, L.at[i].y, f.w, f.h));
   // trim fully-transparent edges so the icon isn't a small thing in a big box
-  const d = g.getImageData(0, 0, f.w, f.h).data;
-  let x0 = f.w, y0 = f.h, x1 = -1, y1 = -1;
-  for (let y = 0; y < f.h; y++) for (let x = 0; x < f.w; x++) {
-    if (d[(y * f.w + x) * 4 + 3] > 8) {
+  const d = g.getImageData(0, 0, L.w, L.h).data;
+  let x0 = L.w, y0 = L.h, x1 = -1, y1 = -1;
+  for (let y = 0; y < L.h; y++) for (let x = 0; x < L.w; x++) {
+    if (d[(y * L.w + x) * 4 + 3] > 8) {
       if (x < x0) x0 = x; if (x > x1) x1 = x;
       if (y < y0) y0 = y; if (y > y1) y1 = y;
     }
   }
-  if (x1 < 0) throw new Error("that frame is empty");
+  if (x1 < 0) throw new Error("that rotation is empty");
   const w = x1 - x0 + 1, h = y1 - y0 + 1;
   const smooth = !$("#sheetSmooth") || $("#sheetSmooth").checked;
   const out = upscale(c, x0, y0, w, h, SPRITE_SCALE, smooth);
@@ -327,12 +392,14 @@ async function useAsArt(rawId, targetLabel) {
   const r = rows.find((x) => x.raw_id === rawId);
   const target = catalogByLabel[targetLabel];
   if (!target) return note("Pick an existing item from the list first.", true);
-  if (!r.frame_key) return note("Click the frame you want to use.", true);
-  const f = (r.frames || []).find((x) => x.key === r.frame_key);
+  if (!r.frame_key) return note("Click the rotation you want to use.", true);
+  const usable = (r.frames || []).filter((x) => x && x.w && x.h);
+  const f = usable.find((x) => x.key === r.frame_key);
   if (!f) return note("That frame is gone — pick another.", true);
+  const group = framesByDir(usable).get(dirOf(f.key)) || [f];
   try {
     note(`Rendering ${r.frame_key}…`);
-    const blob = await frameToPng(r, f);
+    const blob = await frameToPng(r, group);
     const name = `${target.id.replace(/[^a-zA-Z0-9]+/g, "_")}_${Date.now()}.png`;
     const up = await sb.storage.from("item-images")
       .upload(name, blob, { contentType: "image/png", upsert: true });
