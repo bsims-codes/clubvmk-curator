@@ -31544,6 +31544,21 @@
     "image": "74438_0.png"
   },
   {
+    "id": "clothing:84272",
+    "name": "Head Sitting Pet - Baby Lagoona Gator",
+    "type": "84272",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84272_0.png"
+  },
+  {
     "id": "clothing:83095",
     "name": "Head Sitting Pet - Bill Cipher",
     "type": "83095",
@@ -31693,6 +31708,21 @@
     ],
     "description": "",
     "image": "84129_0.png"
+  },
+  {
+    "id": "clothing:84263",
+    "name": "Head Sitting Pet - Snowgies",
+    "type": "84263",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84263_0.png"
   },
   {
     "id": "clothing:83877",
@@ -51277,10 +51307,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54605_0.png"
   },
   {
     "id": "clothing:54603",
@@ -75725,6 +75757,21 @@
     "image": "59496_0.png"
   },
   {
+    "id": "clothing:84220",
+    "name": "Tall Parasol - Beach Ball",
+    "type": "84220",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84220_0.png"
+  },
+  {
     "id": "clothing:83718",
     "name": "Tall Parasol - Binx",
     "type": "83718",
@@ -75745,6 +75792,21 @@
     "tags": [],
     "description": "",
     "image": "82755_0.png"
+  },
+  {
+    "id": "clothing:84221",
+    "name": "Tall Parasol - Palm Tree",
+    "type": "84221",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84221_0.png"
   },
   {
     "id": "clothing:82751",
