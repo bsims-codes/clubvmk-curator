@@ -72,6 +72,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
+<script src="auth.js"></script>
 <script>
 const PKG = (id) => `https://mouse.myvmk.com/packages/pins/item_${id}.json`;
 const SHEET = (f) => `https://mouse.myvmk.com/packages/pins/${f}`;
@@ -348,7 +349,7 @@ async function load() {
   render();
 }
 
-sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+sb = window.curatorClient();
 $("#q").oninput = render;
 $("#sort").onchange = render;
 $("#kind").onchange = render;

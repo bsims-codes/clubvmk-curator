@@ -18,9 +18,14 @@ create table if not exists public.image_overrides (
 
 alter table public.image_overrides enable row level security;
 
-drop policy if exists image_overrides_all on public.image_overrides;
-create policy image_overrides_all on public.image_overrides
-  for all using (true) with check (true);
+-- Everyone reads; only curators write (see supabase-lockdown.sql).
+drop policy if exists image_overrides_all           on public.image_overrides;
+drop policy if exists image_overrides_read_all      on public.image_overrides;
+drop policy if exists image_overrides_curator_write on public.image_overrides;
+create policy image_overrides_read_all on public.image_overrides
+  for select using (true);
+create policy image_overrides_curator_write on public.image_overrides
+  for all using (public.is_curator()) with check (public.is_curator());
 
 -- keep the realtime channel working like the overrides table (optional)
 -- alter publication supabase_realtime add table public.image_overrides;
@@ -36,4 +41,6 @@ create policy item_images_read on storage.objects
 
 drop policy if exists item_images_write on storage.objects;
 create policy item_images_write on storage.objects
-  for all using (bucket_id = 'item-images') with check (bucket_id = 'item-images');
+  for all
+  using      (bucket_id = 'item-images' and public.is_curator())
+  with check (bucket_id = 'item-images' and public.is_curator());

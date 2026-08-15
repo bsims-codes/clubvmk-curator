@@ -119,6 +119,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
+<script src="auth.js"></script>
 <script>
 const THUMB = (h) => `https://noimageshere.myvmk.com/thumbs/item_${h}.png`;
 const ATLAS = (c) => `https://mouse.myvmk.com/packages/clothes-linked/${c}-pkg32_0.webp`;
@@ -709,7 +710,7 @@ $("#sheetGo").onclick = async () => {
   }
 };
 
-sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+sb = window.curatorClient();
 loadCatalog();
 $("#filter").onchange = render;
 $("#allFrames").onchange = render;

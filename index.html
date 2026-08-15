@@ -122,6 +122,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
+<script src="auth.js"></script>
 <script>
 const TIERS=["common","uncommon","rare","epic","legendary","remove","hold"];
 let items=[], rarity={}, viewLimit=300, sb=null, online=false;
@@ -152,7 +153,7 @@ async function boot(){
   try{ brokenSet=new Set(await (await fetch("broken.json")).json()); }catch(e){}
 
   if(configured()){
-    sb=window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    sb=window.curatorClient();
     await pullCustomItems();   // append portal-made items BEFORE the overrides
     await pullFromDB();        // pass, so their baseline + curated tier line up
     await pullImageOverrides();

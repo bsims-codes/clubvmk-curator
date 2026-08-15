@@ -84,6 +84,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
+<script src="auth.js"></script>
 <script>
 const ATLAS = (c) => `https://mouse.myvmk.com/packages/clothes-linked/${c}-pkg32_0.webp`;
 const IMG_BUCKET = `${window.SUPABASE_URL}/storage/v1/object/public/item-images/`;
@@ -440,7 +441,7 @@ async function load() {
   render();
 }
 
-sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+sb = window.curatorClient();
 $("#dir").innerHTML = `<option value="">All facings</option>`
   + DIRS.map(([d, label]) => `<option value="${d}">dir ${d} ${label}</option>`).join("");
 $("#filter").onchange = render;
