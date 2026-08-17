@@ -41145,9 +41145,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "48124_0.png"
@@ -41160,9 +41161,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "48127_0.png"
@@ -41190,9 +41192,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "48130_0.png"
@@ -41205,9 +41208,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "48128_0.png"
@@ -51431,6 +51435,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir3",
       "sprite",
       "unverified"
     ],
@@ -51459,6 +51464,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir3",
       "sprite",
       "unverified"
     ],
@@ -51487,6 +51493,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir3",
       "sprite",
       "unverified"
     ],
@@ -51515,6 +51522,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir3",
       "sprite",
       "unverified"
     ],
@@ -58973,6 +58981,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir3",
       "sprite",
       "unverified"
     ],
@@ -59044,9 +59053,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir3",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "49314_0.png"
@@ -59472,9 +59482,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir3",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "49340_0.png"
@@ -59582,6 +59593,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir3",
       "sprite",
       "unverified"
     ],
@@ -59621,6 +59633,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir4",
       "sprite",
       "unverified"
     ],
@@ -61994,9 +62007,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir3",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "49349_0.png"
@@ -62020,9 +62034,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir3",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "49348_0.png"
@@ -63803,8 +63818,11 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
-      "harvested"
+      "captured",
+      "dir4",
+      "harvested",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "76772_0.png"
@@ -63831,9 +63849,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "76775_0.png"
@@ -63846,9 +63865,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "76776_0.png"
@@ -63861,8 +63881,11 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
-      "harvested"
+      "captured",
+      "dir4",
+      "harvested",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "76777_0.png"
@@ -63875,8 +63898,11 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
-      "harvested"
+      "captured",
+      "dir4",
+      "harvested",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "76771_0.png"
@@ -63889,9 +63915,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir4",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "76778_0.png"
@@ -69617,6 +69644,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir4",
       "sprite",
       "unverified"
     ],
@@ -69632,6 +69660,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir4",
       "sprite",
       "unverified"
     ],
@@ -69647,6 +69676,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir4",
       "sprite",
       "unverified"
     ],
@@ -69662,6 +69692,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir4",
       "sprite",
       "unverified"
     ],
@@ -69677,6 +69708,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir4",
       "sprite",
       "unverified"
     ],
@@ -69692,6 +69724,7 @@
     "price": 0,
     "tags": [
       "captured",
+      "dir4",
       "sprite",
       "unverified"
     ],
@@ -80589,9 +80622,10 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
-      "unverified",
       "captured",
-      "sprite"
+      "dir3",
+      "sprite",
+      "unverified"
     ],
     "description": "",
     "image": "49310_0.png"
