@@ -2458,10 +2458,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "84270_0.png"
   },
   {
     "id": "clothing:82965",
@@ -13913,10 +13915,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "49326_0.png"
   },
   {
     "id": "clothing:48108",
@@ -30426,6 +30430,21 @@
     "image": "54492_0.png"
   },
   {
+    "id": "clothing:54653",
+    "name": "Halo - Luca's Daydream",
+    "type": "54653",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "54653_0.png"
+  },
+  {
     "id": "clothing:53475",
     "name": "Halo - Peacho",
     "type": "53475",
@@ -31587,6 +31606,21 @@
     "tags": [],
     "description": "",
     "image": "74438_0.png"
+  },
+  {
+    "id": "clothing:84271",
+    "name": "Head Sitting Pet - Baby Ice Gator",
+    "type": "84271",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "84271_0.png"
   },
   {
     "id": "clothing:84272",
@@ -41119,6 +41153,21 @@
     "image": "48124_0.png"
   },
   {
+    "id": "clothing:48127",
+    "name": "Leggings - Light Pink",
+    "type": "48127",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48127_0.png"
+  },
+  {
     "id": "clothing:48121",
     "name": "Leggings - Orange",
     "type": "48121",
@@ -41147,6 +41196,21 @@
     ],
     "description": "",
     "image": "48130_0.png"
+  },
+  {
+    "id": "clothing:48128",
+    "name": "Leggings - White",
+    "type": "48128",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48128_0.png"
   },
   {
     "id": "clothing:59315",
@@ -41553,10 +41617,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76809_0.png"
   },
   {
     "id": "clothing:48158",
@@ -41602,6 +41668,21 @@
     "image": "48159_0.png"
   },
   {
+    "id": "clothing:48160",
+    "name": "Lifeguard Swimsuit Bottoms - White",
+    "type": "48160",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48160_0.png"
+  },
+  {
     "id": "clothing:76812",
     "name": "Lifeguard Swimsuit Top - Red",
     "type": "76812",
@@ -41624,10 +41705,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76813_0.png"
   },
   {
     "id": "clothing:74251",
@@ -43253,6 +43336,36 @@
     "image": "76798_0.png"
   },
   {
+    "id": "clothing:48153",
+    "name": "MOD ONLY Ember's Skirt",
+    "type": "48153",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "48153_0.png"
+  },
+  {
+    "id": "clothing:70699",
+    "name": "MOD ONLY Jessie's Braid",
+    "type": "70699",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "70699_0.png"
+  },
+  {
     "id": "clothing:41043",
     "name": "MOD ONLY Mickey Ears - Dark Red",
     "type": "41043",
@@ -43306,6 +43419,21 @@
     "tags": [],
     "description": "",
     "image": "26037_0.png"
+  },
+  {
+    "id": "clothing:59245",
+    "name": "MOD ONLY Staff Vest",
+    "type": "59245",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "59245_0.png"
   },
   {
     "id": "clothing:44673",
@@ -59453,10 +59581,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76760_0.png"
   },
   {
     "id": "clothing:48094",
@@ -59490,10 +59620,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "54631_0.png"
   },
   {
     "id": "clothing:54632",
@@ -61855,6 +61987,21 @@
     "image": "53012_0.png"
   },
   {
+    "id": "clothing:49349",
+    "name": "Roller Skates - Blizzard Beach",
+    "type": "49349",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49349_0.png"
+  },
+  {
     "id": "clothing:49128",
     "name": "Roller Skates - Moon Girl",
     "type": "49128",
@@ -61864,6 +62011,21 @@
     "tags": [],
     "description": "",
     "image": "49128_0.png"
+  },
+  {
+    "id": "clothing:49348",
+    "name": "Roller Skates - Typhoon Lagoon",
+    "type": "49348",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49348_0.png"
   },
   {
     "id": "clothing:75485",
@@ -63660,6 +63822,21 @@
     ],
     "description": "",
     "image": "76774_0.png"
+  },
+  {
+    "id": "clothing:76775",
+    "name": "Seashell Tube Top - Green",
+    "type": "76775",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "76775_0.png"
   },
   {
     "id": "clothing:76776",
@@ -69499,10 +69676,12 @@
     "rarity": "hold",
     "price": 0,
     "tags": [
+      "captured",
+      "sprite",
       "unverified"
     ],
     "description": "",
-    "image": "placeholder.png"
+    "image": "76762_0.png"
   },
   {
     "id": "clothing:76766",
@@ -80401,6 +80580,21 @@
     "tags": [],
     "description": "",
     "image": "44255_0.png"
+  },
+  {
+    "id": "clothing:49310",
+    "name": "Tron Boots - Purple",
+    "type": "49310",
+    "category": "clothing",
+    "rarity": "hold",
+    "price": 0,
+    "tags": [
+      "unverified",
+      "captured",
+      "sprite"
+    ],
+    "description": "",
+    "image": "49310_0.png"
   },
   {
     "id": "clothing:54608",
