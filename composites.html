@@ -425,14 +425,24 @@ async function load() {
       if (data.length < 1000) break;
     }
   } catch (e) { /* no curation yet — the filter just matches nothing */ }
-  const { data, error } = await sb.from("composite_candidates").select("*").order("item_name");
-  if (error) {
-    $("#conn").textContent = "● table missing";
-    $("#warn").innerHTML = "Run <code>CLUBVMKBOT/webportal/schema_composite_candidates.sql</code>"
-      + " in Supabase, then publish with <code>tools/vmk_publish_composites.py</code>.";
-    return;
+  // PostgREST caps a request at 1000 rows, so page through the whole table —
+  // unpaginated, everything past the alphabetical cutoff silently vanished.
+  // raw_id breaks item_name ties so a page boundary can't skip or repeat a row.
+  const all = [];
+  for (let off = 0; ; off += 1000) {
+    const { data, error } = await sb.from("composite_candidates").select("*")
+      .order("item_name").order("raw_id").range(off, off + 999);
+    if (error) {
+      $("#conn").textContent = "● table missing";
+      $("#warn").innerHTML = "Run <code>CLUBVMKBOT/webportal/schema_composite_candidates.sql</code>"
+        + " in Supabase, then publish with <code>tools/vmk_publish_composites.py</code>.";
+      return;
+    }
+    if (!data || !data.length) break;
+    all.push(...data);
+    if (data.length < 1000) break;
   }
-  rows = data || [];
+  rows = all;
   $("#conn").textContent = "● connected";
   $("#conn").style.color = "var(--ok)";
   const seen = [...new Set(rows.map((r) => (r.parts || []).join("+")))].sort();
